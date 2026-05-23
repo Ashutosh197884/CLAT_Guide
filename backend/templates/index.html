@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LexAI - CLAT Preparation Ecosystem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #090d16;
+            --bg-card: rgba(22, 30, 49, 0.7);
+            --border-glow: rgba(99, 102, 241, 0.25);
+            --accent-primary: #6366f1; /* Indigo */
+            --accent-glow: #818cf8;
+            --accent-gold: #f5a623; /* Gold */
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --glass-bg: rgba(15, 23, 42, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --success: #10b981;
+            --error: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(245, 166, 35, 0.05) 0%, transparent 40%);
+        }
+
+        /* Loading / Auth Overlay */
+        #auth-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(9, 13, 22, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.5s ease;
+        }
+
+        .auth-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(99, 102, 241, 0.1);
+            backdrop-filter: blur(20px);
+        }
+
+        .auth-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .auth-subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(9, 13, 22, 0.6);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            color: white;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, #4f46e5 100%);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .auth-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+        }
+
+        .auth-toggle-link {
+            text-align: center;
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin-top: 20px;
+        }
+
+        .auth-toggle-link span {
+            color: var(--accent-primary);
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .auth-toggle-link span:hover {
+            text-decoration: underline;
+        }
+
+        .alert-message {
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .alert-error {
+            background: rgba(239, 68, 68, 0.15);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .alert-success {
+            background: rgba(16, 185, 129, 0.15);
+            color: #a7f3d0;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        /* Main Ecosystem Layout */
+        #app-container {
+            width: 96vw;
+            height: 94vh;
+            background: rgba(10, 15, 30, 0.6);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 320px;
+            border-right: 1px solid var(--glass-border);
+            background: rgba(13, 20, 38, 0.5);
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-gold) 100%);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: white;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .logo-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-text span {
+            color: var(--accent-gold);
+        }
+
+        /* PDF Uploader Card */
+        .upload-section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .upload-section:hover {
+            border-color: var(--accent-primary);
+            background: rgba(99, 102, 241, 0.03);
+        }
+
+        .upload-icon {
+            font-size: 28px;
+            color: var(--accent-primary);
+            margin-bottom: 8px;
+        }
+
+        .upload-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .upload-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        #file-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* Document Manager */
+        .doc-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        .reload-btn {
+            background: none;
+            border: none;
+            color: var(--accent-primary);
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .reload-btn:hover {
+            text-decoration: underline;
+        }
+
+        .doc-list {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-right: 4px;
+        }
+
+        .doc-list::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .doc-list::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+        }
+
+        .doc-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s;
+        }
+
+        .doc-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .doc-item-icon {
+            font-size: 20px;
+            color: var(--accent-gold);
+        }
+
+        .doc-item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .doc-item-name {
+            font-size: 13.5px;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .doc-item-meta {
+            font-size: 10.5px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .user-panel {
+            border-top: 1px solid var(--glass-border);
+            padding-top: 20px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-gold) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            color: white;
+            font-size: 14px;
+        }
+
+        .user-email {
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 160px;
+        }
+
+        .logout-btn {
+            background: none;
+            border: none;
+            color: var(--error);
+            font-size: 18px;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .logout-btn:hover {
+            background: rgba(239, 68, 68, 0.15);
+        }
+
+        /* Chat Panel */
+        .chat-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: rgba(9, 13, 22, 0.2);
+        }
+
+        .chat-header {
+            padding: 20px 30px;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(13, 20, 38, 0.3);
+        }
+
+        .chat-header-info h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .chat-header-info p {
+            font-size: 11px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 2px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--success);
+            display: inline-block;
+            box-shadow: 0 0 8px var(--success);
+        }
+
+        .rag-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px 14px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 36px;
+            height: 20px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #374151;
+            transition: .4s;
+            border-radius: 20px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--accent-primary);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(16px);
+        }
+
+        /* Messages History */
+        .chat-history {
+            flex: 1;
+            overflow-y: auto;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .chat-history::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-history::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+        }
+
+        .chat-bubble-wrapper {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+        }
+
+        .chat-bubble-wrapper.user {
+            align-items: flex-end;
+        }
+
+        .chat-bubble-wrapper.bot {
+            align-items: flex-start;
+        }
+
+        .bubble-sender {
+            font-size: 10.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            color: var(--accent-primary);
+        }
+
+        .chat-bubble-wrapper.user .bubble-sender {
+            color: var(--accent-gold);
+        }
+
+        .chat-bubble {
+            max-width: 80%;
+            padding: 16px 20px;
+            border-radius: 18px;
+            font-size: 14.5px;
+            line-height: 1.6;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-bubble-wrapper.user .chat-bubble {
+            background: linear-gradient(135deg, var(--accent-primary) 0%, #4f46e5 100%);
+            color: white;
+            border-radius: 18px 18px 2px 18px;
+        }
+
+        .chat-bubble-wrapper.bot .chat-bubble {
+            background: rgba(22, 30, 49, 0.4);
+            border: 1px solid var(--glass-border);
+            color: var(--text-main);
+            border-radius: 18px 18px 18px 2px;
+        }
+
+        .chat-bubble p {
+            margin-bottom: 10px;
+        }
+
+        .chat-bubble p:last-child {
+            margin-bottom: 0;
+        }
+
+        .chat-bubble ul, .chat-bubble ol {
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .chat-bubble li {
+            margin-bottom: 4px;
+        }
+
+        .chat-bubble strong {
+            color: var(--accent-gold);
+        }
+
+        .chat-bubble-wrapper.user .chat-bubble strong {
+            color: white;
+        }
+
+        .chat-bubble-sources {
+            font-size: 10.5px;
+            color: var(--text-muted);
+            margin-top: 6px;
+            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid var(--glass-border);
+        }
+
+        /* Empty State */
+        .chat-empty {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .empty-icon {
+            font-size: 52px;
+            color: var(--accent-primary);
+            margin-bottom: 20px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .empty-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .empty-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            max-width: 440px;
+            margin-bottom: 30px;
+        }
+
+        .starters-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            width: 100%;
+            max-width: 520px;
+        }
+
+        .starter-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 14px 18px;
+            font-size: 13.5px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+        }
+
+        .starter-card:hover {
+            background: rgba(99, 102, 241, 0.06);
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Typing Indicator */
+        .typing-bubble {
+            display: flex;
+            gap: 4px;
+            padding: 10px 15px;
+            align-items: center;
+        }
+
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--text-muted);
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1.0); }
+        }
+
+        /* Input Area */
+        .chat-input-area {
+            padding: 24px 30px;
+            border-top: 1px solid var(--glass-border);
+            background: rgba(13, 20, 38, 0.3);
+        }
+
+        .chat-input-container {
+            background: rgba(9, 13, 22, 0.6);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: border-color 0.3s;
+        }
+
+        .chat-input-container:focus-within {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
+        }
+
+        .chat-textarea {
+            flex: 1;
+            background: none;
+            border: none;
+            outline: none;
+            color: white;
+            font-size: 14.5px;
+            resize: none;
+            height: 24px;
+            max-height: 120px;
+            line-height: 24px;
+        }
+
+        .send-btn {
+            width: 36px;
+            height: 36px;
+            background: var(--accent-primary);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s;
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+        }
+
+        .send-btn:hover {
+            background: var(--accent-glow);
+            transform: scale(1.05);
+        }
+
+        .send-btn:disabled {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Authentication Overlay -->
+    <div id="auth-overlay">
+        <div class="auth-card">
+            <h1 class="auth-title">LexAI Portal</h1>
+            <p class="auth-subtitle" id="auth-subtitle-text">CLAT AI Tutor & Doubt Solver</p>
+
+            <div class="alert-message alert-error" id="auth-error"></div>
+            <div class="alert-message alert-success" id="auth-success"></div>
+
+            <div id="login-form">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" class="form-input" id="login-email" placeholder="student@nlu.edu">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-input" id="login-password" placeholder="••••••••">
+                </div>
+                <button class="auth-btn" onclick="handleLogin()">Sign In</button>
+                <p class="auth-toggle-link">New student? <span onclick="toggleAuth(false)">Create Account</span></p>
+            </div>
+
+            <div id="register-form" style="display: none;">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" class="form-input" id="reg-email" placeholder="student@nlu.edu">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-input" id="reg-password" placeholder="••••••••">
+                </div>
+                <button class="auth-btn" onclick="handleRegister()">Register</button>
+                <p class="auth-toggle-link">Already registered? <span onclick="toggleAuth(true)">Sign In</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Workspace -->
+    <div id="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-section">
+                <div class="logo-icon">⚖️</div>
+                <h1 class="logo-text">Lex<span>AI</span></h1>
+            </div>
+
+            <!-- Upload File Widget -->
+            <div class="upload-section">
+                <div class="upload-icon">📂</div>
+                <div class="upload-title">Ingest CLAT Guide</div>
+                <div class="upload-desc">Click or drag PDF guide here</div>
+                <input type="file" id="file-input" accept=".pdf" onchange="uploadPDF(event)">
+            </div>
+
+            <!-- Documents Panel -->
+            <div class="doc-section">
+                <div class="section-header">
+                    <h3 class="section-title">Ingested Guides</h3>
+                    <button class="reload-btn" onclick="loadDocuments()">Reload</button>
+                </div>
+                <div class="doc-list" id="doc-listing">
+                    <!-- Dynamic Document Entries -->
+                    <div style="color: var(--text-muted); font-size:12px; text-align:center; padding: 20px 0;">No documents ingested yet.</div>
+                </div>
+            </div>
+
+            <!-- User Panel footer -->
+            <div class="user-panel">
+                <div class="user-info">
+                    <div class="user-avatar" id="avatar-char">U</div>
+                    <div class="user-email" id="display-user-email">guest@lexai.com</div>
+                </div>
+                <button class="logout-btn" onclick="logout()" title="Logout">🚪</button>
+            </div>
+        </div>
+
+        <!-- Chat Workspace -->
+        <div class="chat-panel">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <h2>LexAI Doubt Solver</h2>
+                    <p><span class="status-dot"></span> NVIDIA Nemotron-3 (120B) Active</p>
+                </div>
+
+                <!-- RAG Switcher -->
+                <div class="rag-control">
+                    <span>RAG Document Context</span>
+                    <label class="switch">
+                        <input type="checkbox" id="rag-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Messages area -->
+            <div class="chat-history" id="chat-scroller">
+                <!-- Empty State -->
+                <div class="chat-empty" id="empty-state">
+                    <div class="empty-icon">🤖</div>
+                    <h3 class="empty-title">Ask LexAI</h3>
+                    <p class="empty-desc">I am your private AI CLAT tutor. Select a quick starter below or type your inquiry to retrieve study guide context and get detailed legal explanations.</p>
+                    
+                    <div class="starters-grid">
+                        <button class="starter-card" onclick="triggerStarter('Explain the difference between a Void Agreement and a Voidable Contract.')">
+                            ⚖️ Void vs Voidable Contract
+                        </button>
+                        <button class="starter-card" onclick="triggerStarter('Explain the rule of Strict Liability established in Rylands v. Fletcher.')">
+                            ⚡ Strict Liability Rule
+                        </button>
+                        <button class="starter-card" onclick="triggerStarter('What is the concept of Consideration? Can there be a contract without it?')">
+                            🤝 Legal Consideration Concept
+                        </button>
+                        <button class="starter-card" onclick="triggerStarter('Give me 5 high-frequency legal maxims commonly asked in CLAT.')">
+                            📜 5 Common Legal Maxims
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input area -->
+            <div class="chat-input-area">
+                <div class="chat-input-container">
+                    <textarea class="chat-textarea" id="chat-msg-input" placeholder="Type a concept, fact pattern, or legal query..." onkeydown="handleTextareaKeydown(event)"></textarea>
+                    <button class="send-btn" id="send-button" onclick="sendChat()" disabled>➔</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State Management
+        let token = localStorage.getItem("jwt_token") || null;
+        let userEmail = localStorage.getItem("user_email") || null;
+
+        // Auto-detect backend host
+        const API_HOST = window.location.origin;
+
+        // Page setup
+        window.addEventListener("DOMContentLoaded", () => {
+            if (token) {
+                hideAuthOverlay();
+                loadDocuments();
+                setupUserInfo();
+            }
+            
+            // Enable/disable send button based on input
+            const input = document.getElementById("chat-msg-input");
+            const btn = document.getElementById("send-button");
+            input.addEventListener("input", () => {
+                btn.disabled = input.value.trim() === "";
+            });
+        });
+
+        function toggleAuth(showLogin) {
+            document.getElementById("auth-error").style.display = "none";
+            document.getElementById("auth-success").style.display = "none";
+            
+            if (showLogin) {
+                document.getElementById("login-form").style.display = "block";
+                document.getElementById("register-form").style.display = "none";
+                document.getElementById("auth-subtitle-text").innerText = "CLAT AI Tutor & Doubt Solver";
+            } else {
+                document.getElementById("login-form").style.display = "none";
+                document.getElementById("register-form").style.display = "block";
+                document.getElementById("auth-subtitle-text").innerText = "Join the LexAI preparation community";
+            }
+        }
+
+        function hideAuthOverlay() {
+            document.getElementById("auth-overlay").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("auth-overlay").style.display = "none";
+            }, 500);
+        }
+
+        function logout() {
+            localStorage.removeItem("jwt_token");
+            localStorage.removeItem("user_email");
+            token = null;
+            userEmail = null;
+            location.reload();
+        }
+
+        function setupUserInfo() {
+            if (userEmail) {
+                document.getElementById("display-user-email").innerText = userEmail;
+                document.getElementById("avatar-char").innerText = userEmail.charAt(0).toUpperCase();
+            }
+        }
+
+        // Authentication Callbacks
+        async function handleRegister() {
+            const email = document.getElementById("reg-email").value.trim();
+            const password = document.getElementById("reg-password").value.trim();
+            const errDiv = document.getElementById("auth-error");
+            const succDiv = document.getElementById("auth-success");
+
+            errDiv.style.display = "none";
+            succDiv.style.display = "none";
+
+            if (!email || !password) {
+                errDiv.innerText = "Please provide email and password.";
+                errDiv.style.display = "block";
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_HOST}/auth/register`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    succDiv.innerText = "Registration successful! Please sign in.";
+                    succDiv.style.display = "block";
+                    setTimeout(() => toggleAuth(true), 1500);
+                } else {
+                    errDiv.innerText = data.detail || "Registration failed.";
+                    errDiv.style.display = "block";
+                }
+            } catch (err) {
+                errDiv.innerText = "Connection error. Please try again.";
+                errDiv.style.display = "block";
+            }
+        }
+
+        async function handleLogin() {
+            const email = document.getElementById("login-email").value.trim();
+            const password = document.getElementById("login-password").value.trim();
+            const errDiv = document.getElementById("auth-error");
+
+            errDiv.style.display = "none";
+
+            if (!email || !password) {
+                errDiv.innerText = "Please provide email and password.";
+                errDiv.style.display = "block";
+                return;
+            }
+
+            try {
+                // Form encoded payload
+                const formBody = new URLSearchParams();
+                formBody.append("username", email);
+                formBody.append("password", password);
+
+                const response = await fetch(`${API_HOST}/auth/token`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: formBody
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    token = data.access_token;
+                    userEmail = email;
+                    localStorage.setItem("jwt_token", token);
+                    localStorage.setItem("user_email", email);
+                    
+                    setupUserInfo();
+                    hideAuthOverlay();
+                    loadDocuments();
+                } else {
+                    errDiv.innerText = data.detail || "Invalid login credentials.";
+                    errDiv.style.display = "block";
+                }
+            } catch (err) {
+                errDiv.innerText = "Connection error. Please try again.";
+                errDiv.style.display = "block";
+            }
+        }
+
+        // RAG Document Operations
+        async function loadDocuments() {
+            if (!token) return;
+            const listing = document.getElementById("doc-listing");
+
+            try {
+                const response = await fetch(`${API_HOST}/rag/documents`, {
+                    headers: { "Authorization": `Bearer ${token}` }
+                });
+
+                if (response.ok) {
+                    const docs = await response.json();
+                    if (docs.length === 0) {
+                        listing.innerHTML = `<div style="color: var(--text-muted); font-size:12px; text-align:center; padding: 20px 0;">No documents ingested yet.</div>`;
+                        return;
+                    }
+
+                    listing.innerHTML = docs.map(doc => `
+                        <div class="doc-item">
+                            <div class="doc-item-icon">📄</div>
+                            <div class="doc-item-info">
+                                <div class="doc-item-name" title="${doc.filename}">${doc.filename}</div>
+                                <div class="doc-item-meta">${doc.chunk_count} chunks • ${new Date(doc.uploaded_at).toLocaleDateString()}</div>
+                            </div>
+                        </div>
+                    `).join("");
+                }
+            } catch (err) {
+                console.error("Failed to load documents:", err);
+            }
+        }
+
+        async function uploadPDF(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const formData = new FormData();
+            formData.append("file", file);
+
+            // Change upload widget state to show loading
+            const uploadTitle = document.querySelector(".upload-title");
+            const uploadDesc = document.querySelector(".upload-desc");
+            uploadTitle.innerText = "Ingesting file...";
+            uploadDesc.innerText = "Parsing text and generating vectors...";
+
+            try {
+                const response = await fetch(`${API_HOST}/rag/upload`, {
+                    method: "POST",
+                    headers: { "Authorization": `Bearer ${token}` },
+                    body: formData
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    alert(`Successfully ingested: ${file.name}\nVector index chunks generated: ${data.chunks_ingested}`);
+                    loadDocuments();
+                } else {
+                    alert(`Upload failed: ${data.detail || "Invalid format."}`);
+                }
+            } catch (err) {
+                alert("Network error while uploading. Please verify files are under limits.");
+            } finally {
+                uploadTitle.innerText = "Ingest CLAT Guide";
+                uploadDesc.innerText = "Click or drag PDF guide here";
+                event.target.value = ""; // clear file picker
+            }
+        }
+
+        // Chat Interface Operations
+        function handleTextareaKeydown(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendChat();
+            }
+        }
+
+        function triggerStarter(message) {
+            document.getElementById("chat-msg-input").value = message;
+            document.getElementById("send-button").disabled = false;
+            sendChat();
+        }
+
+        function addMessageBubble(sender, text, isUser, sources = []) {
+            const scroller = document.getElementById("chat-scroller");
+            const emptyState = document.getElementById("empty-state");
+            
+            if (emptyState) {
+                emptyState.remove();
+            }
+
+            const wrapper = document.createElement("div");
+            wrapper.className = `chat-bubble-wrapper ${isUser ? 'user' : 'bot'}`;
+            
+            // Format content into HTML paragraphs and basic markdown bullet parses
+            let htmlContent = text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .split('\n\n')
+                .map(para => {
+                    if (para.startsWith('* ') || para.startsWith('- ')) {
+                        const items = para.split(/\n[\*\-]\s/).map(item => `<li>${item.replace(/^[\*\-]\s/, '')}</li>`).join('');
+                        return `<ul>${items}</ul>`;
+                    }
+                    return `<p>${para.replace(/\n/g, '<br>')}</p>`;
+                })
+                .join('');
+
+            let sourcesHtml = "";
+            if (sources && sources.length > 0) {
+                sourcesHtml = `<div class="chat-bubble-sources">📚 Sources: Document ${sources.join(', ')}</div>`;
+            }
+
+            wrapper.innerHTML = `
+                <div class="bubble-sender">${sender}</div>
+                <div class="chat-bubble">
+                    ${htmlContent}
+                    ${sourcesHtml}
+                </div>
+            `;
+
+            scroller.appendChild(wrapper);
+            scroller.scrollTop = scroller.scrollHeight;
+        }
+
+        function addTypingBubble() {
+            const scroller = document.getElementById("chat-scroller");
+            const wrapper = document.createElement("div");
+            wrapper.className = "chat-bubble-wrapper bot";
+            wrapper.id = "typing-loader";
+            wrapper.innerHTML = `
+                <div class="bubble-sender">LexAI</div>
+                <div class="chat-bubble typing-bubble">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            `;
+            scroller.appendChild(wrapper);
+            scroller.scrollTop = scroller.scrollHeight;
+        }
+
+        function removeTypingBubble() {
+            const loader = document.getElementById("typing-loader");
+            if (loader) {
+                loader.remove();
+            }
+        }
+
+        async function sendChat() {
+            const input = document.getElementById("chat-msg-input");
+            const message = input.value.trim();
+            const useRag = document.getElementById("rag-toggle").checked;
+
+            if (!message) return;
+
+            // Clear input and disable send button
+            input.value = "";
+            document.getElementById("send-button").disabled = true;
+
+            // Add user message
+            addMessageBubble("Student", message, true);
+
+            // Add loading state
+            addTypingBubble();
+
+            try {
+                const response = await fetch(`${API_HOST}/ai/chat`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ message, use_rag: useRag })
+                });
+
+                const data = await response.json();
+                removeTypingBubble();
+
+                if (response.ok) {
+                    addMessageBubble("LexAI", data.response, false, data.sources);
+                } else {
+                    addMessageBubble("LexAI", `Error: ${data.detail || "Server failed to process doubt."}`, false);
+                }
+            } catch (err) {
+                removeTypingBubble();
+                addMessageBubble("LexAI", "Network error. Failed to reach the Doubt Solver API.", false);
+            }
+        }
+    </script>
+</body>
+</html>

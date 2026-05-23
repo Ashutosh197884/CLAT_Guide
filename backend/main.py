@@ -1,7 +1,9 @@
 import logging
+import os
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 from config import settings
 from database.connection import engine, Base
 from auth.routes import router as auth_router
@@ -46,13 +48,15 @@ app.include_router(auth_router)
 app.include_router(rag_router)
 app.include_router(ai_router)
 
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 def read_root():
-    return {
-        "status": "online",
-        "app_name": settings.APP_NAME,
-        "api_docs": "/docs"
-    }
+    # Serve index.html dynamically
+    filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates", "index.html")
+    if not os.path.exists(filepath):
+        return HTMLResponse("<h1>LexAI is online! Web Interface template is missing.</h1>")
+        
+    with open(filepath, "r", encoding="utf-8") as f:
+        return HTMLResponse(content=f.read())
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=settings.DEBUG)
