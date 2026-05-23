@@ -1,0 +1,32 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Environments
+.env
+.venv/
+venv/
+env/
+ENV/
+
+# Databases & local data storage
+*.db
+*.sqlite
+*.sqlite3
+data/
+backend/data/
+
+# Ignore large PDFs (ingested dynamically via RAG UI/endpoints)
+*.pdf
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini

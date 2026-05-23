@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLAT UG Study Guide 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --deep: #16213e;
+    --accent: #e94560;
+    --gold: #f5a623;
+    --teal: #0f9b8e;
+    --paper: #faf8f3;
+    --muted: #6b7280;
+    --light: #f3f0e8;
+    --border: #e2ddd4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--ink);
+    color: white;
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(233,69,96,0.35) 0%, transparent 70%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -60px; left: 10%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(15,155,142,0.25) 0%, transparent 70%);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 54px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    max-width: 560px;
+    margin-bottom: 28px;
+  }
+  .hero-stats {
+    display: flex; gap: 30px; flex-wrap: wrap;
+  }
+  .stat-box {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 12px 20px;
+    text-align: center;
+  }
+  .stat-box .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+  }
+  .stat-box .label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* NAV TABS */
+  .tabs-wrap {
+    background: var(--deep);
+    padding: 0 40px;
+    display: flex; gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .tabs-wrap::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    background: none; border: none;
+    color: rgba(255,255,255,0.5);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 500;
+    padding: 16px 22px;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+  }
+  .tab-btn:hover { color: white; }
+  .tab-btn.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  /* CONTENT */
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* SECTION HEADER */
+  .sec-header {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--border);
+  }
+  .sec-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .sec-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px; font-weight: 700;
+  }
+  .sec-header p { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+  /* CARDS */
+  .card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.2s;
+  }
+  .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 700;
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .tag-red { background: #fde8ec; color: var(--accent); }
+  .tag-teal { background: #e0f5f3; color: var(--teal); }
+  .tag-gold { background: #fef3dc; color: #b07d1a; }
+  .tag-blue { background: #e0e8f9; color: #3a5bbf; }
+  .tag-purple { background: #ede8f9; color: #6b4bbf; }
+
+  ul.notes { padding-left: 0; list-style: none; }
+  ul.notes li {
+    padding: 7px 0 7px 24px;
+    position: relative;
+    border-bottom: 1px solid var(--light);
+    font-size: 14.5px;
+  }
+  ul.notes li:last-child { border-bottom: none; }
+  ul.notes li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .highlight-box {
+    background: linear-gradient(135deg, #fff8e1, #fff3cd);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .highlight-box strong { color: #8a6200; }
+
+  .tip-box {
+    background: #e8f8f6;
+    border-left: 4px solid var(--teal);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14px;
+    color: #1a4a45;
+  }
+
+  .warn-box {
+    background: #fdecea;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14px;
+    color: #7a1c1c;
+  }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  .mini-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .mini-card h4 {
+    font-size: 13px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .mini-card p, .mini-card li { font-size: 14px; }
+
+  /* EXAM PATTERN TABLE */
+  .pattern-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  .pattern-table th {
+    background: var(--ink);
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .pattern-table th:first-child { border-radius: 10px 0 0 0; }
+  .pattern-table th:last-child { border-radius: 0 10px 0 0; }
+  .pattern-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .pattern-table tr:nth-child(even) td { background: var(--light); }
+  .pattern-table tr:last-child td { font-weight: 700; background: #f0ede4; }
+
+  /* LEGAL TERMS */
+  .term-entry {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+  .term-entry:last-child { border-bottom: none; }
+  .term-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    padding-top: 2px;
+  }
+  .term-def { font-size: 14px; }
+  @media (max-width: 550px) {
+    .term-entry { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 30px; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 9px; top: 0; bottom: 0;
+    width: 2px; background: var(--border);
+  }
+  .tl-item {
+    position: relative;
+    padding-bottom: 24px;
+    padding-left: 24px;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute; left: -25px; top: 5px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--paper);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .tl-item h4 { font-weight: 600; font-size: 15px; }
+  .tl-item p { font-size: 13px; color: var(--muted); margin-top: 3px; }
+
+  /* PROGRESS PLAN */
+  .month-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .month-header {
+    padding: 14px 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer;
+  }
+  .month-header h3 { font-size: 16px; font-weight: 600; }
+  .month-body {
+    padding: 0 20px 20px;
+    display: none;
+    border-top: 1px solid var(--border);
+  }
+  .month-body.open { display: block; }
+  .month-body ul { padding-left: 18px; margin-top: 12px; }
+  .month-body li { font-size: 14px; padding: 4px 0; }
+
+  /* RESOURCES */
+  .resource-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .resource-item:last-child { border-bottom: none; }
+  .res-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .resource-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+  .resource-item p { font-size: 13px; color: var(--muted); }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 30px;
+    background: var(--ink);
+    color: rgba(255,255,255,0.4);
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Complete Study Guide</div>
+  <h1>CLAT UG <span>2026</span><br>Preparation Notes</h1>
+  <p>A comprehensive guide covering all 5 sections, key concepts, preparation strategy, and resources for cracking CLAT UG.</p>
+  <div class="hero-stats">
+    <div class="stat-box"><span class="num">120</span><span class="label">Questions</span></div>
+    <div class="stat-box"><span class="num">2 hrs</span><span class="label">Duration</span></div>
+    <div class="stat-box"><span class="num">5</span><span class="label">Sections</span></div>
+    <div class="stat-box"><span class="num">0.25</span><span class="label">Neg. Marking</span></div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrap">
+  <button class="tab-btn active" onclick="showTab('overview')">📋 Overview</button>
+  <button class="tab-btn" onclick="showTab('english')">📖 English</button>
+  <button class="tab-btn" onclick="showTab('gk')">🌍 GK & CA</button>
+  <button class="tab-btn" onclick="showTab('legal')">⚖️ Legal</button>
+  <button class="tab-btn" onclick="showTab('logical')">🧠 Logical</button>
+  <button class="tab-btn" onclick="showTab('quant')">📐 Quant</button>
+  <button class="tab-btn" onclick="showTab('strategy')">🎯 Strategy</button>
+  <button class="tab-btn" onclick="showTab('resources')">📚 Resources</button>
+</div>
+
+<div class="container">
+
+  <!-- OVERVIEW -->
+  <div id="overview" class="section active">
+    <div class="sec-header">
+      <div class="sec-icon" style="background:#f0ede4;">📋</div>
+      <div><h2>Exam Overview</h2><p>Pattern, eligibility & key facts</p></div>
+    </div>
+
+    <div class="highlight-box">
+      <strong>⚠️ Note for CLAT 2027:</strong> Since your friend is in Class 12 now (2025-26), she will be appearing for CLAT UG 2027 (held in Dec 2026). The pattern below reflects the current CLAT UG format, which is expected to remain unchanged.
+    </div>
+
+    <div class="card">
+      <div class="card-title">Exam Pattern <span class="tag tag-gold">Official</span></div>
+      <table class="pattern-table">
+        <tr><th>Section</th><th>Approx. Questions</th><th>Marks</th></tr>
+        <tr><td>English Language</td><td>22–26</td><td>22–26</td></tr>
+        <tr><td>Current Affairs & GK</td><td>28–32</td><td>28–32</td></tr>
+        <tr><td>Legal Reasoning</td><td>28–32</td><td>28–32</td></tr>
+        <tr><td>Logical Reasoning</td><td>22–26</td><td>22–26</td></tr>
+        <tr><td>Quantitative Techniques</td><td>10–14</td><td>10–14</td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>120</strong></td><td><strong>120</strong></td></tr>
+      </table>
+      <div class="warn-box">🚫 <strong>Negative Marking:</strong> −0.25 marks for every wrong answer. Avoid blind guessing — only attempt if you can eliminate 2+ options.</div>
+    </div>
+
+    <div class="grid-2">
+      <div class="mini-card">
+        <h4>Eligibility</h4>
+        <ul class="notes">
+          <li>10+2 or equivalent from a recognised board</li>
+          <li>Minimum 45% marks (40% for SC/ST/PwD)</li>
+          <li>No upper age limit</li>
+          <li>Appearing students in Class 12 are also eligible</li>
+        </ul>
+      </div>
+      <div class="mini-card">
+        <h4>Exam Format</h4>
+        <ul class="notes">
+          <li>Offline (pen and paper)</li>
+          <li>Duration: 2 hours</li>
+          <li>Language: English only</li>
+          <li>MCQs — 4 options each</li>
+          <li>Reading-intensive — 25-30 passages!</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">What CLAT Actually Tests 🔍</div>
+      <p style="margin-bottom:12px; font-size:14px;">CLAT is NOT a knowledge exam — it's an <strong>aptitude and comprehension</strong> exam. All questions are passage-based. You don't need to memorise law, but you need to read fast and reason well.</p>
+      <ul class="notes">
+        <li>Read & understand dense passages quickly (450 words each)</li>
+        <li>Apply principles from the passage to new situations</li>
+        <li>Identify arguments, draw inferences, spot logical gaps</li>
+        <li>Interpret numerical data from text (not formula-based)</li>
+        <li>Demonstrate awareness of current events through passage comprehension</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Top NLUs Accepting CLAT Score</div>
+      <div class="grid-2">
+        <ul class="notes">
+          <li>NLSIU Bangalore (Rank 1)</li>
+          <li>NALSAR Hyderabad</li>
+          <li>WBNUJS Kolkata</li>
+          <li>NLU Jodhpur</li>
+          <li>NLIU Bhopal</li>
+        </ul>
+        <ul class="notes">
+          <li>Symbiosis Law School (SLAT)</li>
+          <li>Gujarat National Law University</li>
+          <li>HNLU Raipur</li>
+          <li>RMLNLU Lucknow</li>
+          <li>CNLU Patna + 14 more NLUs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENGLISH -->
+  <div id="english" class="section">
+    <div class="sec-header">
+      <div class="sec-icon" style="background:#fde8ec;">📖</div>
+      <div><h2>English Language</h2><p>~22–26 questions • Passage-based comprehension</p></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">What to Expect <span class="tag tag-red">Section A</span></div>
+      <p style="font-size:14px; margin-bottom:12px;">Passages of ~450 words from fiction, non-fiction, and journalistic writing. Questions test comprehension, inference, vocabulary-in-context, and the ability to summarise.</p>
+      <ul class="notes">
+        <li>3–4 passages per section</li>
+        <li>Each followed by 5–8 questions</li>
+        <li>Literary and journalistic texts (both contemporary & historical)</li>
+        <li>No fill-in-the-blank grammar or isolated vocabulary questions</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Key Skills to Develop</div>
+      <ul class="notes">
+        <li><strong>Main Idea / Central Theme</strong> — What is the passage fundamentally about?</li>
+        <li><strong>Inference Questions</strong> — What can be logically concluded even if not stated directly?</li>
+        <li><strong>Author's Tone & Viewpoint</strong> — Is the author critical, appreciative, neutral, ironic?</li>
+        <li><strong>Meaning in Context</strong> — What does this word/phrase mean HERE, not in the dictionary?</li>
+        <li><strong>Fact vs. Opinion</strong> — Distinguish stated facts from the author's opinions</li>
+        <li><strong>Summarisation</strong> — Choose the option that best captures the passage's essence</li>
+        <li><strong>Strengthens / Weakens</strong> — Which option supports or challenges the passage's argument?</li>
+      </ul>
+    </div>
+
+    <div class="tip-box">
+      💡 <strong>Pro Tip:</strong> Read the questions FIRST before reading the passage. This helps you read purposefully and locate answers faster. You have roughly 5–7 minutes per passage.
+    </div>
+
+    <div class="card">
+      <div class="card-title">Daily Practice Routine</div>
+      <ul class="notes">
+        <li>Read <strong>The Hindu</strong> or <strong>The Indian Express</strong> editorial every day — these match CLAT's passage style perfectly</li>
+        <li>Read 1 short story or essay every week (try Ruskin Bond, R.K. Narayan, or short essays by Orwell)</li>
+        <li>After reading, summarise the passage in 2 sentences — this sharpens comprehension</li>
+        <li>Note down unfamiliar words and learn them in context (not isolated flashcards)</li>
+        <li>Practice timed reading: aim to read 450 words in under 4 minutes</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Common Traps in English Section ⚠️</div>
+      <ul class="notes">
+        <li><strong>"Extreme" answer choices</strong> — options using "always," "never," "completely" are usually wrong</li>
+        <li><strong>True but not from passage</strong> — the answer must be supported by the passage, not general knowledge</li>
+        <li><strong>Paraphrased distractor</strong> — the passage may say X; the wrong option rephrases it slightly but changes the meaning</li>
+        <li><strong>Out-of-scope inferences</strong> — don't overinfer; CLAT wants logical, conservative inferences</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- GK & CA -->
+  <div id="gk" class="section">
+    <div class="sec-header">
+      <div class="sec-icon" style="background:#e0e8f9;">🌍</div>
+      <div><h2>Current Affairs & General Knowledge</h2><p>~28–32 questions • Highest weightage section</p></div>
+    </div>
+
+    <div class="warn-box">🔥 This is the <strong>largest section</strong> in CLAT — approximately 28–32 questions. It is also the section where consistent daily reading gives the biggest advantage over last-minute studying.</div>
+
+    <div class="card">
+      <div class="card-title">What to Expect <span class="tag tag-blue">Section B</span></div>
+      <ul class="notes">
+        <li>Passage from a news article or journalistic source (~450 words)</li>
+        <li>Questions test whether you understood the passage AND have contextual current affairs awareness</li>
+        <li>Covers: national events, international affairs, judiciary, economy, science & technology, arts & culture</li>
+        <li>Static GK (historical events, constitution basics, geography) may be tested in context</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Topics to Cover</div>
+      <div class="grid-2">
+        <div>
+          <p style="font-weight:600; font-size:13px; margin-bottom:8px; color:var(--accent);">CURRENT AFFAIRS (Last 18 months)</p>
+          <ul class="notes">
+            <li>Major Supreme Court & High Court judgements</li>
+            <li>Central government policies & schemes</li>
+            <li>International relations (India's bilateral ties)</li>
+            <li>Economic developments (Budget, RBI policies)</li>
+            <li>Science, space (ISRO), environment & climate</li>
+            <li>Awards, appointments, obituaries</li>
+            <li>Sports: Olympics, Cricket World Cup, etc.</li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-weight:600; font-size:13px; margin-bottom:8px; color: var(--teal);">STATIC GK</p>
+          <ul class="notes">
+            <li>Indian Constitution: Preamble, Fundamental Rights, DPSPs</li>
+            <li>Indian History: Freedom movement, key events</li>
+            <li>Indian Geography: Rivers, states, capitals</li>
+            <li>National symbols, days, government bodies</li>
+            <li>World organisations: UN, WTO, IMF, World Bank</li>
+            <li>Arts & Literature: Booker Prize, Nobel, etc.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Landmark Judgements to Know ⚖️</div>
+      <ul class="notes">
+        <li><strong>Kesavananda Bharati (1973)</strong> — Basic Structure Doctrine of Constitution</li>
+        <li><strong>Maneka Gandhi (1978)</strong> — Expanded scope of Article 21 (Right to Life)</li>
+        <li><strong>Vishaka v. State of Rajasthan (1997)</strong> — Sexual harassment at workplace guidelines</li>
+        <li><strong>S.R. Bommai (1994)</strong> — Restrictions on misuse of President's Rule (Art. 356)</li>
+        <li><strong>Navtej Singh Johar (2018)</strong> — Decriminalised consensual same-sex relations (Section 377)</li>
+        <li><strong>Joseph Shine (2018)</strong> — Struck down adultery law (Section 497)</li>
+        <li><strong>Justice K.S. Puttaswamy (2017)</strong> — Right to Privacy as Fundamental Right</li>
+        <li><strong>Indra Sawhney (1992)</strong> — OBC reservations, 50% cap on reservations</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Key Constitutional Articles to Remember</div>
+      <div class="grid-2">
+        <ul class="notes">
+          <li><strong>Art. 12–35:</strong> Fundamental Rights</li>
+          <li><strong>Art. 14:</strong> Right to Equality</li>
+          <li><strong>Art. 19:</strong> Freedom of Speech, etc.</li>
+          <li><strong>Art. 21:</strong> Right to Life & Personal Liberty</li>
+          <li><strong>Art. 21A:</strong> Right to Education</li>
+          <li><strong>Art. 25–28:</strong> Freedom of Religion</li>
+        </ul>
+        <ul class="notes">
+          <li><strong>Art. 32:</strong> Right to Constitutional Remedies (Dr. Ambedkar called it "Heart of Constitution")</li>
+          <li><strong>Art. 44:</strong> Uniform Civil Code (DPSP)</li>
+          <li><strong>Art. 51A:</strong> Fundamental Duties</li>
+          <li><strong>Art. 368:</strong> Amendment procedure</li>
+          <li><strong>Art. 356:</strong> President's Rule in States</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      💡 <strong>Best Strategy:</strong> Read <strong>The Hindu</strong> daily. Maintain a monthly current affairs notebook. Review it every Sunday. Use <strong>Legal Bites Monthly CA PDF</strong> or <strong>Drishti IAS Current Affairs</strong> for compilation. Cover the last 12–18 months before the exam.
+    </div>
+  </div>
+
+  <!-- LEGAL REASONING -->
+  <div id="legal" class="section">
+    <div class="sec-header">
+      <div class="sec-icon" style="background:#e0f5f3;">⚖️</div>
+      <div><h2>Legal Reasoning</h2><p>~28–32 questions • No prior law knowledge needed</p></div>
+    </div>
+
+    <div class="highlight-box">
+      <strong>✅ Good news:</strong> You do NOT need to have studied law to score well here. All legal principles are given in the passage. Your job is to read, extract the rule, and apply it to the fact situation — just like a lawyer would!
+    </div>
+
+    <div class="card">
+      <div class="card-title">How Legal Reasoning Works <span class="tag tag-teal">IRAC Method</span></div>
+      <p style="font-size:14px; margin-bottom:14px;">Every legal reasoning question follows a <strong>PRINCIPLE → FACTS → APPLICATION</strong> structure. Learn the IRAC approach:</p>
+      <ul class="notes">
+        <li><strong>I — Issue:</strong> What legal question is being asked?</li>
+        <li><strong>R — Rule:</strong> What principle/rule is given in the passage?</li>
+        <li><strong>A — Application:</strong> How does the rule apply to the facts given?</li>
+        <li><strong>C — Conclusion:</strong> What is the answer based on this application?</li>
+      </ul>
+      <div class="tip-box" style="margin-top:12px;">⚠️ Apply ONLY the rule stated in the passage — do NOT use your own legal knowledge or common sense if it contradicts the passage.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Important Legal Concepts (With Definitions)</div>
+      <div class="term-entry">
+        <div class="term-name">Tort</div>
+        <div class="term-def">A civil wrong (not a crime) that causes harm to someone, giving them the right to sue for compensation. E.g., negligence, defamation, trespass.</div>
+      </div>
+      <div class="term-entry">
+        <div class="term-name">Negligence</div>
+        <div class="term-def">Failure to take reasonable care, resulting in damage to another. Elements: Duty of care + Breach + Damage caused by breach.</div>
+      </div>
+      <div class="term-entry">
+        <div class="term-name">Offer & Acceptance</div>
+        <div class="term-def">A valid contract requires a clear offer by one party and unconditional acceptance by the other. Counter-offer = rejection of original offer.</div>
+      </div>
+      <div class="term-entry">
+        <div class="term-name">Consideration</div>
+        <div class="term-def">Something of value exchanged between parties to a contract. "Past consideration is no consideration."</div>
+      </div>
+      <div class="term-entry">
+        <div class="term-name">Mens Rea</div>
+        <div class="term-def">The "guilty mind" — criminal intent. Most crimes require both act (Actus Reus) AND intent (Mens Rea).</div>
+      </div>
+      <div class="term-entry">
+        <div class="term-name">Strict Liability</div>
+        <div class="term-def">Liability without proof of fault/negligence. Used for inherently dangerous activities (e.g., Rylands v. Fletcher rule).</div>
+      </div>
+      <div class="term-entry">
+        <div class="term-name">Vicarious Liability</div>
+        <div class="term-def">When one person is held liable for the acts of another (e.g., employer for employee's acts during employment).</div>
+      </div>
+      <div class="term-entry">
+        <div class="term-name">Volenti Non Fit Injuria</div>
+        <div class="term-def">Consent is a complete defence — "No injury is done to one who consents." E.g., a boxer cannot sue for injuries in a match.</div>
+      </div>
+      <div class="term-entry">
+        <div class="term-name">Habeas Corpus</div>
+        <div class="term-def">A writ requiring a person under arrest to be brought before a judge. Protects against unlawful detention. Filed under Art. 32 or Art. 226.</div>
+      </div>
+      <div class="term-entry">
+        <div class="term-name">Mandamus</div>
+        <div class="term-def">A writ directing a public official/body to perform a duty they are legally obligated to perform.</div>
+      </div>
+      <div class="term-entry">
+        <div class="term-name">Certiorari</div>
+        <div class="term-def">Writ to quash (cancel) the order of a lower court/tribunal that has acted beyond its jurisdiction.</div>
+      </div>
+      <div class="term-entry">
+        <div class="term-name">Judicial Review</div>
+        <div class="term-def">Power of courts to review constitutionality of laws or government actions. A basic feature of India's Constitution.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Common Legal Reasoning Topics in CLAT</div>
+      <div class="grid-2">
+        <ul class="notes">
+          <li>Law of Contracts</li>
+          <li>Torts (Negligence, Defamation, Nuisance)</li>
+          <li>Criminal Law basics (IPC concepts)</li>
+          <li>Constitutional Law (Fundamental Rights)</li>
+        </ul>
+        <ul class="notes">
+          <li>Property Law concepts</li>
+          <li>Family Law (brief scenarios)</li>
+          <li>Public policy & moral philosophy</li>
+          <li>Environmental law scenarios</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGICAL REASONING -->
+  <div id="logical" class="section">
+    <div class="sec-header">
+      <div class="sec-icon" style="background:#fef3dc;">🧠</div>
+      <div><h2>Logical Reasoning</h2><p>~22–26 questions • Argument analysis from passages</p></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">What the Section Tests <span class="tag tag-gold">Section D</span></div>
+      <p style="font-size:14px; margin-bottom:12px;">Like Legal Reasoning, this is passage-based. Each passage contains an argument. You must analyse it critically.</p>
+      <ul class="notes">
+        <li>Identify the conclusion of the argument</li>
+        <li>Identify the premises (evidence/reasons given)</li>
+        <li>Find assumptions the argument depends on</li>
+        <li>Determine what weakens or strengthens the argument</li>
+        <li>Detect logical flaws or fallacies in reasoning</li>
+        <li>Apply the pattern of reasoning to a new situation (analogical reasoning)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Core Logical Reasoning Concepts</div>
+
+      <p style="font-weight: 600; margin-bottom: 8px; margin-top: 12px;">📌 Types of Arguments</p>
+      <ul class="notes">
+        <li><strong>Deductive:</strong> Conclusion necessarily follows from premises. If premises are true, conclusion MUST be true.</li>
+        <li><strong>Inductive:</strong> Conclusion probably follows from premises. Evidence supports but doesn't guarantee conclusion.</li>
+        <li><strong>Abductive:</strong> "Best explanation" reasoning — concludes the most likely cause.</li>
+      </ul>
+
+      <p style="font-weight: 600; margin-bottom: 8px; margin-top: 16px;">📌 Question Types</p>
+      <ul class="notes">
+        <li><strong>Strengthen:</strong> Which option makes the conclusion MORE likely to be true?</li>
+        <li><strong>Weaken:</strong> Which option makes the conclusion LESS likely / introduces a flaw?</li>
+        <li><strong>Assumption:</strong> What MUST be assumed for the argument to hold?</li>
+        <li><strong>Inference:</strong> What can be logically derived from the passage?</li>
+        <li><strong>Flaw:</strong> What logical error does the argument commit?</li>
+        <li><strong>Parallel Reasoning:</strong> Which option follows the same logical structure?</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Common Logical Fallacies to Spot</div>
+      <div class="term-entry">
+        <div class="term-name">Ad Hominem</div>
+        <div class="term-def">Attacking the person making the argument rather than the argument itself.</div>
+      </div>
+      <div class="term-entry">
+        <div class="term-name">Straw Man</div>
+        <div class="term-def">Misrepresenting an opponent's argument to make it easier to attack.</div>
+      </div>
+      <div class="term-entry">
+        <div class="term-name">False Dichotomy</div>
+        <div class="term-def">Presenting only two options when more exist. "You're either with us or against us."</div>
+      </div>
+      <div class="term-entry">
+        <div class="term-name">Slippery Slope</div>
+        <div class="term-def">Claiming one event will lead to an extreme negative consequence without justification.</div>
+      </div>
+      <div class="term-entry">
+        <div class="term-name">Correlation ≠ Causation</div>
+        <div class="term-def">Just because two things happen together doesn't mean one caused the other.</div>
+      </div>
+      <div class="term-entry">
+        <div class="term-name">Hasty Generalisation</div>
+        <div class="term-def">Drawing a broad conclusion from too small or unrepresentative a sample.</div>
+      </div>
+      <div class="term-entry">
+        <div class="term-name">Circular Reasoning</div>
+        <div class="term-def">The conclusion is used as a premise. "X is true because X is true."</div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      💡 <strong>CLAT Logical Reasoning ≠ Puzzles.</strong> Unlike many other exams, CLAT does NOT test syllogisms, blood relations, seating arrangement, or coding-decoding. It is purely about analysing written arguments. Practice by reading op-ed columns and asking: "What is the author's main claim? What evidence do they give? What are they assuming?"
+    </div>
+  </div>
+
+  <!-- QUANT -->
+  <div id="quant" class="section">
+    <div class="sec-header">
+      <div class="sec-icon" style="background:#ede8f9;">📐</div>
+      <div><h2>Quantitative Techniques</h2><p>~10–14 questions • Lowest weightage, but scoring</p></div>
+    </div>
+
+    <div class="highlight-box">
+      <strong>📊 Strategy Note:</strong> This section has the fewest questions but is very manageable. It only requires Class 10 maths — no calculus, trigonometry, or complex algebra. Aim for 80%+ accuracy here as these are the most straightforward marks to score.
+    </div>
+
+    <div class="card">
+      <div class="card-title">Format & What to Expect <span class="tag tag-purple">Section E</span></div>
+      <ul class="notes">
+        <li>Short passages presenting numerical data (tables, graphs described in text, or word problems)</li>
+        <li>2–4 questions follow each passage</li>
+        <li>You need to extract numbers from the text, then apply mathematical operations</li>
+        <li>Calculator NOT allowed — practice mental math</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Topics Covered (Class 10 Level)</div>
+      <div class="grid-2">
+        <ul class="notes">
+          <li><strong>Percentages</strong> — increase/decrease, percentage of a total</li>
+          <li><strong>Ratio & Proportion</strong> — comparing quantities, direct/inverse</li>
+          <li><strong>Averages</strong> — mean, weighted average</li>
+          <li><strong>Profit & Loss</strong> — cost price, selling price, % profit/loss</li>
+          <li><strong>Simple & Compound Interest</strong></li>
+        </ul>
+        <ul class="notes">
+          <li><strong>Basic Algebra</strong> — solving simple equations</li>
+          <li><strong>Data Interpretation</strong> — reading tables, charts in text form</li>
+          <li><strong>Mensuration basics</strong> — area, perimeter (rarely tested)</li>
+          <li><strong>Statistical Estimation</strong> — median, mode (basic)</li>
+          <li><strong>Time & Work / Speed basics</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Key Formulas to Memorise</div>
+      <ul class="notes">
+        <li>Percentage Change = [(New − Old) / Old] × 100</li>
+        <li>Profit % = [(SP − CP) / CP] × 100</li>
+        <li>Simple Interest = (P × R × T) / 100</li>
+        <li>Compound Interest = P[(1 + R/100)ⁿ − 1]</li>
+        <li>Average = Sum of all values / Number of values</li>
+        <li>Ratio a:b means for every 'a' units of X, there are 'b' units of Y</li>
+      </ul>
+      <div class="tip-box" style="margin-top:12px;">💡 Practice extracting numbers from a paragraph and then solving — the challenge is not the maths, it's reading carefully enough to find the right numbers.</div>
+    </div>
+  </div>
+
+  <!-- STRATEGY -->
+  <div id="strategy" class="section">
+    <div class="sec-header">
+      <div class="sec-icon" style="background:#fde8ec;">🎯</div>
+      <div><h2>Preparation Strategy</h2><p>Month-by-month plan for Class 12 students</p></div>
+    </div>
+
+    <div class="highlight-box">
+      <strong>Assumption:</strong> Your friend is in Class 12 (2025–26) and will appear for <strong>CLAT UG 2027</strong> (December 2026). That gives approximately 12–18 months — which is excellent time to prepare!
+    </div>
+
+    <div class="card">
+      <div class="card-title">The Golden Rules of CLAT Preparation</div>
+      <ul class="notes">
+        <li><strong>Read every day</strong> — No shortcut. The Hindu editorial + any quality book = CLAT foundation</li>
+        <li><strong>Passage practice > rote learning</strong> — CLAT rewards comprehension, not memorisation</li>
+        <li><strong>Mock tests are non-negotiable</strong> — Start giving mocks 6 months before the exam</li>
+        <li><strong>Analyse mistakes, don't just count them</strong> — WHY you got it wrong matters more than THAT you got it wrong</li>
+        <li><strong>Balance board exam prep with CLAT</strong> — Class 12 marks also matter for eligibility (45% cutoff)</li>
+        <li><strong>Don't ignore GK/CA</strong> — It's the biggest section; build the habit early</li>
+      </ul>
+    </div>
+
+    <!-- Accordion Study Plan -->
+    <div class="month-card">
+      <div class="month-header" onclick="toggleMonth(this)">
+        <h3>📅 Phase 1: Foundation (Apr – Jun 2026)</h3>
+        <span>▼</span>
+      </div>
+      <div class="month-body">
+        <ul>
+          <li>Start reading <strong>The Hindu</strong> daily — focus on editorial and national pages</li>
+          <li>Complete NCERT Class 10 Maths for Quant basics (revisit percentages, ratios, etc.)</li>
+          <li>Read about the Indian Constitution — Preamble, Fundamental Rights, DPSPs (NCERT Class 11 Political Science)</li>
+          <li>Start a CA notebook — note down 5 key news items daily</li>
+          <li>Read 1–2 CLAT sample papers to understand passage format</li>
+          <li>Begin vocabulary building — 10 new words/week from editorial reading</li>
+          <li>Watch CLAT orientation videos on YouTube (Clat Possible, iQuanta Law)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="month-card">
+      <div class="month-header" onclick="toggleMonth(this)">
+        <h3>📅 Phase 2: Concept Building (Jul – Sep 2026)</h3>
+        <span>▼</span>
+      </div>
+      <div class="month-body">
+        <ul>
+          <li>Deep-dive into <strong>Legal Reasoning</strong> — practice IRAC method daily using past CLAT passages</li>
+          <li>Study logical fallacies and argument structures (2–3 hours/week)</li>
+          <li>Practice <strong>Reading Comprehension</strong> passages daily — time yourself (5 min per passage)</li>
+          <li>Compile landmark judgements notes (see GK section above)</li>
+          <li>Start past year CLAT papers (2020–2025) — do one per week</li>
+          <li>Continue daily newspaper reading, now adding <strong>Indian Express Explained</strong> section</li>
+          <li>Review CA notebook every Sunday</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="month-card">
+      <div class="month-header" onclick="toggleMonth(this)">
+        <h3>📅 Phase 3: Intensive Practice (Oct – Nov 2026)</h3>
+        <span>▼</span>
+      </div>
+      <div class="month-body">
+        <ul>
+          <li>Give <strong>2 full mock tests per week</strong> (under timed conditions)</li>
+          <li>After each mock — deep error analysis by section</li>
+          <li>Revise all landmark judgements and constitutional articles</li>
+          <li>Compile last 12 months' CA into a quick-revision booklet</li>
+          <li>Work on speed — track words per minute in reading</li>
+          <li>Solve at least 5 full past CLAT papers (2018–2025)</li>
+          <li>Attempt AILET, SLAT mock papers for additional practice</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="month-card">
+      <div class="month-header" onclick="toggleMonth(this)">
+        <h3>📅 Phase 4: Revision & Test Series (Dec 2026)</h3>
+        <span>▼</span>
+      </div>
+      <div class="month-body">
+        <ul>
+          <li>Give a mock test every 2 days</li>
+          <li>Focus only on revision — no new topics</li>
+          <li>Review CA booklet daily in the last 2 weeks</li>
+          <li>Practice sectional tests — especially Legal Reasoning and GK</li>
+          <li>Sleep well and maintain routine — exam is typically in December</li>
+          <li>Re-read your notes for legal terms, constitutional articles, and important judgements</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Ideal Daily Schedule (2–3 hrs/day alongside Class 12)</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <h4>Morning (30 mins) — Newspaper Reading</h4>
+          <p>Read The Hindu editorial + 2 national/international news. Note key points in CA diary.</p>
+        </div>
+        <div class="tl-item">
+          <h4>Evening (60 mins) — Section Practice</h4>
+          <p>Rotate: Mon/Wed = Legal Reasoning, Tue/Thu = Logical Reasoning, Fri = English RC, Sat = GK revision, Sun = Mock/Previous Year Paper</p>
+        </div>
+        <div class="tl-item">
+          <h4>Evening (30 mins) — Quant & Vocabulary</h4>
+          <p>10 minutes on math practice (2–3 problems), 10 minutes vocabulary review, 10 minutes for legal terms.</p>
+        </div>
+        <div class="tl-item">
+          <h4>Weekend (2–3 hrs) — Mock / Full Sectional Test</h4>
+          <p>One full section or full mock test. Dedicated error analysis session. Revise weak areas.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Attempt Strategy on Exam Day</div>
+      <ul class="notes">
+        <li>Start with your <strong>strongest section</strong> to build confidence and save time</li>
+        <li>Recommended order: Legal → English → GK → Logical → Quant</li>
+        <li>Spend ~25 min on Legal, ~20 on English, ~25 on GK, ~20 on Logical, ~10 on Quant</li>
+        <li><strong>Skip and return:</strong> If stuck, mark and move — don't waste 3 mins on one question</li>
+        <li><strong>Negative marking:</strong> Only attempt if 70%+ confident. Skip if genuinely unsure.</li>
+        <li>Leave 5–7 minutes at the end to review flagged questions</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- RESOURCES -->
+  <div id="resources" class="section">
+    <div class="sec-header">
+      <div class="sec-icon" style="background:#e0f5f3;">📚</div>
+      <div><h2>Books & Resources</h2><p>Recommended study material for CLAT UG</p></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📘 Best Books for CLAT UG</div>
+      <div class="resource-item">
+        <div class="res-icon" style="background:#fde8ec;">📖</div>
+        <div>
+          <h4>Universal's CLAT Guide — R.K. Gupta</h4>
+          <p>Comprehensive coverage of all 5 sections. Good for beginners. Includes past year papers.</p>
+        </div>
+      </div>
+      <div class="resource-item">
+        <div class="res-icon" style="background:#e0e8f9;">⚖️</div>
+        <div>
+          <h4>Lexis Nexis CLAT Guide</h4>
+          <p>Strong legal reasoning and GK sections. Trusted by CLAT toppers. Updated yearly.</p>
+        </div>
+      </div>
+      <div class="resource-item">
+        <div class="res-icon" style="background:#e0f5f3;">🔢</div>
+        <div>
+          <h4>NCERT Class 10 Mathematics</h4>
+          <p>For Quantitative Techniques — covers all required topics at the right level. Free online.</p>
+        </div>
+      </div>
+      <div class="resource-item">
+        <div class="res-icon" style="background:#fef3dc;">🇮🇳</div>
+        <div>
+          <h4>NCERT Class 11 Political Science (Indian Constitution at Work)</h4>
+          <p>Best introduction to constitutional law concepts relevant to CLAT. Free via NCERT website.</p>
+        </div>
+      </div>
+      <div class="resource-item">
+        <div class="res-icon" style="background:#ede8f9;">🧠</div>
+        <div>
+          <h4>Word Power Made Easy — Norman Lewis</h4>
+          <p>Classic vocabulary-building book. Builds contextual word understanding, not just rote definitions.</p>
+        </div>
+      </div>
+      <div class="resource-item">
+        <div class="res-icon" style="background:#fde8ec;">📰</div>
+        <div>
+          <h4>Past CLAT Papers (2015–2025)</h4>
+          <p>Available free on consortiumofnlus.ac.in and legal exam prep websites. Most important practice material.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">💻 Online Resources</div>
+      <div class="resource-item">
+        <div class="res-icon" style="background:#e0f5f3;">🌐</div>
+        <div>
+          <h4>consortiumofnlus.ac.in (Official)</h4>
+          <p>Official CLAT website — sample papers, syllabus, model questions. Read everything here.</p>
+        </div>
+      </div>
+      <div class="resource-item">
+        <div class="res-icon" style="background:#fde8ec;">📱</div>
+        <div>
+          <h4>CLAT Possible / iQuanta Law (YouTube)</h4>
+          <p>Free video lectures and strategy sessions. Excellent for Legal Reasoning and GK.</p>
+        </div>
+      </div>
+      <div class="resource-item">
+        <div class="res-icon" style="background:#e0e8f9;">📄</div>
+        <div>
+          <h4>Legal Bites (legalbites.in)</h4>
+          <p>Free notes on Legal Reasoning topics, Monthly CA compilations, and practice questions.</p>
+        </div>
+      </div>
+      <div class="resource-item">
+        <div class="res-icon" style="background:#fef3dc;">📰</div>
+        <div>
+          <h4>The Hindu / Indian Express (Daily)</h4>
+          <p>Editorial + national news — your single most important daily habit for CLAT preparation.</p>
+        </div>
+      </div>
+      <div class="resource-item">
+        <div class="res-icon" style="background:#ede8f9;">🎯</div>
+        <div>
+          <h4>CLATapult / Endeavor / CLAT Gurukul (Mock Tests)</h4>
+          <p>Paid mock test series — highly recommended 4–5 months before exam. Gives percentile data.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">✅ Humanities Background Advantage</div>
+      <div class="tip-box">
+        Your friend's Humanities background is actually a <strong>significant advantage</strong> for CLAT! Students with History, Political Science, and English have a natural edge in:
+        <ul style="padding-left:18px; margin-top:8px;">
+          <li>Legal Reasoning (exposure to social, moral, and policy issues)</li>
+          <li>Current Affairs (History + Pol Science = strong contextual understanding)</li>
+          <li>English Language (regular essay and comprehension practice)</li>
+          <li>Logical Reasoning (analysis and argumentation from humanities essays)</li>
+        </ul>
+        The only area to work extra on is <strong>Quantitative Techniques</strong> — spend focused time on Class 10 math to ensure confidence there.
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer">CLAT UG Study Guide • Based on Official CLAT 2026 Syllabus (consortiumofnlus.ac.in) • For CLAT UG 2027 preparation</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleMonth(header) {
+  const body = header.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.month-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.month-header span').forEach(s => s.textContent = '▼');
+  if (!isOpen) {
+    body.classList.add('open');
+    header.querySelector('span').textContent = '▲';
+  }
+}
+</script>
+</body>
+</html>

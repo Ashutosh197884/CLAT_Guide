@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: lexai_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: lexai
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: lexai_backend
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/lexai
+      - JWT_SECRET_KEY=309b4a1b025e14fb1e687b1c1e05d0fa85145b34005b8a0df5f0bbbe85a109a9
+      - NVIDIA_API_KEY=${NVIDIA_API_KEY}
+      - CHROMA_PATH=/app/data/chroma
+    volumes:
+      - ./data:/app/data
+      # Mount cache directory for huggingface models so we don't redownload sentence-transformers on container recreation
+      - huggingface_cache:/root/.cache/huggingface
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
+  huggingface_cache:

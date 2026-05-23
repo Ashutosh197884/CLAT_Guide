@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLAT UG Ultimate Study Guide 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a2e;
+  --deep: #16213e;
+  --accent: #e94560;
+  --gold: #f5a623;
+  --teal: #0f9b8e;
+  --paper: #faf8f3;
+  --muted: #6b7280;
+  --light: #f3f0e8;
+  --border: #e2ddd4;
+  --green: #16a34a;
+  --purple: #7c3aed;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); line-height: 1.7; font-size: 15px; }
+
+.hero { background: var(--ink); color: white; padding: 60px 40px 50px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(233,69,96,0.35) 0%, transparent 70%); }
+.hero::after { content: ''; position: absolute; bottom: -60px; left: 10%; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(15,155,142,0.25) 0%, transparent 70%); }
+.hero-badge { display: inline-block; background: var(--accent); color: white; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 18px; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 5vw, 52px); font-weight: 900; line-height: 1.1; margin-bottom: 14px; }
+.hero h1 span { color: var(--accent); }
+.hero p { font-size: 15px; color: rgba(255,255,255,0.7); max-width: 580px; margin-bottom: 28px; }
+.hero-stats { display: flex; gap: 20px; flex-wrap: wrap; }
+.stat-box { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 12px 20px; text-align: center; }
+.stat-box .num { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--gold); display: block; }
+.stat-box .label { font-size: 11px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; }
+
+.tabs-wrap { background: var(--deep); padding: 0 30px; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; position: sticky; top: 0; z-index: 100; }
+.tabs-wrap::-webkit-scrollbar { display: none; }
+.tab-btn { background: none; border: none; color: rgba(255,255,255,0.5); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; padding: 15px 18px; cursor: pointer; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.2s; }
+.tab-btn:hover { color: white; }
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+.container { max-width: 920px; margin: 0 auto; padding: 40px 24px 80px; }
+.section { display: none; }
+.section.active { display: block; }
+
+.sec-header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 2px solid var(--border); }
+.sec-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.sec-header h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; }
+.sec-header p { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+.card { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-bottom: 20px; transition: box-shadow 0.2s; }
+.card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+.card-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.tag { font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+.tag-red { background: #fde8ec; color: var(--accent); }
+.tag-teal { background: #e0f5f3; color: var(--teal); }
+.tag-gold { background: #fef3dc; color: #b07d1a; }
+.tag-blue { background: #e0e8f9; color: #3a5bbf; }
+.tag-purple { background: #ede8f9; color: #6b4bbf; }
+.tag-green { background: #e0f5e9; color: #16a34a; }
+
+ul.notes { padding-left: 0; list-style: none; }
+ul.notes li { padding: 7px 0 7px 24px; position: relative; border-bottom: 1px solid var(--light); font-size: 14.5px; }
+ul.notes li:last-child { border-bottom: none; }
+ul.notes li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+.highlight-box { background: linear-gradient(135deg, #fff8e1, #fff3cd); border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 16px 0; font-size: 14px; }
+.highlight-box strong { color: #8a6200; }
+.tip-box { background: #e8f8f6; border-left: 4px solid var(--teal); border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 16px 0; font-size: 14px; color: #1a4a45; }
+.warn-box { background: #fdecea; border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 16px 0; font-size: 14px; color: #7a1c1c; }
+.success-box { background: #e8f5e9; border-left: 4px solid var(--green); border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 16px 0; font-size: 14px; color: #14532d; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+@media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+.mini-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+.mini-card h4 { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 10px; }
+.mini-card p, .mini-card li { font-size: 14px; }
+
+.pattern-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px; }
+.pattern-table th { background: var(--ink); color: white; padding: 12px 16px; text-align: left; font-weight: 600; }
+.pattern-table th:first-child { border-radius: 10px 0 0 0; }
+.pattern-table th:last-child { border-radius: 0 10px 0 0; }
+.pattern-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+.pattern-table tr:nth-child(even) td { background: var(--light); }
+.pattern-table tr:last-child td { font-weight: 700; background: #f0ede4; }
+
+.term-entry { padding: 14px 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 200px 1fr; gap: 12px; align-items: start; }
+.term-entry:last-child { border-bottom: none; }
+.term-name { font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500; color: var(--accent); padding-top: 2px; }
+.term-def { font-size: 14px; }
+@media (max-width: 550px) { .term-entry { grid-template-columns: 1fr; gap: 4px; } }
+
+.timeline { position: relative; padding-left: 30px; }
+.timeline::before { content: ''; position: absolute; left: 9px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+.tl-item { position: relative; padding-bottom: 24px; padding-left: 24px; }
+.tl-item::before { content: ''; position: absolute; left: -25px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--paper); box-shadow: 0 0 0 2px var(--accent); }
+.tl-item h4 { font-weight: 600; font-size: 15px; }
+.tl-item p { font-size: 13px; color: var(--muted); margin-top: 3px; }
+
+.month-card { background: white; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 16px; }
+.month-header { padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; background: white; }
+.month-header:hover { background: var(--light); }
+.month-header h3 { font-size: 16px; font-weight: 600; }
+.month-body { padding: 0 20px 20px; display: none; border-top: 1px solid var(--border); }
+.month-body.open { display: block; }
+.month-body ul { padding-left: 18px; margin-top: 12px; }
+.month-body li { font-size: 14px; padding: 4px 0; }
+
+.resource-item { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); }
+.resource-item:last-child { border-bottom: none; }
+.res-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.resource-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+.resource-item p { font-size: 13px; color: var(--muted); }
+
+/* ASSESSMENT */
+.assess-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+.assess-card { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 20px; text-align: center; cursor: pointer; transition: all 0.2s; }
+.assess-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(233,69,96,0.1); transform: translateY(-2px); }
+.assess-card .icon { font-size: 28px; margin-bottom: 10px; }
+.assess-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.assess-card p { font-size: 12px; color: var(--muted); }
+.assess-card .badge { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 20px; margin-top: 8px; }
+
+#quiz-area { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 28px; margin-top: 20px; }
+.quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.quiz-header h3 { font-family: 'Playfair Display', serif; font-size: 20px; }
+.quiz-meta { font-size: 13px; color: var(--muted); }
+.progress-bar { width: 100%; height: 6px; background: var(--light); border-radius: 3px; margin-bottom: 24px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width 0.4s; }
+.passage-box { background: var(--light); border-radius: 10px; padding: 18px 20px; margin-bottom: 20px; font-size: 14px; line-height: 1.8; border-left: 4px solid var(--teal); }
+.passage-box p { margin-bottom: 8px; }
+.question-text { font-size: 16px; font-weight: 600; margin-bottom: 16px; line-height: 1.5; }
+.options-list { list-style: none; padding: 0; }
+.options-list li { margin-bottom: 10px; }
+.option-btn { width: 100%; text-align: left; padding: 12px 18px; background: white; border: 1.5px solid var(--border); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 14px; cursor: pointer; transition: all 0.2s; line-height: 1.5; }
+.option-btn:hover:not(:disabled) { border-color: var(--accent); background: #fff5f6; }
+.option-btn.correct { border-color: var(--green); background: #e8f5e9; color: #14532d; }
+.option-btn.wrong { border-color: var(--accent); background: #fdecea; color: #7a1c1c; }
+.option-btn.reveal { border-color: var(--green); background: #e8f5e9; color: #14532d; }
+.explanation-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 14px; display: none; }
+.explanation-box.show { display: block; }
+.explanation-box strong { color: var(--green); }
+.quiz-nav { display: flex; gap: 12px; margin-top: 20px; align-items: center; }
+.btn-primary { background: var(--accent); color: white; border: none; padding: 10px 24px; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
+.btn-primary:hover { opacity: 0.9; }
+.btn-secondary { background: white; color: var(--ink); border: 1.5px solid var(--border); padding: 10px 24px; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+.btn-secondary:hover { border-color: var(--ink); }
+.score-panel { text-align: center; padding: 30px 20px; }
+.score-circle { width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; }
+.score-great { background: #e8f5e9; color: var(--green); border: 3px solid var(--green); }
+.score-ok { background: #fff8e1; color: #b07d1a; border: 3px solid var(--gold); }
+.score-low { background: #fdecea; color: var(--accent); border: 3px solid var(--accent); }
+.score-breakdown { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
+.score-stat { background: var(--light); border-radius: 10px; padding: 12px; text-align: center; }
+.score-stat .n { font-size: 22px; font-weight: 700; font-family: 'Playfair Display', serif; }
+.score-stat .l { font-size: 12px; color: var(--muted); }
+.ai-loading { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 14px; padding: 12px; }
+.spinner { width: 18px; height: 18px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.7s linear infinite; flex-shrink: 0; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.ai-feedback { background: linear-gradient(135deg, #f0f4ff, #ede8f9); border: 1px solid #c4b5fd; border-radius: 10px; padding: 16px 20px; margin-top: 16px; font-size: 14px; }
+.ai-feedback .ai-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--purple); margin-bottom: 6px; }
+
+/* NOTES SECTION */
+.notes-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.notes-tab { padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 500; cursor: pointer; border: 1.5px solid var(--border); background: white; transition: all 0.2s; }
+.notes-tab.active { background: var(--ink); color: white; border-color: var(--ink); }
+.notes-panel { display: none; }
+.notes-panel.active { display: block; }
+
+.concept-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; margin-bottom: 14px; }
+.concept-box h4 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.concept-box p { font-size: 14px; line-height: 1.7; color: #374151; }
+.concept-box ul { padding-left: 16px; margin-top: 6px; }
+.concept-box ul li { font-size: 14px; padding: 3px 0; }
+.key-pill { display: inline-block; background: #fde8ec; color: var(--accent); font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 20px; }
+
+.flashcard-wrap { perspective: 1000px; cursor: pointer; margin-bottom: 16px; }
+.flashcard { width: 100%; min-height: 120px; position: relative; transform-style: preserve-3d; transition: transform 0.5s; }
+.flashcard.flipped { transform: rotateY(180deg); }
+.fc-front, .fc-back { position: absolute; width: 100%; min-height: 120px; backface-visibility: hidden; border-radius: 12px; padding: 20px 24px; display: flex; align-items: center; justify-content: center; text-align: center; }
+.fc-front { background: var(--ink); color: white; flex-direction: column; gap: 8px; }
+.fc-front .fc-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.5); }
+.fc-front .fc-q { font-size: 16px; font-weight: 500; line-height: 1.5; }
+.fc-back { background: var(--teal); color: white; transform: rotateY(180deg); font-size: 15px; line-height: 1.6; flex-direction: column; gap: 8px; }
+.fc-back .fc-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6); }
+.fc-nav { display: flex; gap: 10px; align-items: center; justify-content: center; margin-top: 4px; }
+.fc-count { font-size: 13px; color: var(--muted); }
+
+.footer { text-align: center; padding: 30px; background: var(--ink); color: rgba(255,255,255,0.4); font-size: 12px; }
+
+/* ═══════════ CHATBOT — UPGRADED ═══════════ */
+.chatbot-wrap { display: flex; flex-direction: column; height: 640px; background: white; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.08); }
+.chat-header-bar { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; background: var(--ink); color: white; }
+.chat-header-left { display: flex; align-items: center; gap: 10px; }
+.chat-header-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--purple)); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.chat-header-name { font-weight: 600; font-size: 14px; }
+.chat-header-status { font-size: 11px; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 4px; }
+.status-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; display: inline-block; }
+.chat-clear-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); padding: 5px 12px; border-radius: 20px; font-size: 12px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+.chat-clear-btn:hover { background: rgba(255,255,255,0.2); color: white; }
+
+.chat-messages { flex: 1; overflow-y: auto; padding: 20px 16px; display: flex; flex-direction: column; gap: 4px; background: #fafafa; scroll-behavior: smooth; }
+.chat-messages::-webkit-scrollbar { width: 4px; }
+.chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.chat-msg-wrap { display: flex; flex-direction: column; margin-bottom: 12px; }
+.chat-msg-wrap.user { align-items: flex-end; }
+.chat-msg-wrap.bot { align-items: flex-start; }
+
+.chat-msg { max-width: 88%; font-size: 14px; line-height: 1.65; border-radius: 18px; }
+.chat-msg.user { background: linear-gradient(135deg, var(--ink), #2d2d4e); color: white; padding: 12px 18px; border-radius: 18px 18px 4px 18px; }
+.chat-msg.bot { background: white; color: var(--ink); padding: 14px 18px; border-radius: 18px 18px 18px 4px; border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.chat-typing-msg { background: white; border: 1px solid var(--border); padding: 14px 18px; border-radius: 18px 18px 18px 4px; max-width: 140px; }
+
+.bot-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); margin-bottom: 8px; display: flex; align-items: center; gap: 5px; }
+.bot-avatar { font-size: 14px; }
+.bot-content { font-size: 14px; line-height: 1.7; }
+.chat-p { margin: 0 0 8px; }
+.chat-p:last-child { margin-bottom: 0; }
+.chat-ol { padding-left: 0; list-style: none; margin: 8px 0; display: flex; flex-direction: column; gap: 6px; }
+.chat-ul { padding-left: 0; list-style: none; margin: 8px 0; display: flex; flex-direction: column; gap: 4px; }
+.num-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; }
+.num-badge { background: var(--accent); color: white; font-size: 11px; font-weight: 700; min-width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.bul-item { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; padding-left: 4px; }
+.bul-item::before { content: '→'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+.inline-code { background: #f0ede4; color: var(--accent); padding: 1px 6px; border-radius: 4px; font-family: 'DM Mono', monospace; font-size: 12.5px; }
+.chat-divider { border: none; border-top: 1px dashed var(--border); margin: 12px 0; }
+
+.typing-dots { display: flex; gap: 4px; padding: 4px 0; }
+.typing-dots span { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); animation: blink 1.3s infinite; }
+.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes blink { 0%, 80%, 100% { opacity: 0.2; } 40% { opacity: 1; } }
+
+.msg-action-btn { background: none; border: none; color: var(--muted); font-size: 11px; cursor: pointer; padding: 3px 8px; border-radius: 12px; transition: all 0.15s; margin-top: 4px; font-family: 'DM Sans', sans-serif; }
+.msg-action-btn:hover { background: var(--light); color: var(--ink); }
+
+.followup-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; align-items: center; max-width: 88%; }
+.followup-label { font-size: 11px; color: var(--muted); font-weight: 500; white-space: nowrap; }
+.followup-btn { background: white; border: 1.5px solid var(--border); color: var(--ink); border-radius: 16px; padding: 5px 12px; font-size: 12px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; line-height: 1.4; }
+.followup-btn:hover { border-color: var(--accent); color: var(--accent); background: #fff5f6; }
+
+.chat-input-area { padding: 12px 16px; border-top: 1px solid var(--border); background: white; }
+.chat-input-row { display: flex; gap: 10px; align-items: flex-end; }
+.chat-input { flex: 1; border: 1.5px solid var(--border); border-radius: 14px; padding: 10px 16px; font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; background: var(--light); resize: none; max-height: 120px; line-height: 1.5; transition: border-color 0.2s; }
+.chat-input:focus { border-color: var(--accent); background: white; }
+.chat-send { background: var(--accent); color: white; border: none; border-radius: 12px; padding: 10px 20px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; white-space: nowrap; display: flex; align-items: center; gap: 6px; height: 42px; }
+.chat-send:hover { background: #d63051; transform: translateY(-1px); }
+.chat-send:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.btn-spinner { width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; }
+.chat-hint { font-size: 11px; color: var(--muted); text-align: center; margin-top: 6px; }
+
+.chat-nudge { background: linear-gradient(135deg, #e8f8f6, #e0f5e9); border: 1px solid #a7f3d0; border-radius: 12px; padding: 10px 16px; font-size: 13px; color: #065f46; text-align: center; margin: 8px 0; transition: opacity 0.5s; }
+
+.chat-starters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.starter-btn { background: white; border: 1.5px solid var(--border); border-radius: 20px; padding: 7px 14px; font-size: 12px; font-family: 'DM Sans', sans-serif; cursor: pointer; color: var(--ink); transition: all 0.2s; }
+.starter-btn:hover { border-color: var(--accent); color: var(--accent); background: #fff5f6; transform: translateY(-1px); }
+
+/* PYQ SECTION */
+.pyq-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+.pyq-filter-btn { padding: 7px 18px; border-radius: 20px; font-size: 13px; font-weight: 500; cursor: pointer; border: 1.5px solid var(--border); background: white; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+.pyq-filter-btn.active { background: var(--ink); color: white; border-color: var(--ink); }
+.pyq-question { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 16px; }
+.pyq-question .pyq-meta { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); margin-bottom: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+.pyq-question .pyq-meta span { background: var(--light); padding: 2px 10px; border-radius: 20px; }
+.pyq-question .pyq-passage { background: var(--light); border-radius: 8px; padding: 14px 16px; margin-bottom: 14px; font-size: 13.5px; line-height: 1.8; border-left: 3px solid var(--teal); }
+.pyq-question .pyq-q { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+.pyq-option { padding: 9px 14px; border: 1.5px solid var(--border); border-radius: 8px; margin-bottom: 8px; font-size: 14px; cursor: pointer; transition: all 0.2s; }
+.pyq-option:hover { border-color: var(--accent); background: #fff5f6; }
+.pyq-option.correct { border-color: var(--green); background: #e8f5e9; color: #14532d; }
+.pyq-option.wrong { border-color: var(--accent); background: #fdecea; color: #7a1c1c; }
+.pyq-option.reveal { border-color: var(--green); background: #e8f5e9; opacity: 0.7; }
+.pyq-answer-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 12px 16px; margin-top: 12px; font-size: 13.5px; display: none; }
+.pyq-answer-box.show { display: block; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">Ultimate Study Guide · AI-Powered</div>
+  <h1>CLAT UG <span>2027</span><br>Preparation Hub</h1>
+  <p>Complete notes, smart flashcards, and AI-powered assessment tests for all 5 sections. Built for serious CLAT preparation.</p>
+  <div class="hero-stats">
+    <div class="stat-box"><span class="num">120</span><span class="label">Questions</span></div>
+    <div class="stat-box"><span class="num">2 hrs</span><span class="label">Duration</span></div>
+    <div class="stat-box"><span class="num">5</span><span class="label">Sections</span></div>
+    <div class="stat-box"><span class="num">−0.25</span><span class="label">Neg. Marking</span></div>
+    <div class="stat-box"><span class="num">22+</span><span class="label">NLUs</span></div>
+    <div class="stat-box"><span class="num">PYQs</span><span class="label">AILET 2026</span></div>
+    <div class="stat-box"><span class="num">AI</span><span class="label">Tutor</span></div>
+  </div>
+</div>
+
+<div class="tabs-wrap">
+  <button class="tab-btn active" onclick="showTab('overview')">📋 Overview</button>
+  <button class="tab-btn" onclick="showTab('english')">📖 English</button>
+  <button class="tab-btn" onclick="showTab('gk')">🌍 GK & CA</button>
+  <button class="tab-btn" onclick="showTab('legal')">⚖️ Legal</button>
+  <button class="tab-btn" onclick="showTab('logical')">🧠 Logical</button>
+  <button class="tab-btn" onclick="showTab('quant')">📐 Quant</button>
+  <button class="tab-btn" onclick="showTab('flashcards')">🗂️ Flashcards</button>
+  <button class="tab-btn" onclick="showTab('assessment')">🎯 Tests</button>
+  <button class="tab-btn" onclick="showTab('strategy')">📅 Strategy</button>
+  <button class="tab-btn" onclick="showTab('resources')">📚 Resources</button>
+  <button class="tab-btn" onclick="showTab('pyq')">📝 PYQs</button>
+  <button class="tab-btn" onclick="showTab('chatbot')">🤖 AI Tutor</button>
+</div>
+
+<div class="container">
+
+<!-- OVERVIEW -->
+<div id="overview" class="section active">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#f0ede4;">📋</div>
+    <div><h2>Exam Overview</h2><p>Pattern, eligibility & what CLAT actually tests</p></div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>⏰ Your Timeline:</strong> If you're in Class 12 (2025–26), you'll appear for CLAT UG 2027 (held in December 2026). That's approximately 8–18 months of prep — excellent time if you start now!
+  </div>
+
+  <div class="card">
+    <div class="card-title">Exam Pattern <span class="tag tag-gold">Official CLAT UG</span></div>
+    <table class="pattern-table">
+      <tr><th>Section</th><th>Questions</th><th>Marks</th><th>Key Skill</th></tr>
+      <tr><td>📖 English Language</td><td>22–26</td><td>22–26</td><td>Reading Comprehension</td></tr>
+      <tr><td>🌍 Current Affairs & GK</td><td>28–32</td><td>28–32</td><td>News Awareness + Passage</td></tr>
+      <tr><td>⚖️ Legal Reasoning</td><td>28–32</td><td>28–32</td><td>Principle–Fact Application</td></tr>
+      <tr><td>🧠 Logical Reasoning</td><td>22–26</td><td>22–26</td><td>Argument Analysis</td></tr>
+      <tr><td>📐 Quantitative Techniques</td><td>10–14</td><td>10–14</td><td>Data Interpretation</td></tr>
+      <tr><td><strong>Total</strong></td><td><strong>120</strong></td><td><strong>120</strong></td><td>2 Hours</td></tr>
+    </table>
+    <div class="warn-box">🚫 <strong>Negative Marking:</strong> −0.25 marks per wrong answer. Never guess blindly — only attempt if you can eliminate at least 2 options.</div>
+  </div>
+
+  <div class="grid-2">
+    <div class="mini-card">
+      <h4>Eligibility</h4>
+      <ul class="notes">
+        <li>10+2 from a recognised board</li>
+        <li>Minimum 45% marks (40% for SC/ST/PwD)</li>
+        <li>No upper age limit for UG</li>
+        <li>Class 12 appearing students eligible</li>
+      </ul>
+    </div>
+    <div class="mini-card">
+      <h4>Exam Format</h4>
+      <ul class="notes">
+        <li>Offline (pen and paper based)</li>
+        <li>Duration: 2 hours exactly</li>
+        <li>English medium only</li>
+        <li>MCQs with 4 options each</li>
+        <li>~25–30 reading passages total</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔍 What CLAT Actually Tests</div>
+    <p style="margin-bottom:12px; font-size:14px;">CLAT is <strong>NOT a knowledge exam</strong> — it's an <strong>aptitude and comprehension exam</strong>. Every single question is passage-based. You don't need to memorise law — you need to read fast, reason carefully, and apply principles logically.</p>
+    <ul class="notes">
+      <li>Read and understand dense passages of ~450 words very quickly</li>
+      <li>Apply rules/principles from a passage to new situations (not prior knowledge)</li>
+      <li>Identify conclusions, premises, and logical gaps in arguments</li>
+      <li>Interpret numerical data from text-based descriptions</li>
+      <li>Demonstrate current affairs awareness through passage comprehension</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🏛️ Top NLUs & Expected Cut-offs</div>
+    <table class="pattern-table">
+      <tr><th>NLU</th><th>Location</th><th>Approx. Cut-off (General)</th></tr>
+      <tr><td>NLSIU (Rank 1)</td><td>Bangalore</td><td>~105–110 / 120</td></tr>
+      <tr><td>NALSAR</td><td>Hyderabad</td><td>~100–105 / 120</td></tr>
+      <tr><td>WBNUJS</td><td>Kolkata</td><td>~98–103 / 120</td></tr>
+      <tr><td>NLU Jodhpur</td><td>Jodhpur</td><td>~95–100 / 120</td></tr>
+      <tr><td>NLIU</td><td>Bhopal</td><td>~90–96 / 120</td></tr>
+      <tr><td>GNLU</td><td>Gandhi Nagar</td><td>~88–94 / 120</td></tr>
+      <tr><td>RMLNLU</td><td>Lucknow</td><td>~85–92 / 120</td></tr>
+    </table>
+    <div class="tip-box">💡 Cut-offs vary yearly. Above are indicative ranges. Target 95+ for top 5 NLUs. A score of 80+ gives good options among the 22 NLUs.</div>
+  </div>
+</div>
+
+<!-- ENGLISH -->
+<div id="english" class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#fde8ec;">📖</div>
+    <div><h2>English Language</h2><p>~22–26 questions • Passage-based comprehension</p></div>
+  </div>
+
+  <div class="notes-tabs">
+    <button class="notes-tab active" onclick="switchNotes(this,'eng-notes')">📝 Notes</button>
+    <button class="notes-tab" onclick="switchNotes(this,'eng-traps')">⚠️ Common Traps</button>
+    <button class="notes-tab" onclick="switchNotes(this,'eng-vocab')">📚 Vocabulary</button>
+    <button class="notes-tab" onclick="switchNotes(this,'eng-strategy')">⚡ Strategy</button>
+  </div>
+
+  <div id="eng-notes" class="notes-panel active">
+    <div class="card">
+      <div class="card-title">What to Expect <span class="tag tag-red">Section A</span></div>
+      <p style="font-size:14px; margin-bottom:12px;">3–4 passages of ~450 words each (fiction, non-fiction, journalistic). 5–8 questions follow each passage. No grammar fill-in-the-blanks or isolated vocabulary.</p>
+    </div>
+
+    <div class="concept-box">
+      <h4>🎯 Main Idea / Central Theme</h4>
+      <p>Ask: <em>"What is the author's primary purpose in writing this?"</em> The correct option will cover the whole passage — not just one paragraph. Avoid options that are too narrow (one example) or too broad (general topic).</p>
+    </div>
+    <div class="concept-box">
+      <h4>🔍 Inference Questions</h4>
+      <p>CLAT wants <strong>conservative inferences</strong> — only what is logically required by the passage. Don't bring in outside knowledge. The answer must be supportable by specific lines in the text. Keywords: "implies," "suggests," "can be inferred."</p>
+    </div>
+    <div class="concept-box">
+      <h4>🎭 Author's Tone & Viewpoint</h4>
+      <p>Common tones: critical, appreciative, neutral/objective, ironic, sarcastic, cautious, optimistic. Look for <em>tone words</em> — adjectives and verbs the author uses. Extreme tones ("furious," "ecstatic") are rarely correct in formal passages.</p>
+    </div>
+    <div class="concept-box">
+      <h4>🔤 Meaning in Context</h4>
+      <p>The question asks what a word/phrase means <strong>in this passage</strong>, not in general. Substitute each option into the sentence and pick the one that preserves the meaning. Don't rely on dictionary definitions.</p>
+    </div>
+    <div class="concept-box">
+      <h4>✅ Fact vs. Opinion</h4>
+      <p>Facts: verifiable, stated objectively. Opinions: subjective, debatable. Signal words for opinions: "should," "must," "believe," "argue," "ought to." CLAT often asks you to distinguish what the author <em>claims</em> vs. what the passage <em>establishes</em>.</p>
+    </div>
+    <div class="concept-box">
+      <h4>💪 Strengthen/Weaken Questions</h4>
+      <p>These appear in both English and Logical sections. To <strong>strengthen</strong>: find an option that supports the argument's key assumption or provides new evidence for it. To <strong>weaken</strong>: find an option that undermines the assumption or provides counter-evidence.</p>
+    </div>
+  </div>
+
+  <div id="eng-traps" class="notes-panel">
+    <div class="warn-box">⚠️ These are the most common reasons students lose marks in the English section.</div>
+    <div class="concept-box"><h4>❌ "True but Not From Passage" Trap</h4><p>An option may be factually true or seem reasonable, but if it's not supported by the passage, it's wrong. CLAT English is a <em>closed-book</em> exercise — only what the text says counts.</p></div>
+    <div class="concept-box"><h4>❌ "Extreme Language" Trap</h4><p>Options with "always," "never," "only," "completely," "entirely," "must" are almost always wrong. Real-world arguments are rarely absolute. CLAT rewards nuanced, qualified answers.</p></div>
+    <div class="concept-box"><h4>❌ "Paraphrased Distractor" Trap</h4><p>The wrong option rephrases something from the passage but <em>subtly changes the meaning</em>. Read very carefully — a small word like "not" or "only" can flip the meaning entirely.</p></div>
+    <div class="concept-box"><h4>❌ "Over-Inference" Trap</h4><p>You might logically extend the author's argument beyond what they actually said. CLAT does not reward creative thinking here — stick to what's written, not what you think follows logically.</p></div>
+    <div class="concept-box"><h4>❌ First Paragraph Bias</h4><p>Students often answer "main idea" questions based only on the first paragraph. The passage's core argument is often stated in the conclusion or developed throughout. Read the <em>whole</em> passage.</p></div>
+  </div>
+
+  <div id="eng-vocab" class="notes-panel">
+    <div class="card">
+      <div class="card-title">High-Frequency Words in CLAT Passages</div>
+      <div class="term-entry"><div class="term-name">Acrimonious</div><div class="term-def">Bitter and sharp in speech or manner; "the debate turned acrimonious."</div></div>
+      <div class="term-entry"><div class="term-name">Ambivalent</div><div class="term-def">Having mixed feelings about something; uncertain how to feel.</div></div>
+      <div class="term-entry"><div class="term-name">Anachronism</div><div class="term-def">Something out of place in time; applying old ideas to modern contexts.</div></div>
+      <div class="term-entry"><div class="term-name">Cogent</div><div class="term-def">Clear, logical, and convincing. "A cogent argument."</div></div>
+      <div class="term-entry"><div class="term-name">Contentious</div><div class="term-def">Causing or likely to cause controversy or disagreement.</div></div>
+      <div class="term-entry"><div class="term-name">Equivocal</div><div class="term-def">Open to more than one interpretation; ambiguous and often deliberately so.</div></div>
+      <div class="term-entry"><div class="term-name">Inimical</div><div class="term-def">Tending to obstruct or harm; hostile. "Policies inimical to growth."</div></div>
+      <div class="term-entry"><div class="term-name">Mitigate</div><div class="term-def">To make less severe, serious, or painful. "Mitigate the damage."</div></div>
+      <div class="term-entry"><div class="term-name">Obfuscate</div><div class="term-def">To render unclear or obscure; to confuse deliberately.</div></div>
+      <div class="term-entry"><div class="term-name">Pedantic</div><div class="term-def">Overly concerned with minor details or rules; excessively academic.</div></div>
+      <div class="term-entry"><div class="term-name">Perfidious</div><div class="term-def">Deceitful and untrustworthy; guilty of betrayal.</div></div>
+      <div class="term-entry"><div class="term-name">Sanguine</div><div class="term-def">Optimistic, especially in difficult situations.</div></div>
+    </div>
+    <div class="tip-box">💡 Don't memorise lists — instead, read these words in sentences. The context is what CLAT tests, not the dictionary definition.</div>
+  </div>
+
+  <div id="eng-strategy" class="notes-panel">
+    <div class="card">
+      <div class="card-title">⚡ The 5-Step Passage Attack Strategy</div>
+      <div class="timeline">
+        <div class="tl-item"><h4>Step 1: Skim the questions first (60 sec)</h4><p>Before reading the passage, scan all questions. This tells you what to look for — tone? main idea? specific inference? This saves 1–2 minutes per passage.</p></div>
+        <div class="tl-item"><h4>Step 2: Active reading (3 min)</h4><p>Read with a purpose. Underline (mentally or on paper): the main claim, transitions ("however," "therefore," "despite"), and the conclusion. Don't re-read sentences.</p></div>
+        <div class="tl-item"><h4>Step 3: Answer structure questions first</h4><p>Main idea, title, author's purpose — these rely on full passage understanding, so do them after reading. Fact-retrieval questions first (easiest, builds confidence).</p></div>
+        <div class="tl-item"><h4>Step 4: Eliminate, don't just identify</h4><p>For tricky questions, eliminate wrong options first. Cross out extremes, off-topic options, and "true but not from passage" options. Pick the best remaining answer.</p></div>
+        <div class="tl-item"><h4>Step 5: Time check</h4><p>Target 6–7 minutes per English passage. If stuck on a question for 90+ seconds, make your best guess and move on. Don't let one question derail the whole section.</p></div>
+      </div>
+    </div>
+    <div class="success-box">✅ <strong>Daily habit:</strong> Read one Hindu/Indian Express editorial daily. After reading, ask yourself: What is the main argument? What evidence is given? What is the author's tone? This directly mirrors CLAT question types.</div>
+  </div>
+</div>
+
+<!-- GK & CA -->
+<div id="gk" class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#e0e8f9;">🌍</div>
+    <div><h2>Current Affairs & General Knowledge</h2><p>~28–32 questions • Highest weightage section</p></div>
+  </div>
+
+  <div class="notes-tabs">
+    <button class="notes-tab active" onclick="switchNotes(this,'gk-ca')">📰 Current Affairs</button>
+    <button class="notes-tab" onclick="switchNotes(this,'gk-static')">🏛️ Static GK</button>
+    <button class="notes-tab" onclick="switchNotes(this,'gk-cases')">⚖️ Landmark Cases</button>
+    <button class="notes-tab" onclick="switchNotes(this,'gk-const')">📜 Constitution</button>
+  </div>
+
+  <div id="gk-ca" class="notes-panel active">
+    <div class="warn-box">🔥 This is the largest section (~28–32 Qs). Daily reading for 12–18 months before the exam is the ONLY sustainable strategy. No shortcut works here.</div>
+    <div class="card">
+      <div class="card-title">What to Expect <span class="tag tag-blue">Section B</span></div>
+      <p style="font-size:14px;">~450-word passages from news sources. Questions test both comprehension AND contextual current affairs knowledge. You must have heard of the event/issue to understand the passage deeply.</p>
+    </div>
+    <div class="concept-box"><h4>🏛️ National & Political Affairs</h4>
+      <ul><li>Parliament sessions, major bills passed (DPDP Act, Waqf Amendment, etc.)</li><li>Supreme Court & High Court landmark judgements (last 2 years)</li><li>Central government schemes (PM SVAMITVA, Jal Jeevan Mission, etc.)</li><li>State elections and political developments</li><li>Constitutional amendments (if any)</li></ul>
+    </div>
+    <div class="concept-box"><h4>🌐 International Affairs</h4>
+      <ul><li>India's bilateral relations (US, Russia, China, UAE)</li><li>G20, BRICS, SCO summits and outcomes</li><li>UN resolutions and Security Council actions</li><li>Major global conflicts and peace deals</li><li>Climate agreements (COP summits, NDCs)</li></ul>
+    </div>
+    <div class="concept-box"><h4>💰 Economy & Finance</h4>
+      <ul><li>Union Budget highlights (key schemes, tax changes)</li><li>RBI monetary policy and repo rate changes</li><li>GDP growth figures and Economic Survey data</li><li>Major trade deals and FTAs</li><li>Significant corporate news (mergers, IPOs)</li></ul>
+    </div>
+    <div class="concept-box"><h4>🚀 Science, Space & Environment</h4>
+      <ul><li>ISRO missions (Chandrayaan-3, Gaganyaan updates, Aditya-L1)</li><li>Important scientific discoveries</li><li>COP climate conference outcomes</li><li>Species extinction/conservation news</li><li>Significant technology developments (AI regulation, etc.)</li></ul>
+    </div>
+    <div class="concept-box"><h4>🏆 Awards, Sports & Culture</h4>
+      <ul><li>Nobel Prize winners (all categories) — year and reason</li><li>Bharat Ratna, Padma awards recipients</li><li>Olympic Games, Cricket World Cup results</li><li>Booker Prize, Man Booker, Sahitya Akademi winners</li><li>International art and film awards</li></ul>
+    </div>
+  </div>
+
+  <div id="gk-static" class="notes-panel">
+    <div class="concept-box"><h4>🗺️ Indian Geography — Key Facts</h4>
+      <ul><li><strong>Longest river:</strong> Ganga (but Indus is longest overall including Pakistan)</li><li><strong>Highest peak:</strong> Kangchenjunga in India; K2 in undivided India</li><li><strong>Largest state by area:</strong> Rajasthan | Smallest: Goa</li><li><strong>Most populous state:</strong> Uttar Pradesh</li><li><strong>Tropics:</strong> Tropic of Cancer passes through 8 Indian states</li><li><strong>Coastline:</strong> 7,516 km (includes islands); Gujarat has longest mainland coast</li></ul>
+    </div>
+    <div class="concept-box"><h4>🏛️ National Symbols</h4>
+      <ul><li><strong>National Emblem:</strong> Lion Capital of Ashoka (Sarnath)</li><li><strong>National Bird:</strong> Indian Peacock | <strong>Animal:</strong> Bengal Tiger</li><li><strong>National Flower:</strong> Lotus | <strong>Tree:</strong> Banyan</li><li><strong>National Fruit:</strong> Mango | <strong>River:</strong> Ganga</li><li><strong>National Sport:</strong> No official national sport (Hockey is traditional)</li></ul>
+    </div>
+    <div class="concept-box"><h4>🌍 International Organisations</h4>
+      <ul><li><strong>UN:</strong> 193 members. HQ: New York. 6 principal organs including ICJ (The Hague)</li><li><strong>WTO:</strong> 166 members. HQ: Geneva. Dispute settlement + trade rules</li><li><strong>IMF:</strong> Founded 1944 (Bretton Woods). Economic stability + loans</li><li><strong>World Bank:</strong> Development loans. HQ: Washington D.C.</li><li><strong>SAARC:</strong> 8 South Asian nations. HQ: Kathmandu. (Currently dysfunctional)</li><li><strong>ASEAN:</strong> 10 Southeast Asian nations. HQ: Jakarta</li></ul>
+    </div>
+    <div class="concept-box"><h4>📅 Important Days (CLAT-relevant)</h4>
+      <ul><li>Jan 26 — Republic Day | Jan 30 — Martyrs' Day</li><li>Apr 14 — B.R. Ambedkar Jayanti (Equality Day)</li><li>Jun 5 — World Environment Day</li><li>Aug 15 — Independence Day | Nov 19 — World Toilet Day</li><li>Dec 10 — Human Rights Day | Dec 3 — International Day of Persons with Disabilities</li></ul>
+    </div>
+  </div>
+
+  <div id="gk-cases" class="notes-panel">
+    <div class="card">
+      <div class="card-title">⚖️ Landmark Supreme Court Judgements</div>
+      <div class="term-entry"><div class="term-name">Kesavananda Bharati (1973)</div><div class="term-def"><strong>Basic Structure Doctrine:</strong> Parliament can amend the Constitution but cannot alter its "basic structure" (federalism, secularism, democracy, judicial review).</div></div>
+      <div class="term-entry"><div class="term-name">ADM Jabalpur (1976)</div><div class="term-def"><strong>Emergency & Habeas Corpus:</strong> SC held rights can be suspended during emergency (later overruled in Puttaswamy). Considered SC's darkest hour.</div></div>
+      <div class="term-entry"><div class="term-name">Maneka Gandhi (1978)</div><div class="term-def"><strong>Expanded Art. 21:</strong> "Procedure established by law" must be fair, just, and reasonable — not arbitrary. Right to life is expansive.</div></div>
+      <div class="term-entry"><div class="term-name">Vishaka v. Rajasthan (1997)</div><div class="term-def"><strong>Sexual Harassment:</strong> Laid down guidelines for workplaces until Parliament enacted the POSH Act (2013).</div></div>
+      <div class="term-entry"><div class="term-name">S.R. Bommai (1994)</div><div class="term-def"><strong>President's Rule:</strong> SC can review imposition of Art. 356. Floor test before dismissal of state govt. federalism strengthened.</div></div>
+      <div class="term-entry"><div class="term-name">Indra Sawhney (1992)</div><div class="term-def"><strong>OBC Reservations:</strong> Upheld 27% OBC quota. Set 50% ceiling on total reservations. Creamy layer exclusion mandated.</div></div>
+      <div class="term-entry"><div class="term-name">K.S. Puttaswamy (2017)</div><div class="term-def"><strong>Right to Privacy:</strong> Privacy is a fundamental right under Art. 21. Overruled ADM Jabalpur. Basis for data protection law.</div></div>
+      <div class="term-entry"><div class="term-name">Navtej Singh Johar (2018)</div><div class="term-def"><strong>Section 377:</strong> Decriminalised consensual same-sex relations among adults. Overruled Suresh Kumar Koushal (2013).</div></div>
+      <div class="term-entry"><div class="term-name">Joseph Shine (2018)</div><div class="term-def"><strong>Adultery (Sec. 497):</strong> Struck down as unconstitutional. Treated women as husband's property. Violates dignity and equality.</div></div>
+      <div class="term-entry"><div class="term-name">Electoral Bonds (2024)</div><div class="term-def"><strong>Political Funding:</strong> SC struck down Electoral Bond Scheme as unconstitutional — violated voters' right to information under Art. 19(1)(a).</div></div>
+    </div>
+  </div>
+
+  <div id="gk-const" class="notes-panel">
+    <div class="card">
+      <div class="card-title">📜 Key Constitutional Articles</div>
+      <div class="term-entry"><div class="term-name">Preamble</div><div class="term-def">Sovereign, Socialist, Secular, Democratic Republic. Justice, Liberty, Equality, Fraternity. Added "Socialist" and "Secular" by 42nd Amendment (1976).</div></div>
+      <div class="term-entry"><div class="term-name">Art. 12–35</div><div class="term-def">Part III — Fundamental Rights. Enforceable in courts. Art. 13: Laws inconsistent with FRs are void.</div></div>
+      <div class="term-entry"><div class="term-name">Art. 14</div><div class="term-def">Right to Equality: Equal before law + equal protection of laws. Allows reasonable classification (not arbitrary).</div></div>
+      <div class="term-entry"><div class="term-name">Art. 19</div><div class="term-def">6 freedoms: speech/expression, assembly, association, movement, residence, profession. All subject to reasonable restrictions.</div></div>
+      <div class="term-entry"><div class="term-name">Art. 21</div><div class="term-def">Right to Life and Personal Liberty. Most expansive FR — includes privacy, livelihood, education, health, dignity.</div></div>
+      <div class="term-entry"><div class="term-name">Art. 21A</div><div class="term-def">Right to Education (added by 86th Amendment, 2002). Free and compulsory education for 6–14 years. → Led to RTE Act 2009.</div></div>
+      <div class="term-entry"><div class="term-name">Art. 32</div><div class="term-def">Right to Constitutional Remedies. Dr. Ambedkar: "Heart and soul of the Constitution." Writs: Habeas Corpus, Mandamus, Prohibition, Certiorari, Quo Warranto.</div></div>
+      <div class="term-entry"><div class="term-name">Art. 36–51 (DPSP)</div><div class="term-def">Directive Principles — non-justiciable (cannot be enforced in court) but fundamental to governance. Art. 44 = Uniform Civil Code; Art. 45 = Early childhood care; Art. 48A = Environment protection.</div></div>
+      <div class="term-entry"><div class="term-name">Art. 51A</div><div class="term-def">11 Fundamental Duties (added by 42nd Amendment). Non-justiciable but used by courts to interpret laws.</div></div>
+      <div class="term-entry"><div class="term-name">Art. 368</div><div class="term-def">Amendment procedure. Parliament can amend but not destroy Basic Structure (Kesavananda Bharati).</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- LEGAL REASONING -->
+<div id="legal" class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#e0f5f3;">⚖️</div>
+    <div><h2>Legal Reasoning</h2><p>~28–32 questions • No prior law knowledge required</p></div>
+  </div>
+
+  <div class="notes-tabs">
+    <button class="notes-tab active" onclick="switchNotes(this,'leg-method')">🔑 IRAC Method</button>
+    <button class="notes-tab" onclick="switchNotes(this,'leg-terms')">📖 Legal Terms</button>
+    <button class="notes-tab" onclick="switchNotes(this,'leg-torts')">⚠️ Torts & Contracts</button>
+    <button class="notes-tab" onclick="switchNotes(this,'leg-writs')">📜 Writs</button>
+  </div>
+
+  <div id="leg-method" class="notes-panel active">
+    <div class="success-box">✅ <strong>Great news:</strong> You do NOT need to know law to ace this section. All legal principles are provided in the passage. Your job is to apply the rule to the facts — exactly like a lawyer using IRAC.</div>
+    <div class="card">
+      <div class="card-title">The IRAC Method <span class="tag tag-teal">Master This</span></div>
+      <div class="concept-box" style="border-left: 4px solid var(--accent); background: #fff5f6;">
+        <h4><span class="key-pill">I</span> Issue — What legal question needs to be answered?</h4>
+        <p>Identify what is being asked. Is it about liability? Rights? Validity of contract? The issue frames your entire analysis.</p>
+      </div>
+      <div class="concept-box" style="border-left: 4px solid var(--teal); background: #f0fdf9;">
+        <h4><span style="background:#e0f5f3; color:var(--teal); display:inline-block; font-size:11px; font-weight:600; padding:2px 10px; border-radius:20px;">R</span> Rule — What principle is stated in the passage?</h4>
+        <p>Extract the exact legal rule from the passage. <strong>Do not use your own knowledge.</strong> Even if you know real law differs, use ONLY the passage's rule.</p>
+      </div>
+      <div class="concept-box" style="border-left: 4px solid var(--gold); background: #fffbeb;">
+        <h4><span style="background:#fef3dc; color:#b07d1a; display:inline-block; font-size:11px; font-weight:600; padding:2px 10px; border-radius:20px;">A</span> Application — Does the rule cover these facts?</h4>
+        <p>Match each element of the rule to the facts. If the rule requires three conditions, check each condition against the facts. Apply mechanically, not intuitively.</p>
+      </div>
+      <div class="concept-box" style="border-left: 4px solid var(--green); background: #f0fdf4;">
+        <h4><span style="background:#e0f5e9; color:var(--green); display:inline-block; font-size:11px; font-weight:600; padding:2px 10px; border-radius:20px;">C</span> Conclusion — What does the application yield?</h4>
+        <p>State the answer clearly: liable / not liable, valid / invalid, guilty / not guilty. Pick the option that matches your IRAC conclusion.</p>
+      </div>
+    </div>
+    <div class="warn-box">🚫 <strong>Biggest mistake:</strong> Applying real-world legal knowledge instead of the passage rule. If the passage says "an agreement made on a Thursday is invalid," accept it — don't bring in contract law knowledge.</div>
+  </div>
+
+  <div id="leg-terms" class="notes-panel">
+    <div class="card">
+      <div class="card-title">Essential Legal Terms for CLAT</div>
+      <div class="term-entry"><div class="term-name">Tort</div><div class="term-def">A civil wrong causing harm, giving the victim the right to sue for compensation. Not a crime. Examples: negligence, defamation, nuisance, trespass.</div></div>
+      <div class="term-entry"><div class="term-name">Negligence</div><div class="term-def">Failure to take reasonable care resulting in damage. Three elements: (1) Duty of care owed, (2) Breach of that duty, (3) Damage caused by the breach.</div></div>
+      <div class="term-entry"><div class="term-name">Mens Rea</div><div class="term-def">"Guilty mind" — criminal intent. Most crimes need both act (Actus Reus) AND intent. Without mens rea, usually no criminal liability.</div></div>
+      <div class="term-entry"><div class="term-name">Actus Reus</div><div class="term-def">"Guilty act" — the physical element of a crime. A voluntary wrongful action or forbidden omission.</div></div>
+      <div class="term-entry"><div class="term-name">Consideration</div><div class="term-def">Something of value exchanged in a contract. "Past consideration is no consideration." Without consideration, a contract is not enforceable (with exceptions).</div></div>
+      <div class="term-entry"><div class="term-name">Offer & Acceptance</div><div class="term-def">Essential elements of a contract. Counter-offer = rejection of original + new offer. Acceptance must be unconditional and communicated.</div></div>
+      <div class="term-entry"><div class="term-name">Strict Liability</div><div class="term-def">Liability without proof of fault. For inherently dangerous activities. Based on Rylands v. Fletcher — "a person who brings onto land something likely to do mischief is strictly liable."</div></div>
+      <div class="term-entry"><div class="term-name">Vicarious Liability</div><div class="term-def">Holding A liable for acts of B. Common example: employer for employee's acts done in the course of employment.</div></div>
+      <div class="term-entry"><div class="term-name">Volenti Non Fit Injuria</div><div class="term-def">"No injury to one who consents." Complete defence to tort claims. E.g., a boxer consents to being punched in a match.</div></div>
+      <div class="term-entry"><div class="term-name">Res Ipsa Loquitur</div><div class="term-def">"The thing speaks for itself." When the facts so clearly indicate negligence that no further proof is needed. Burden shifts to defendant.</div></div>
+      <div class="term-entry"><div class="term-name">Judicial Review</div><div class="term-def">Power of courts to review constitutionality of laws and government actions. A basic structure feature of Indian Constitution.</div></div>
+      <div class="term-entry"><div class="term-name">Locus Standi</div><div class="term-def">Legal standing to sue — the right to bring a case before a court. Relaxed in India through PIL (Public Interest Litigation).</div></div>
+    </div>
+  </div>
+
+  <div id="leg-torts" class="notes-panel">
+    <div class="concept-box"><h4>🔴 Law of Torts — Key Principles</h4>
+      <ul>
+        <li><strong>Defamation:</strong> False statement lowering reputation. Libel (written) vs. Slander (spoken). Truth is a complete defence.</li>
+        <li><strong>Nuisance:</strong> Private nuisance = unreasonable interference with use/enjoyment of land. Public nuisance = affects community.</li>
+        <li><strong>Trespass:</strong> To person (battery, assault), to land (entering without permission), to goods.</li>
+        <li><strong>Absolute Liability (India):</strong> MC Mehta v. Union of India — no exceptions for hazardous industry causing harm. Stricter than Rylands.</li>
+      </ul>
+    </div>
+    <div class="concept-box"><h4>📝 Law of Contracts — Essentials</h4>
+      <ul>
+        <li><strong>Valid contract needs:</strong> Offer + Acceptance + Consideration + Capacity + Free consent + Lawful object</li>
+        <li><strong>Void contract:</strong> Never had legal effect (e.g., by minor)</li>
+        <li><strong>Voidable contract:</strong> Valid until challenged (e.g., obtained by fraud/coercion)</li>
+        <li><strong>Free consent lacks when:</strong> Coercion, undue influence, fraud, misrepresentation, or mistake</li>
+        <li><strong>Invitation to treat:</strong> NOT an offer — just an invitation to make offers (e.g., shop display, advertisement)</li>
+      </ul>
+    </div>
+    <div class="concept-box"><h4>⚖️ Criminal Law Basics</h4>
+      <ul>
+        <li><strong>IPC (now BNS):</strong> Governs substantive criminal law in India</li>
+        <li><strong>Culpable Homicide vs. Murder:</strong> Murder = intention to kill + no exception. Culpable Homicide = killing without full murder intent.</li>
+        <li><strong>General Exceptions:</strong> Private defence, necessity, consent, accident, insanity, intoxication</li>
+        <li><strong>Abetment:</strong> Instigating or assisting someone to commit a crime = also criminal liability</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="leg-writs" class="notes-panel">
+    <div class="card">
+      <div class="card-title">📜 The Five Constitutional Writs</div>
+      <div class="term-entry"><div class="term-name">Habeas Corpus</div><div class="term-def">"Have the body." Challenges unlawful detention — requires the detaining authority to produce the person before a court and justify detention. Available under Art. 32 (SC) and Art. 226 (HC).</div></div>
+      <div class="term-entry"><div class="term-name">Mandamus</div><div class="term-def">"We command." Orders a public official or body to perform a duty they are legally required to do. Cannot be issued against President/Governor or private individuals generally.</div></div>
+      <div class="term-entry"><div class="term-name">Certiorari</div><div class="term-def">"To be certified." Issued by superior court to quash (cancel) the order of a lower court/tribunal that acted beyond its jurisdiction or violated natural justice.</div></div>
+      <div class="term-entry"><div class="term-name">Prohibition</div><div class="term-def">Prevents a lower court/tribunal from exceeding its jurisdiction. Issued BEFORE an inferior court makes a final decision. Preventive in nature (unlike Certiorari which is curative).</div></div>
+      <div class="term-entry"><div class="term-name">Quo Warranto</div><div class="term-def">"By what authority?" Challenges someone's right to hold a public office. Requires them to prove legal authority to exercise the office.</div></div>
+    </div>
+    <div class="highlight-box"><strong>Memory trick — HMCPQ:</strong> "Habeas Mandamus Certiorari Prohibition Quo Warranto" → "<strong>H</strong>uge <strong>M</strong>ango <strong>C</strong>akes <strong>P</strong>lease, <strong>Q</strong>uickly!"</div>
+  </div>
+</div>
+
+<!-- LOGICAL REASONING -->
+<div id="logical" class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#fef3dc;">🧠</div>
+    <div><h2>Logical Reasoning</h2><p>~22–26 questions • Argument analysis from passages</p></div>
+  </div>
+
+  <div class="tip-box">💡 <strong>CLAT Logical ≠ Puzzles.</strong> NO syllogisms, blood relations, seating arrangements, or coding-decoding. CLAT only tests <strong>argument analysis from written passages</strong>. Practice by reading op-ed columns critically.</div>
+
+  <div class="notes-tabs">
+    <button class="notes-tab active" onclick="switchNotes(this,'log-types')">🔍 Argument Types</button>
+    <button class="notes-tab" onclick="switchNotes(this,'log-questions')">❓ Question Types</button>
+    <button class="notes-tab" onclick="switchNotes(this,'log-fallacies')">🚩 Fallacies</button>
+  </div>
+
+  <div id="log-types" class="notes-panel active">
+    <div class="concept-box"><h4>📌 Deductive Arguments</h4><p>Conclusion <strong>necessarily follows</strong> from premises. If premises are true, the conclusion MUST be true. Example: "All cats are mammals. Whiskers is a cat. Therefore Whiskers is a mammal." Focus: Is the argument valid (properly structured)?</p></div>
+    <div class="concept-box"><h4>📌 Inductive Arguments</h4><p>Conclusion <strong>probably follows</strong> from premises — evidence supports but doesn't guarantee. Example: "The last 10 swans I saw were white. Therefore all swans are white." Focus: Is the argument strong (is the evidence sufficient)?</p></div>
+    <div class="concept-box"><h4>📌 Abductive Arguments</h4><p>"Best explanation" reasoning — inferring the most likely cause from observed effects. Example: "The floor is wet. It probably rained, or someone spilled water." Used in legal reasoning to establish facts.</p></div>
+    <div class="concept-box"><h4>🔑 Identifying an Argument's Structure</h4>
+      <p>In any passage, identify:</p>
+      <ul>
+        <li><strong>Conclusion:</strong> The main claim being made. Signal words: "therefore," "thus," "hence," "so," "consequently."</li>
+        <li><strong>Premises:</strong> The evidence/reasons. Signal words: "because," "since," "given that," "as," "for."</li>
+        <li><strong>Assumption:</strong> Unstated premise the argument depends on — never explicitly stated but must be true for conclusion to hold.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="log-questions" class="notes-panel">
+    <div class="concept-box"><h4>🔵 Strengthen Questions</h4><p>Find the option that makes the conclusion MORE likely. Usually adds new evidence supporting the argument's key assumption, or eliminates an alternative explanation. Ask: "Which option, if true, would make the argument stronger?"</p></div>
+    <div class="concept-box"><h4>🔴 Weaken Questions</h4><p>Find the option that attacks the argument's assumption or provides counter-evidence. Doesn't have to destroy the argument — just make it less convincing. Most common CLAT question type.</p></div>
+    <div class="concept-box"><h4>🟡 Assumption Questions</h4><p>The assumption is the hidden premise without which the argument breaks down. Use the <strong>Negation Test</strong>: negate each option. If negating it destroys the argument, that's the assumption.</p></div>
+    <div class="concept-box"><h4>🟢 Inference Questions</h4><p>What can be concluded from the passage? Must be <strong>necessarily</strong> true given the passage — not just possibly true. More conservative than "what might be inferred."</p></div>
+    <div class="concept-box"><h4>🟣 Flaw Questions</h4><p>What logical error does the argument commit? Common flaws: hasty generalisation, correlation-causation confusion, false analogy, circular reasoning, ad hominem. Name the flaw type.</p></div>
+    <div class="concept-box"><h4>⚪ Parallel Reasoning</h4><p>Find the option that follows the <strong>same logical structure</strong> as the original argument — regardless of subject matter. Focus on the form/pattern, not the content.</p></div>
+  </div>
+
+  <div id="log-fallacies" class="notes-panel">
+    <div class="card">
+      <div class="card-title">Common Logical Fallacies</div>
+      <div class="term-entry"><div class="term-name">Ad Hominem</div><div class="term-def">Attacking the person making the argument rather than the argument itself. "You can't trust her opinion on healthcare — she's not a doctor."</div></div>
+      <div class="term-entry"><div class="term-name">Straw Man</div><div class="term-def">Misrepresenting an opponent's argument in a weaker form to more easily attack it.</div></div>
+      <div class="term-entry"><div class="term-name">False Dichotomy</div><div class="term-def">Presenting only two options when more exist. "Either you support this policy or you don't care about children."</div></div>
+      <div class="term-entry"><div class="term-name">Slippery Slope</div><div class="term-def">Claiming one event will inevitably lead to extreme consequences without justification. "If we legalise X, soon everything will be legal."</div></div>
+      <div class="term-entry"><div class="term-name">Correlation ≠ Causation</div><div class="term-def">Two things occurring together doesn't mean one caused the other. Ice cream sales and drowning rates both rise in summer — they don't cause each other.</div></div>
+      <div class="term-entry"><div class="term-name">Hasty Generalisation</div><div class="term-def">Broad conclusion from too small or unrepresentative a sample. "I met two rude people from Delhi. People from Delhi are rude."</div></div>
+      <div class="term-entry"><div class="term-name">Circular Reasoning</div><div class="term-def">The conclusion is used as a premise. "The law is just because it is the law." The argument assumes what it's trying to prove.</div></div>
+      <div class="term-entry"><div class="term-name">Appeal to Authority</div><div class="term-def">Claiming something is true because an authority (not necessarily expert on this topic) said so.</div></div>
+      <div class="term-entry"><div class="term-name">Red Herring</div><div class="term-def">Introducing an irrelevant topic to distract from the main issue.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- QUANT -->
+<div id="quant" class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#ede8f9;">📐</div>
+    <div><h2>Quantitative Techniques</h2><p>~10–14 questions • Class 10 maths only</p></div>
+  </div>
+
+  <div class="highlight-box"><strong>📊 Strategy:</strong> Only 10–14 questions but highly scoring — all Class 10 level. No calculus, trigonometry, or complex algebra. Aim for 80%+ accuracy. The hard part isn't the math — it's reading and extracting numbers from text.</div>
+
+  <div class="notes-tabs">
+    <button class="notes-tab active" onclick="switchNotes(this,'q-topics')">📚 Topics</button>
+    <button class="notes-tab" onclick="switchNotes(this,'q-formulas')">🔢 Formulas</button>
+    <button class="notes-tab" onclick="switchNotes(this,'q-tips')">⚡ Tips</button>
+  </div>
+
+  <div id="q-topics" class="notes-panel active">
+    <div class="concept-box"><h4>📊 Percentages</h4><ul><li>Percentage increase: [(New − Old) / Old] × 100</li><li>Percentage decrease: [(Old − New) / Old] × 100</li><li>X% of Y = (X/100) × Y</li><li>Most common in data interpretation: "what percentage is X of total Y?"</li></ul></div>
+    <div class="concept-box"><h4>⚖️ Ratio & Proportion</h4><ul><li>Ratio a:b means a/(a+b) and b/(a+b) of total respectively</li><li>If a:b = 2:3 and total = 50, then a = 20, b = 30</li><li>Compound ratio: multiply ratios; Inverse ratio: flip them</li></ul></div>
+    <div class="concept-box"><h4>📈 Averages & Weighted Averages</h4><ul><li>Simple average = sum / count</li><li>Weighted average = (sum of value × weight) / sum of weights</li><li>If average changes when one item is added — use algebra</li></ul></div>
+    <div class="concept-box"><h4>💰 Profit, Loss & Interest</h4><ul><li>Profit% = (SP − CP)/CP × 100 | Loss% = (CP − SP)/CP × 100</li><li>Simple Interest = PRT/100 (P=principal, R=rate, T=time in years)</li><li>Compound Interest = P[(1 + R/100)ⁿ − 1]</li><li>Effective rate: for CI, always slightly higher than SI</li></ul></div>
+    <div class="concept-box"><h4>📉 Data Interpretation</h4><ul><li>Extract the right numbers from the passage — don't rush</li><li>Common formats: comparison tables, growth data, budget allocations</li><li>Check units carefully (crores vs. lakhs, % vs. absolute numbers)</li><li>Estimate when exact calculation is slow — CLAT doesn't need 5-decimal precision</li></ul></div>
+  </div>
+
+  <div id="q-formulas" class="notes-panel">
+    <div class="card">
+      <div class="card-title">All Formulas to Memorise</div>
+      <div class="concept-box"><h4>Percentage</h4><p>% Change = [(New − Old) / Old] × 100 &nbsp;|&nbsp; X is what % of Y = (X/Y) × 100</p></div>
+      <div class="concept-box"><h4>Profit & Loss</h4><p>SP = CP × (1 + P%/100) &nbsp;|&nbsp; CP = SP / (1 + P%/100) &nbsp;|&nbsp; Discount = MP − SP &nbsp;|&nbsp; Discount% = (Discount/MP) × 100</p></div>
+      <div class="concept-box"><h4>Interest</h4><p>SI = PRT/100 &nbsp;|&nbsp; A (SI) = P + PRT/100 &nbsp;|&nbsp; CI = P[(1+r/100)ⁿ − 1] &nbsp;|&nbsp; A (CI) = P(1+r/100)ⁿ</p></div>
+      <div class="concept-box"><h4>Averages</h4><p>Mean = ΣX / n &nbsp;|&nbsp; If avg of n items is A, and one item X is removed, new avg = (nA − X)/(n−1)</p></div>
+      <div class="concept-box"><h4>Speed, Distance, Time</h4><p>D = S × T &nbsp;|&nbsp; Average speed = 2S₁S₂/(S₁+S₂) for equal distances &nbsp;|&nbsp; Time = D/S</p></div>
+      <div class="concept-box"><h4>Ratio Tips</h4><p>If A:B = m:n, then A = m/(m+n) × Total &nbsp;|&nbsp; If A:B = 2:3, B:C = 4:5, then A:B:C = 8:12:15</p></div>
+    </div>
+  </div>
+
+  <div id="q-tips" class="notes-panel">
+    <div class="card">
+      <div class="card-title">⚡ High-Impact Tips</div>
+      <ul class="notes">
+        <li><strong>Read twice, calculate once:</strong> Most errors come from misreading the data, not wrong math.</li>
+        <li><strong>Estimate aggressively:</strong> For MCQs, approximate calculations to 2 significant figures. If options are far apart, rounding works fine.</li>
+        <li><strong>Check units:</strong> Watch out for lakhs vs. crores, per annum vs. total, etc.</li>
+        <li><strong>No calculator:</strong> Practice mental math — particularly mental percentages (e.g., 17.5% = 10% + 5% + 2.5%)</li>
+        <li><strong>Spend time here wisely:</strong> This section has the fewest questions. Aim for 8–10 minutes total. Don't let one DI question eat 4 minutes.</li>
+        <li><strong>Do this section near the end:</strong> Fresh eyes for calculation reduce errors.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FLASHCARDS -->
+<div id="flashcards" class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#fde8ec;">🗂️</div>
+    <div><h2>Smart Flashcards</h2><p>Click a card to flip it. Test your memory.</p></div>
+  </div>
+
+  <div class="notes-tabs">
+    <button class="notes-tab active" onclick="loadDeck('legal')">⚖️ Legal Terms</button>
+    <button class="notes-tab" onclick="loadDeck('writs')">📜 Writs</button>
+    <button class="notes-tab" onclick="loadDeck('cases')">🏛️ Landmark Cases</button>
+    <button class="notes-tab" onclick="loadDeck('articles')">📋 Constitutional Articles</button>
+    <button class="notes-tab" onclick="loadDeck('fallacies')">🧠 Fallacies</button>
+  </div>
+
+  <div style="margin-bottom:12px;" id="fc-progress" class="fc-count">Card 1 of 10</div>
+  <div class="flashcard-wrap" id="fcWrap" onclick="flipCard()">
+    <div class="flashcard" id="fc">
+      <div class="fc-front"><span class="fc-label">Click to reveal</span><span class="fc-q" id="fc-q">Loading...</span></div>
+      <div class="fc-back"><span class="fc-label">Answer</span><span id="fc-a">Loading...</span></div>
+    </div>
+  </div>
+  <div class="fc-nav">
+    <button class="btn-secondary" onclick="prevCard()">← Prev</button>
+    <button class="btn-secondary" onclick="nextCard()">Next →</button>
+  </div>
+</div>
+
+<!-- ASSESSMENT TESTS -->
+<div id="assessment" class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#e0e8f9;">🎯</div>
+    <div><h2>Assessment Tests</h2><p>AI-powered practice tests with instant feedback</p></div>
+  </div>
+
+  <div id="quiz-selector">
+    <div class="highlight-box"><strong>🤖 AI-Powered:</strong> These tests use real CLAT-style passages and questions. After each test, you'll get AI analysis of your performance and personalised tips.</div>
+    <div class="assess-grid">
+      <div class="assess-card" onclick="startQuiz('english')">
+        <div class="icon">📖</div>
+        <h4>English Language</h4>
+        <p>RC passages with inference, tone & vocabulary</p>
+        <span class="badge" style="background:#fde8ec; color:var(--accent);">5 Questions</span>
+      </div>
+      <div class="assess-card" onclick="startQuiz('legal')">
+        <div class="icon">⚖️</div>
+        <h4>Legal Reasoning</h4>
+        <p>Principle-fact application via IRAC</p>
+        <span class="badge" style="background:#e0f5f3; color:var(--teal);">5 Questions</span>
+      </div>
+      <div class="assess-card" onclick="startQuiz('gk')">
+        <div class="icon">🌍</div>
+        <h4>GK & Current Affairs</h4>
+        <p>News passages + static GK</p>
+        <span class="badge" style="background:#e0e8f9; color:#3a5bbf;">5 Questions</span>
+      </div>
+      <div class="assess-card" onclick="startQuiz('logical')">
+        <div class="icon">🧠</div>
+        <h4>Logical Reasoning</h4>
+        <p>Argument analysis and fallacy detection</p>
+        <span class="badge" style="background:#fef3dc; color:#b07d1a;">5 Questions</span>
+      </div>
+      <div class="assess-card" onclick="startQuiz('quant')">
+        <div class="icon">📐</div>
+        <h4>Quantitative Techniques</h4>
+        <p>Data interpretation and maths</p>
+        <span class="badge" style="background:#ede8f9; color:#6b4bbf;">5 Questions</span>
+      </div>
+      <div class="assess-card" onclick="startQuiz('mixed')">
+        <div class="icon">🎲</div>
+        <h4>Mixed Mock Test</h4>
+        <p>Questions from all 5 sections</p>
+        <span class="badge" style="background:#e8f5e9; color:#16a34a);">10 Questions</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="quiz-area" style="display:none;">
+    <div class="quiz-header">
+      <h3 id="quiz-title">Loading Quiz...</h3>
+      <div class="quiz-meta" id="quiz-meta">Question 1 of 5</div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <div id="quiz-content">
+      <div class="ai-loading"><div class="spinner"></div>Generating your question...</div>
+    </div>
+  </div>
+</div>
+
+<!-- STRATEGY -->
+<div id="strategy" class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#fde8ec;">📅</div>
+    <div><h2>Preparation Strategy</h2><p>Month-by-month plan for Class 12 students targeting CLAT 2027</p></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">The Golden Rules of CLAT Prep</div>
+    <ul class="notes">
+      <li><strong>Read daily without exception.</strong> The Hindu editorial + news = your CLAT foundation. This is non-negotiable.</li>
+      <li><strong>Passage practice beats rote learning.</strong> CLAT rewards comprehension and application, not memorisation.</li>
+      <li><strong>Start mock tests 6 months before exam.</strong> The habit of timed, pressured practice is irreplaceable.</li>
+      <li><strong>Analyse WHY you got something wrong,</strong> not just that you did. Pattern recognition in your errors is the key to improvement.</li>
+      <li><strong>Balance Class 12 boards with CLAT.</strong> You need 45% in boards for eligibility — and college performance matters for law school applications.</li>
+      <li><strong>GK is built daily, not in a week.</strong> Start now. No amount of last-minute cramming can substitute for 12 months of reading.</li>
+    </ul>
+  </div>
+
+  <div class="month-card">
+    <div class="month-header" onclick="toggleMonth(this)"><h3>📅 Phase 1: Foundation (Apr – Jun 2026)</h3><span>▼</span></div>
+    <div class="month-body">
+      <ul>
+        <li>Start <strong>The Hindu</strong> daily — editorial + national/international pages. This is your single most important CLAT habit.</li>
+        <li>Complete NCERT Class 10 Maths — percentages, ratios, averages, SI/CI. 2 weeks is enough.</li>
+        <li>Read NCERT Class 11 Political Science (Indian Constitution at Work) — covers Fundamental Rights, DPSPs, Parliament, Judiciary.</li>
+        <li>Start a Current Affairs Diary — note 5 key news items daily. Review every Sunday.</li>
+        <li>Read 1–2 official CLAT sample papers to understand format and passage length.</li>
+        <li>Begin vocabulary building — 10 new words/week from editorial reading (in context, not lists).</li>
+        <li>Watch free YouTube orientation videos: CLAT Possible, iQuanta Law, LexiConn.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="month-card">
+    <div class="month-header" onclick="toggleMonth(this)"><h3>📅 Phase 2: Concept Building (Jul – Sep 2026)</h3><span>▼</span></div>
+    <div class="month-body">
+      <ul>
+        <li>Deep-dive into <strong>Legal Reasoning</strong> — practice IRAC daily. Solve 2–3 passages per day from past papers.</li>
+        <li>Study logical fallacies and argument structure — read op-ed columns critically (2–3 hrs/week).</li>
+        <li>Solve <strong>Reading Comprehension</strong> passages daily — time yourself at 5–6 minutes per passage.</li>
+        <li>Compile Landmark Judgements notes (use the GK section of this guide).</li>
+        <li>Start past CLAT papers (2020–2025) — one full paper per week. Analyse errors by section.</li>
+        <li>Build Static GK notes: Constitutional Articles, Indian Geography, National Symbols, World Organisations.</li>
+        <li>Continue daily newspaper reading; add <strong>Indian Express Explained</strong> section.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="month-card">
+    <div class="month-header" onclick="toggleMonth(this)"><h3>📅 Phase 3: Intensive Practice (Oct – Nov 2026)</h3><span>▼</span></div>
+    <div class="month-body">
+      <ul>
+        <li>Give <strong>2 full mock tests per week</strong> under strict timed conditions (120 minutes, offline).</li>
+        <li>After each mock — deep error analysis by section. Identify your 3 weakest areas and address them immediately.</li>
+        <li>Revise all landmark judgements, constitutional articles, and legal terms (use flashcards from this guide).</li>
+        <li>Compile last 18 months' CA into a quick-revision booklet — one page per month.</li>
+        <li>Track your reading speed: aim for 200+ words per minute for CLAT passages.</li>
+        <li>Solve all past CLAT papers 2018–2025. Identify recurring question types.</li>
+        <li>Attempt AILET and SLAT mock papers for additional exposure.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="month-card">
+    <div class="month-header" onclick="toggleMonth(this)"><h3>📅 Phase 4: Revision & Mastery (Dec 2026)</h3><span>▼</span></div>
+    <div class="month-body">
+      <ul>
+        <li>Give a mock test every 2 days. Focus on time management and accuracy, not new learning.</li>
+        <li>Only revise — no new topics in the last 3 weeks before the exam.</li>
+        <li>Review CA booklet daily in the final 2 weeks.</li>
+        <li>Do sectional tests for Legal Reasoning and GK (your highest-weightage sections).</li>
+        <li>Maintain sleep schedule and physical routine. Cognitive performance degrades with sleep deprivation.</li>
+        <li>Re-read all notes: legal terms, constitutional articles, landmark judgements.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📅 Ideal Daily Schedule (2.5 hrs alongside Class 12)</div>
+    <div class="timeline">
+      <div class="tl-item"><h4>Morning — 30 mins — Newspaper Reading</h4><p>The Hindu editorial + 2 key news stories. Add to CA diary. This builds GK, vocabulary, and reading speed simultaneously.</p></div>
+      <div class="tl-item"><h4>After School/College — 60 mins — Section Practice</h4><p>Mon/Wed = Legal Reasoning passages &nbsp;|&nbsp; Tue/Thu = Logical Reasoning &nbsp;|&nbsp; Fri = English RC (timed) &nbsp;|&nbsp; Sat = GK revision + CA quiz &nbsp;|&nbsp; Sun = Full mock or past paper</p></div>
+      <div class="tl-item"><h4>Evening — 30 mins — Quant + Vocab</h4><p>10 min: 3–4 Quant problems &nbsp;|&nbsp; 10 min: vocabulary review (from editorial) &nbsp;|&nbsp; 10 min: legal terms or flashcards</p></div>
+      <div class="tl-item"><h4>Weekend — 2–3 hours — Mock or Deep Sectional</h4><p>One full mock test OR two full-section practices. Always follow with a written error analysis. What type of question did you get wrong? Why?</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🏁 Exam Day Attempt Strategy</div>
+    <ul class="notes">
+      <li><strong>Recommended order:</strong> Legal Reasoning → English → GK → Logical → Quant</li>
+      <li><strong>Approximate time:</strong> Legal 28 min → English 20 min → GK 25 min → Logical 20 min → Quant 10 min → Review 17 min</li>
+      <li><strong>Skip-and-return rule:</strong> Stuck on a question for 90 seconds? Mark it and move on. Don't let one question cost three marks elsewhere.</li>
+      <li><strong>Negative marking threshold:</strong> Only attempt if you can eliminate at least 2 options. Skip if genuinely unsure — −0.25 hurts.</li>
+      <li><strong>Keep 10–15 minutes at end</strong> to return to flagged questions. Never end the exam early.</li>
+      <li><strong>Mental reset between passages:</strong> Take one deep breath before each new passage. Carry over comprehension from previous passage will mislead you.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- RESOURCES -->
+<div id="resources" class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#e0f5f3;">📚</div>
+    <div><h2>Books & Resources</h2><p>Curated material for every stage of CLAT preparation</p></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📘 Best Books for CLAT UG</div>
+    <div class="resource-item"><div class="res-icon" style="background:#fde8ec;">📖</div><div><h4>Universal's CLAT Guide — R.K. Gupta</h4><p>All-in-one for beginners. Covers all 5 sections with theory, solved examples, and past year papers. Good starting point.</p></div></div>
+    <div class="resource-item"><div class="res-icon" style="background:#e0e8f9;">⚖️</div><div><h4>Lexis Nexis CLAT Guide</h4><p>Strong legal reasoning and GK sections. Trusted by toppers. Updated with new passage-based format.</p></div></div>
+    <div class="resource-item"><div class="res-icon" style="background:#e0f5f3;">🔢</div><div><h4>NCERT Class 10 Mathematics (Free)</h4><p>Covers all Quantitative Techniques topics at the right level. Download free from ncert.nic.in.</p></div></div>
+    <div class="resource-item"><div class="res-icon" style="background:#fef3dc;">🇮🇳</div><div><h4>NCERT Class 11 Political Science — Indian Constitution at Work (Free)</h4><p>Best and free introduction to constitutional law for CLAT. Covers Fundamental Rights, Parliament, Judiciary.</p></div></div>
+    <div class="resource-item"><div class="res-icon" style="background:#ede8f9;">🧠</div><div><h4>Word Power Made Easy — Norman Lewis</h4><p>Classic vocabulary book. Builds contextual word understanding — far more useful than rote word lists.</p></div></div>
+    <div class="resource-item"><div class="res-icon" style="background:#fde8ec;">📄</div><div><h4>Past CLAT Papers 2015–2024</h4><p>Your most important resource. Free on consortiumofnlus.ac.in. Do all of them under timed conditions.</p></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">💻 Online Resources</div>
+    <div class="resource-item"><div class="res-icon" style="background:#e0f5f3;">🌐</div><div><h4>consortiumofnlus.ac.in (Official)</h4><p>Official CLAT website — sample papers, syllabus updates, model questions. Read everything here. Bookmark it.</p></div></div>
+    <div class="resource-item"><div class="res-icon" style="background:#fde8ec;">📱</div><div><h4>CLAT Possible / iQuanta Law / LexiConn (YouTube — Free)</h4><p>Free video lectures, strategy sessions, and paper analysis. Excellent for Legal Reasoning walkthroughs.</p></div></div>
+    <div class="resource-item"><div class="res-icon" style="background:#e0e8f9;">📄</div><div><h4>legalbites.in (Free)</h4><p>Free Legal Reasoning notes, monthly CA compilations, and practice questions. Very CLAT-focused.</p></div></div>
+    <div class="resource-item"><div class="res-icon" style="background:#fef3dc;">📰</div><div><h4>The Hindu + Indian Express (Daily)</h4><p>The single most important daily habit for CLAT. Editorials for English + GK; news for CA. Free with student subscription at many schools.</p></div></div>
+    <div class="resource-item"><div class="res-icon" style="background:#ede8f9;">🎯</div><div><h4>CLATapult / Endeavor / CLAT Gurukul (Paid Mocks)</h4><p>Paid mock test series — recommended from 5–6 months before exam. Gives national percentile data for benchmarking.</p></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">✅ Humanities Background = Your Advantage</div>
+    <div class="tip-box">A Humanities background is a <strong>real advantage</strong> in CLAT. Students with History, Political Science, and English have a natural edge in:
+      <ul style="padding-left:18px; margin-top:8px;">
+        <li>Legal Reasoning — exposure to social, moral, and policy issues</li>
+        <li>Current Affairs — History and Pol. Science give strong contextual understanding of news</li>
+        <li>English — regular essay and comprehension training directly prepares for CLAT passages</li>
+        <li>Logical Reasoning — humanities essay writing trains argument analysis</li>
+      </ul>
+      <strong>Only focus area:</strong> Spend extra time on Quantitative Techniques — 2–3 weeks of Class 10 maths practice will build full confidence there.
+    </div>
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<!-- PYQ SECTION -->
+<div id="pyq" class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#fde8ec;">📝</div>
+    <div><h2>Previous Year Questions</h2><p>AILET 2026 & CLAT English — real exam questions with solutions</p></div>
+  </div>
+
+  <div class="highlight-box"><strong>💡 How to use:</strong> Click any option to check your answer. Read the explanation carefully — understanding WHY an option is wrong is more valuable than just knowing the right one.</div>
+
+  <div class="pyq-filter">
+    <button class="pyq-filter-btn active" onclick="filterPYQ('all', this)">All</button>
+    <button class="pyq-filter-btn" onclick="filterPYQ('english', this)">📖 English</button>
+    <button class="pyq-filter-btn" onclick="filterPYQ('gk', this)">🌍 GK</button>
+    <button class="pyq-filter-btn" onclick="filterPYQ('logical', this)">🧠 Logical</button>
+  </div>
+
+  <div id="pyq-list">
+
+  <!-- ENGLISH PYQs from AILET 2026 -->
+  <div class="pyq-question" data-cat="english">
+    <div class="pyq-meta"><span>AILET 2026</span><span>English — Reading Comprehension</span><span>Q1</span></div>
+    <div class="pyq-passage">The integration of Artificial Intelligence (AI) into law enforcement practices has sparked a global debate on ethics, privacy, and accountability. From facial recognition systems in public spaces to predictive policing algorithms, AI is transforming how crimes are detected and prevented. However, the benefits of efficiency and data-driven decision-making are accompanied by concerns about fairness, bias, and the potential erosion of civil liberties. Predictive policing uses historical crime data to forecast where crimes are likely to occur or who might commit them. Proponents argue that this allows police to allocate resources more efficiently and reduce crime rates. However, critics warn that such systems may reinforce existing societal biases. The lack of transparency in how these systems operate — the "Black Box" problem — makes it difficult to challenge wrongful predictions or decisions in a court of law.</div>
+    <div class="pyq-q">1. What is the central concern raised in the passage regarding AI in law enforcement?</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">A. Replacing human officers</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">B. High operational costs</div>
+    <div class="pyq-option" onclick="selectPYQ(this, true)">C. Reinforcing bias and reducing fairness</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">D. Inability to analyze real-time data</div>
+    <div class="pyq-answer-box"><strong>✅ Answer: C</strong> — The passage repeatedly highlights concerns about fairness, bias, and erosion of civil liberties. Predictive policing and FRT are criticised mainly because they may perpetuate injustice against marginalized communities. Bias and fairness are the core concerns.</div>
+  </div>
+
+  <div class="pyq-question" data-cat="english">
+    <div class="pyq-meta"><span>AILET 2026</span><span>English — RC</span><span>Q3</span></div>
+    <div class="pyq-passage">[Same AI in Law Enforcement passage as above]</div>
+    <div class="pyq-q">3. Based on the passage, how does facial recognition technology potentially lead to injustice?</div>
+    <div class="pyq-option" onclick="selectPYQ(this, true)">A. By exhibiting higher error rates for specific demographic groups</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">B. By decreasing reliance on human judgment in policing</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">C. By increasing costs and limiting deployment in critical areas</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">D. By generating occasional misidentifications across all populations equally</div>
+    <div class="pyq-answer-box"><strong>✅ Answer: A</strong> — The passage says "FRT is less accurate in identifying people of colour and women," resulting in false accusations and wrongful detentions. Injustice arises from unequal error rates — not equal mistakes across all groups.</div>
+  </div>
+
+  <div class="pyq-question" data-cat="english">
+    <div class="pyq-meta"><span>AILET 2026</span><span>English — Vocabulary in Context</span><span>Q5</span></div>
+    <div class="pyq-passage">[AI in Law Enforcement passage] — "This opaqueness undermines accountability, making it difficult to challenge wrongful predictions or decisions in a court of law."</div>
+    <div class="pyq-q">5. The word 'opaqueness' in the paragraph refers to:</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">A. Clear and understandable legal processes</div>
+    <div class="pyq-option" onclick="selectPYQ(this, true)">B. Lack of visibility or understanding</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">C. Openness and transparency in systems</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">D. Restricted access due to security levels</div>
+    <div class="pyq-answer-box"><strong>✅ Answer: B</strong> — 'Opaqueness' is used in the context of AI algorithms being hard to understand and decision-making not being visible. This aligns with lack of clarity or transparency.</div>
+  </div>
+
+  <div class="pyq-question" data-cat="english">
+    <div class="pyq-meta"><span>CLAT English PYQ</span><span>English — Inference</span><span>Passage 3</span></div>
+    <div class="pyq-passage">The curdling of the social internet happened slowly and then all at once. The tipping point, I'd guess, was around 2012. People were losing excitement about the internet, starting to articulate a set of new truisms. Facebook had become tedious, trivial, exhausting. Instagram seemed better, but would soon reveal its underlying function as a three-ring circus of happiness and popularity and success. Twitter, for all its discursive promise, was where everyone tweeted complaints at airlines. As a medium, the internet is defined by a built-in performance incentive. On the internet—for anyone to see you, you have to act. The everyday madness perpetuated by the internet is the madness of this architecture, which positions personal identity as the centre of the universe.</div>
+    <div class="pyq-q">Q11. Which of the following statements can be inferred from the above passage?</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">A. The internet expanded very slowly</div>
+    <div class="pyq-option" onclick="selectPYQ(this, true)">B. The internet can be used to cause harm</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">C. The internet is addictive</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">D. The main purpose of social media platforms is to dissuade people from showing off</div>
+    <div class="pyq-answer-box"><strong>✅ Answer: B</strong> — The passage talks about how the internet causes "everyday madness," alienation, and self-destructive performance incentives — all forms of harm. The internet expanded rapidly (not slowly), and option D is the opposite of what the passage says.</div>
+  </div>
+
+  <div class="pyq-question" data-cat="english">
+    <div class="pyq-meta"><span>CLAT English PYQ</span><span>English — Metaphor</span><span>Passage 3</span></div>
+    <div class="pyq-passage">[Social internet passage above]</div>
+    <div class="pyq-q">Q14. Which of the following is a metaphor in the passage?</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">A. the village of the internet</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">B. this feverish, electric, unliveable hell</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">C. three-ring circus of happiness and popularity and success</div>
+    <div class="pyq-option" onclick="selectPYQ(this, true)">D. All the above</div>
+    <div class="pyq-answer-box"><strong>✅ Answer: D</strong> — All three phrases are metaphors. "Village of the internet" compares the internet to a village. "Unliveable hell" is a metaphorical description of the experience. "Three-ring circus" compares Instagram to a circus performance.</div>
+  </div>
+
+  <!-- GK PYQs from AILET 2026 -->
+  <div class="pyq-question" data-cat="gk">
+    <div class="pyq-meta"><span>AILET 2026</span><span>GK & Current Affairs</span><span>Q51</span></div>
+    <div class="pyq-q">India's first woman Chief Minister was:</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">A. Nandini Satpathy</div>
+    <div class="pyq-option" onclick="selectPYQ(this, true)">B. Sucheta Kripalani</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">C. Janaki Ramachandran</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">D. Sheila Dikshit</div>
+    <div class="pyq-answer-box"><strong>✅ Answer: B</strong> — Sucheta Kripalani became India's first woman Chief Minister in 1963, serving as CM of Uttar Pradesh. She was also a prominent freedom fighter and member of the Constituent Assembly.</div>
+  </div>
+
+  <div class="pyq-question" data-cat="gk">
+    <div class="pyq-meta"><span>AILET 2026</span><span>GK & Current Affairs</span><span>Q57</span></div>
+    <div class="pyq-q">Which country instituted proceedings against Israel before the International Court of Justice, alleging that Israeli military action in Gaza violated the Genocide Convention?</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">A. India</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">B. Belgium</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">C. France</div>
+    <div class="pyq-option" onclick="selectPYQ(this, true)">D. South Africa</div>
+    <div class="pyq-answer-box"><strong>✅ Answer: D</strong> — South Africa approached the ICJ alleging that Israel's military actions in Gaza violated the Genocide Convention. The case gained global attention due to its serious legal and humanitarian implications.</div>
+  </div>
+
+  <div class="pyq-question" data-cat="gk">
+    <div class="pyq-meta"><span>AILET 2026</span><span>GK — Science & Tech</span><span>Q68</span></div>
+    <div class="pyq-q">In late 2024, Google announced development of a state-of-the-art quantum chip considered a big step towards developing a large-scale, error-corrected quantum computer. The chip is named:</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">A. Sentinel</div>
+    <div class="pyq-option" onclick="selectPYQ(this, true)">B. Willow</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">C. Polaris</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">D. Orion</div>
+    <div class="pyq-answer-box"><strong>✅ Answer: B</strong> — Google's Willow chip (2024) is designed to improve quantum error correction and scalability — two of the biggest challenges in practical quantum computing.</div>
+  </div>
+
+  <div class="pyq-question" data-cat="gk">
+    <div class="pyq-meta"><span>AILET 2026</span><span>GK — Sports</span><span>Q76</span></div>
+    <div class="pyq-q">Which franchise won the 2025 edition of Indian Premier League (IPL)?</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">A. Mumbai Indians</div>
+    <div class="pyq-option" onclick="selectPYQ(this, true)">B. Royal Challengers Bengaluru</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">C. Gujarat Titans</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">D. Chennai Super Kings</div>
+    <div class="pyq-answer-box"><strong>✅ Answer: B</strong> — Royal Challengers Bengaluru won IPL 2025, marking a historic first title for the franchise after years of near-misses.</div>
+  </div>
+
+  <div class="pyq-question" data-cat="gk">
+    <div class="pyq-meta"><span>AILET 2026</span><span>GK — Environment</span><span>Q77</span></div>
+    <div class="pyq-q">GRAP framework was introduced as an emergency response mechanism to combat extreme air quality conditions in Delhi-NCR. What does GRAP stand for?</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">A. Generalised Response Assessment Protocol</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">B. Graded Response against Air Pollution</div>
+    <div class="pyq-option" onclick="selectPYQ(this, true)">C. Graded Response Action Plan</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">D. Ground-level Restoration and Action Policy</div>
+    <div class="pyq-answer-box"><strong>✅ Answer: C</strong> — GRAP (Graded Response Action Plan) is a set of emergency measures implemented in Delhi-NCR to tackle air pollution based on its severity levels.</div>
+  </div>
+
+  <!-- LOGICAL PYQs from AILET 2026 -->
+  <div class="pyq-question" data-cat="logical">
+    <div class="pyq-meta"><span>AILET 2026</span><span>Logical Reasoning — Syllogism</span><span>Q84</span></div>
+    <div class="pyq-passage">Shopkeepers are Big. Some Big persons violate night curfew. All who violate night curfew are fined. Anil is Big.</div>
+    <div class="pyq-q">Examine the following statements: I. Anil is a Shopkeeper II. Anil may violate a night curfew III. Anil will definitely violate night curfew IV. If Anil is a shopkeeper, he will get fined V. Anil will definitely get fined. Select the correct option:</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">A. Only I, III and IV</div>
+    <div class="pyq-option" onclick="selectPYQ(this, true)">B. Only II</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">C. Only I and III</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">D. Only I and V</div>
+    <div class="pyq-answer-box"><strong>✅ Answer: B — Only II is true.</strong> I is false (all shopkeepers are big, but not all big persons are shopkeepers). II is true (some big persons violate curfew; since Anil is big, he MAY violate). III is false (only SOME big persons violate — not certainty). IV is false (shopkeeper → big → may violate → may be fined, not definite). V is false for same reason.</div>
+  </div>
+
+  <div class="pyq-question" data-cat="logical">
+    <div class="pyq-meta"><span>AILET 2026</span><span>Logical Reasoning — Principle-Fact</span><span>Q86</span></div>
+    <div class="pyq-passage"><strong>Principle:</strong> A driver is responsible for controlling their vehicle and avoiding harm to pedestrians, unless the pedestrian acted recklessly or unlawfully. <strong>Facts:</strong> A driver hits a pedestrian who suddenly runs across the road outside a crosswalk without looking. The driver was obeying all traffic rules.</div>
+    <div class="pyq-q">Which of the following is correct?</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">A. The driver is liable for the pedestrian's injuries.</div>
+    <div class="pyq-option" onclick="selectPYQ(this, true)">B. The pedestrian's reckless action absolves the driver of liability.</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">C. Both the driver and pedestrian share liability equally.</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">D. The driver is always liable in pedestrian accidents.</div>
+    <div class="pyq-answer-box"><strong>✅ Answer: B</strong> — The principle has an exception: if the pedestrian acted recklessly or unlawfully. Running across the road outside a crosswalk without looking = reckless/unlawful behaviour. The exception applies → driver not liable. Option D contradicts the principle's own exception clause.</div>
+  </div>
+
+  <div class="pyq-question" data-cat="logical">
+    <div class="pyq-meta"><span>AILET 2026</span><span>Logical Reasoning — Principle-Fact</span><span>Q90</span></div>
+    <div class="pyq-passage"><strong>Principle:</strong> A public official must avoid conflicts of interest that could undermine public trust, even if no actual wrongdoing occurs. <strong>Facts:</strong> A city mayor awards a major construction contract to a company owned by her cousin. She discloses the relationship publicly and follows all procurement procedures.</div>
+    <div class="pyq-q">Apply the principle and select the most appropriate option:</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">A. Contract should proceed since procedures were followed.</div>
+    <div class="pyq-option" onclick="selectPYQ(this, true)">B. Contract should be avoided to maintain public trust.</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">C. Cousin should sell the company before bidding.</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">D. Mayor should resign.</div>
+    <div class="pyq-answer-box"><strong>✅ Answer: B</strong> — The principle says avoid conflicts that "could undermine public trust" — even with no actual wrongdoing. Disclosing and following procedures doesn't eliminate the conflict of interest itself. The appearance of a conflict is sufficient under this principle. The contract should be avoided. Option A ignores the conflict-of-interest aspect. Option D is too extreme — the principle doesn't require resignation.</div>
+  </div>
+
+  <div class="pyq-question" data-cat="logical">
+    <div class="pyq-meta"><span>AILET 2026</span><span>Logical Reasoning — Analogy</span><span>Q83</span></div>
+    <div class="pyq-q">4, 10, 18, 28, ?</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">A. 46</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">B. 42</div>
+    <div class="pyq-option" onclick="selectPYQ(this, true)">C. 40</div>
+    <div class="pyq-option" onclick="selectPYQ(this, false)">D. 48</div>
+    <div class="pyq-answer-box"><strong>✅ Answer: C — 40</strong> — The pattern: differences are +6, +8, +10, +12. So next term = 28 + 12 = 40. Each step the difference increases by 2.</div>
+  </div>
+
+  </div><!-- end pyq-list -->
+</div>
+
+<!-- CHATBOT SECTION -->
+<div id="chatbot" class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#ede8f9;">🤖</div>
+    <div><h2>AI CLAT Tutor</h2><p>Your personal AI tutor — powered by Claude. Ask anything about CLAT.</p></div>
+  </div>
+
+  <div class="tip-box" style="margin-bottom:20px;">💡 <strong>Tip:</strong> Ask conceptual questions, request practice questions with explanations, get strategy advice, or quiz yourself on any section. The AI remembers your conversation context!</div>
+
+  <div id="chat-starters-wrap" class="chat-starters">
+    <button class="starter-btn" onclick="chatSend('Explain the difference between Void and Voidable contracts with CLAT-style examples.')">⚖️ Void vs Voidable</button>
+    <button class="starter-btn" onclick="chatSend('What are the 5 writs? Explain each with a real-world example.')">📜 5 Writs explained</button>
+    <button class="starter-btn" onclick="chatSend('Give me a challenging principle-fact legal reasoning question with detailed explanation.')">🎯 Practice Legal Q</button>
+    <button class="starter-btn" onclick="chatSend('How should I approach a Reading Comprehension passage in CLAT? Give me a step-by-step strategy.')">📖 RC Strategy</button>
+    <button class="starter-btn" onclick="chatSend('What are the most important current affairs topics I must cover for CLAT 2027?')">🌍 Key CA Topics</button>
+    <button class="starter-btn" onclick="chatSend('Explain the Basic Structure Doctrine — what it means, why it was established, and how it appears in CLAT questions.')">🏛️ Basic Structure</button>
+    <button class="starter-btn" onclick="chatSend('Give me a tough logical reasoning syllogism question from CLAT pattern with full explanation.')">🧠 Practice Logical Q</button>
+    <button class="starter-btn" onclick="chatSend('I have 6 months for CLAT prep. Give me a detailed month-by-month study plan.')">📅 6-Month Plan</button>
+  </div>
+
+  <div class="chatbot-wrap">
+    <div class="chat-header-bar">
+      <div class="chat-header-left">
+        <div class="chat-header-avatar">🤖</div>
+        <div>
+          <div class="chat-header-name">CLAT AI Tutor</div>
+          <div class="chat-header-status"><span class="status-dot"></span> Online · Claude AI</div>
+        </div>
+      </div>
+      <button class="chat-clear-btn" onclick="clearChat()">🗑 Clear Chat</button>
+    </div>
+
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-msg-wrap bot">
+        <div class="chat-msg bot">
+          <div class="bot-label"><span class="bot-avatar">🤖</span> CLAT AI Tutor</div>
+          <div class="bot-content">
+            <p class="chat-p">Namaste! I'm your personal <strong>CLAT AI Tutor</strong> — powered by Claude. I can help you with:</p>
+            <ul class="chat-ul">
+              <li class="bul-item">📖 <strong>English</strong> — RC strategies, vocabulary, inference, tone questions</li>
+              <li class="bul-item">⚖️ <strong>Legal Reasoning</strong> — IRAC method, contracts, torts, constitutional law</li>
+              <li class="bul-item">🌍 <strong>GK & Current Affairs</strong> — 2024–27 events, static GK, landmark cases</li>
+              <li class="bul-item">🧠 <strong>Logical Reasoning</strong> — syllogisms, assumptions, argument analysis</li>
+              <li class="bul-item">📐 <strong>Quant</strong> — formulas, DI shortcuts, problem-solving</li>
+              <li class="bul-item">📅 <strong>Strategy</strong> — study plans, mock analysis, weak area fixes</li>
+            </ul>
+            <p class="chat-p">Ask me anything — or tap a quick-start button above. I remember our full conversation, so feel free to ask follow-up questions! 🎯</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input-area">
+      <div class="chat-input-row">
+        <textarea class="chat-input" id="chat-input" placeholder="Ask any CLAT doubt... (Shift+Enter for new line)" rows="1"
+          onkeydown="if(event.key==='Enter' && !event.shiftKey){event.preventDefault(); chatSend();}"
+          oninput="this.style.height='auto'; this.style.height=Math.min(this.scrollHeight,120)+'px'"></textarea>
+        <button class="chat-send" id="chat-send-btn" onclick="chatSend()">Send ➤</button>
+      </div>
+      <div class="chat-hint">Press Enter to send · Shift+Enter for new line · AI remembers your conversation</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<div class="footer">CLAT UG Ultimate Study Guide v2 · AI-Powered Assessment & Tutor · PYQs from AILET 2026 & CLAT · Based on Official Syllabus (consortiumofnlus.ac.in) · For CLAT UG 2027</div>
+
+<script>
+// TAB NAVIGATION
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (id === 'flashcards') loadDeck('legal');
+}
+
+// NOTES TABS
+function switchNotes(btn, id) {
+  const parent = btn.closest('.section');
+  parent.querySelectorAll('.notes-tab').forEach(b => b.classList.remove('active'));
+  parent.querySelectorAll('.notes-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+
+// ACCORDION
+function toggleMonth(header) {
+  const body = header.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.month-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.month-header span').forEach(s => s.textContent = '▼');
+  if (!isOpen) { body.classList.add('open'); header.querySelector('span').textContent = '▲'; }
+}
+
+// FLASHCARDS
+const DECKS = {
+  legal: [
+    { q: "What is Tort?", a: "A civil wrong (not a crime) causing harm, giving the victim the right to sue for compensation. Examples: negligence, defamation, trespass." },
+    { q: "What are the 3 elements of Negligence?", a: "(1) Duty of care owed to the claimant, (2) Breach of that duty, (3) Damage actually caused by the breach." },
+    { q: "What is Mens Rea?", a: "The 'guilty mind' — criminal intent. Most crimes require both the act (Actus Reus) AND the mental intent (Mens Rea)." },
+    { q: "What is Vicarious Liability?", a: "When one person is held responsible for the acts of another. Common example: employer liable for employee's wrongful acts done in the course of employment." },
+    { q: "What is Volenti Non Fit Injuria?", a: "'No injury is done to one who consents.' A complete defence to tort claims. A boxer cannot sue for injuries received in a match." },
+    { q: "What is Strict Liability?", a: "Liability without proof of fault or negligence. Applied to inherently dangerous activities. Based on Rylands v. Fletcher principle." },
+    { q: "What is Res Ipsa Loquitur?", a: "'The thing speaks for itself.' When facts so clearly indicate negligence that no further proof is needed — burden shifts to defendant." },
+    { q: "What is the difference between Void and Voidable contracts?", a: "Void: Never had legal effect from the start (e.g., agreement by a minor). Voidable: Valid until challenged by one party (e.g., obtained by fraud)." },
+    { q: "What is Consideration in Contract Law?", a: "Something of value exchanged between contracting parties. A contract without consideration is generally unenforceable. 'Past consideration is no consideration.'" },
+    { q: "What is Locus Standi?", a: "Legal standing to bring a case before a court. Relaxed in India through PIL — any citizen can file on behalf of others who cannot." }
+  ],
+  writs: [
+    { q: "Habeas Corpus — meaning and purpose?", a: "'Have the body.' Challenges unlawful detention. Requires the detaining authority to produce the person before a court and justify detention." },
+    { q: "Mandamus — when is it issued?", a: "'We command.' Issued to a public official or body to perform a legal duty they are obligated to do. Cannot be issued against President or Governor." },
+    { q: "Certiorari — what does it do?", a: "'To be certified.' Quashes (cancels) orders of a lower court/tribunal that acted beyond jurisdiction or violated natural justice. Curative in nature." },
+    { q: "Prohibition — how is it different from Certiorari?", a: "Prohibition is PREVENTIVE — stops a lower court from exceeding jurisdiction BEFORE it makes a final decision. Certiorari is curative — quashes after the decision." },
+    { q: "Quo Warranto — what does it challenge?", a: "'By what authority?' Challenges a person's right to hold a public office. They must prove they have legal authority to exercise the office." },
+    { q: "Under which Articles can writs be filed?", a: "Art. 32 — Supreme Court (Right to Constitutional Remedies is itself a Fundamental Right). Art. 226 — High Court (wider jurisdiction, can also be used for non-FR violations)." }
+  ],
+  cases: [
+    { q: "Kesavananda Bharati (1973) — what was established?", a: "Basic Structure Doctrine: Parliament can amend the Constitution but cannot alter its 'basic structure' (democracy, federalism, secularism, judicial review)." },
+    { q: "Maneka Gandhi (1978) — what changed?", a: "Expanded Art. 21. Held that 'procedure established by law' must be fair, just, and reasonable. Right to life includes a broad range of rights." },
+    { q: "Justice K.S. Puttaswamy (2017) — significance?", a: "Declared Privacy a fundamental right under Art. 21. Overruled the ADM Jabalpur judgment. Foundation for India's data protection legislation." },
+    { q: "Navtej Singh Johar (2018) — what was decriminalised?", a: "Decriminalised consensual same-sex relations between adults. Struck down Section 377 of IPC as unconstitutional to that extent." },
+    { q: "Vishaka v. State of Rajasthan (1997) — what was laid down?", a: "SC laid down guidelines for prevention and redressal of sexual harassment at the workplace. These were binding until Parliament enacted the POSH Act (2013)." },
+    { q: "S.R. Bommai v. Union of India (1994) — significance?", a: "SC can judicially review imposition of President's Rule (Art. 356). Floor test must be held before dismissing a state government. Strengthened federalism." },
+    { q: "Indra Sawhney (1992) — what was decided about reservations?", a: "Upheld 27% OBC quota. Set a 50% ceiling on total reservations. Made 'creamy layer' exclusion mandatory. Reservations can't be made in promotions (later amended)." },
+    { q: "Electoral Bond Case (2024) — why was it struck down?", a: "SC struck down Electoral Bond Scheme as unconstitutional. Violated voters' right to know political funding sources under Art. 19(1)(a) — freedom of information." }
+  ],
+  articles: [
+    { q: "What do Articles 12–35 cover?", a: "Part III — Fundamental Rights. These are enforceable in courts. Art. 13: Any law inconsistent with Fundamental Rights is void." },
+    { q: "What does Article 14 guarantee?", a: "Right to Equality — equal before law + equal protection of laws. Allows reasonable classification but prohibits arbitrary discrimination." },
+    { q: "What does Article 21 protect?", a: "Right to Life and Personal Liberty. Most expansively interpreted FR — includes privacy, livelihood, education, health, dignity, and environment." },
+    { q: "Article 32 — why did Dr. Ambedkar call it the 'heart of the Constitution'?", a: "It gives the right to move the Supreme Court directly for enforcement of Fundamental Rights. Without Art. 32, FRs would be unenforceable. It is itself a Fundamental Right." },
+    { q: "What are DPSPs (Articles 36–51)?", a: "Directive Principles of State Policy — guidelines to the state for governance. Non-justiciable (can't be enforced in courts) but fundamental to policymaking. Art. 44 = UCC; Art. 48A = environment." },
+    { q: "What does Article 368 deal with?", a: "The procedure to amend the Constitution. Parliament can amend but cannot alter the Basic Structure. Some provisions require ratification by at least half the state legislatures." },
+    { q: "What are Fundamental Duties (Article 51A)?", a: "11 duties added by 42nd Amendment (1976). Non-justiciable but used by courts to interpret laws. Examples: respect national symbols, protect environment, promote harmony." },
+    { q: "What does Article 19 protect?", a: "Six freedoms: speech and expression, assembly without arms, association, movement throughout India, residence, and profession. All subject to reasonable restrictions." }
+  ],
+  fallacies: [
+    { q: "What is an Ad Hominem fallacy?", a: "Attacking the person making an argument rather than the argument itself. 'You can't trust her opinion — she has a conflict of interest.'" },
+    { q: "What is a Straw Man fallacy?", a: "Misrepresenting an opponent's argument in a weaker, easier-to-attack form. Arguing against a position the opponent didn't actually take." },
+    { q: "What is a False Dichotomy?", a: "Presenting only two options as if no other possibilities exist. 'Either you support this bill or you don't care about justice.' (There could be middle grounds.)" },
+    { q: "What is a Slippery Slope fallacy?", a: "Claiming one event will inevitably lead to extreme consequences without justifying the chain of causation. 'If we allow X, eventually Z will happen.'" },
+    { q: "What is Hasty Generalisation?", a: "Drawing a broad conclusion from a small or unrepresentative sample. 'I met two dishonest lawyers — lawyers are all dishonest.'" },
+    { q: "What is Circular Reasoning?", a: "Using the conclusion as a premise. 'This law is just because it is the law.' The argument assumes what it's trying to prove." },
+    { q: "What does 'Correlation ≠ Causation' mean?", a: "Two things occurring together doesn't mean one causes the other. Both might be caused by a third factor (a confounding variable)." },
+    { q: "What is the Negation Test used for?", a: "Testing whether something is an ASSUMPTION. Negate the option — if negating it destroys the argument's conclusion, it is the assumption the argument depends on." }
+  ]
+};
+
+let currentDeck = [];
+let currentCardIndex = 0;
+
+function loadDeck(name) {
+  document.querySelectorAll('#flashcards .notes-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  currentDeck = DECKS[name];
+  currentCardIndex = 0;
+  renderCard();
+}
+
+function renderCard() {
+  const fc = document.getElementById('fc');
+  const card = currentDeck[currentCardIndex];
+  fc.classList.remove('flipped');
+  setTimeout(() => {
+    document.getElementById('fc-q').textContent = card.q;
+    document.getElementById('fc-a').textContent = card.a;
+    document.getElementById('fc-progress').textContent = `Card ${currentCardIndex + 1} of ${currentDeck.length}`;
+    document.getElementById('fcWrap').style.minHeight = '120px';
+  }, 50);
+}
+
+function flipCard() {
+  document.getElementById('fc').classList.toggle('flipped');
+}
+
+function nextCard() {
+  if (currentCardIndex < currentDeck.length - 1) {
+    currentCardIndex++;
+    renderCard();
+  }
+}
+
+function prevCard() {
+  if (currentCardIndex > 0) {
+    currentCardIndex--;
+    renderCard();
+  }
+}
+
+// ASSESSMENT / QUIZ SYSTEM
+const QUIZ_DATA = {
+  english: {
+    title: "English Language Assessment",
+    color: "#e94560",
+    questions: [
+      {
+        passage: "The idea that technology is 'neutral' — a mere tool — has long been popular among tech enthusiasts. According to this view, the hammer is neither good nor bad; it is the person wielding it who determines the moral character of the act. But this analogy fails to capture something essential about complex socio-technical systems. A hammer does not shape the hand that holds it, nor does it change the community around the carpenter. Digital platforms, by contrast, actively mould the behaviour of their users through algorithmic incentives. The very architecture of these systems — designed to maximise engagement — transforms how people seek information, form relationships, and construct identity. The hammer metaphor, then, is not merely simplistic; it is actively misleading.",
+        question: "The author's primary purpose in this passage is to:",
+        options: ["Explain why technology companies use engagement-maximising algorithms.", "Argue against the view that technology is a neutral tool without moral implications.", "Demonstrate that digital platforms are more harmful than physical tools.", "Advocate for stricter regulation of digital technology companies."],
+        correct: 1,
+        explanation: "The author's central argument is against the 'neutral tool' view of technology. The passage doesn't advocate regulation (D) nor simply explain how algorithms work (A). Option C is too extreme — the author doesn't compare harm levels, but argues that digital platforms 'actively mould behaviour' unlike simple tools."
+      },
+      {
+        passage: "Historically, pandemics have been among the most powerful catalysts of social transformation. The Black Death reshaped medieval European society by decimating the labour force, inadvertently empowering the surviving peasants who could now command higher wages. The 1918 influenza pandemic, which killed more people than the First World War, accelerated the adoption of public health institutions that persist to this day. In each case, the disruption was not merely biological but profoundly social — exposing existing inequalities, dissolving entrenched hierarchies, and generating new political demands. Whether the COVID-19 pandemic produces similar lasting transformations remains, as of writing, an open question.",
+        question: "Which of the following can most reasonably be inferred from the passage?",
+        options: ["Pandemics are more socially transformative than wars.", "The COVID-19 pandemic will not produce lasting social transformations.", "Social inequality is a prerequisite for a pandemic to have lasting social effects.", "Historical pandemics have had consequences that extended beyond their immediate health impacts."],
+        correct: 3,
+        explanation: "Option D is directly supported — the author notes pandemics reshape social structures, empower groups, and generate political demands. Option A is not supported — the passage doesn't compare pandemics to wars in terms of transformation. Option B contradicts the passage's open stance. Option C is not stated anywhere."
+      },
+      {
+        passage: "There is something paradoxical about the discourse of 'authentic' travel. Travellers who seek destinations 'off the beaten path' to escape mass tourism inadvertently create the very phenomenon they wish to avoid. Once a location is identified as 'undiscovered,' it is swiftly crowded by like-minded adventurers, each seeking the same authentic experience, each disappointed to find others already there. The guidebook that promises to reveal secret places guarantees, by its very circulation, that those places will soon cease to be secret. Authenticity, in this context, is a commodity that destroys itself in the moment of its consumption.",
+        question: "The phrase 'a commodity that destroys itself in the moment of its consumption' most nearly means that:",
+        options: ["Authentic experiences are too fragile to be enjoyed by more than a few people.", "The very act of seeking and consuming authenticity eliminates it.", "Guidebooks are counterproductive because they spread information too widely.", "Travellers are hypocritical in claiming to seek authentic experiences."],
+        correct: 1,
+        explanation: "The author's point is that seeking authenticity is self-defeating — the moment you find and share an 'authentic' place, it ceases to be authentic. Option B precisely captures this. Option A is about fragility (not stated). Option C is a detail, not the full meaning. Option D introduces 'hypocrisy' which is not the author's claim."
+      }
+    ]
+  },
+  legal: {
+    title: "Legal Reasoning Assessment",
+    color: "#0f9b8e",
+    questions: [
+      {
+        passage: "PRINCIPLE: A person is liable for negligence if (i) they owe a duty of care to the claimant, (ii) they breach that duty by failing to act as a reasonable person would, and (iii) that breach directly causes the claimant to suffer damage. All three elements must be established. If any one element is absent, there is no liability in negligence.",
+        question: "FACTS: Priya is a surgeon who performs a routine appendix removal on Rajesh. During the operation, an unforeseen complication arises that could not have been anticipated even by the most skilled surgeon. Priya acts in the only way a reasonable surgeon could in the circumstances. Rajesh nonetheless suffers permanent injury due to the complication. Rajesh sues Priya for negligence. Is Priya liable?",
+        options: ["Yes, because Priya owed Rajesh a duty of care as his surgeon.", "Yes, because Priya caused Rajesh's injury, which is the key element of negligence.", "No, because Priya did not breach her duty — she acted as a reasonable surgeon would.", "No, because complications during surgery cannot give rise to negligence claims."],
+        correct: 2,
+        explanation: "Applying IRAC: (I) Was there negligence? (R) Negligence requires all three elements — duty, breach, and damage. (A) Priya owed Rajesh a duty of care ✓. But she did NOT breach it — she acted exactly as a reasonable surgeon would ✗. Since breach is absent, the chain breaks. (C) No liability. Note: Option D is wrong — complications CAN give rise to negligence claims if there's a breach."
+      },
+      {
+        passage: "PRINCIPLE: An agreement is void if it is made by a minor (a person under 18 years of age). A minor cannot be held to any contract, and any agreement purportedly made with a minor has no legal effect. However, if a minor has received a benefit under the contract (such as goods), they may not retain those goods without paying for them.",
+        question: "FACTS: Arjun, aged 17, purchases a high-end laptop from TechMart on credit, agreeing to pay in 12 monthly instalments. He uses the laptop for three months, then refuses to pay the remaining instalments. TechMart sues for recovery of the remaining amount. Decide:",
+        options: ["Arjun must pay the remaining instalments because he freely entered into the agreement.", "The entire agreement is void; Arjun need not pay anything.", "The agreement is void, but Arjun must return the laptop or pay its value since he received a benefit.", "TechMart cannot sue a minor under any circumstances."],
+        correct: 2,
+        explanation: "Applying IRAC: (R) Agreements with minors are void — no legal effect. However, minors cannot retain benefits without paying. (A) The contract is void, so Arjun is not bound by the instalments. But he received the laptop (a benefit) and used it for 3 months. He cannot retain it without paying for it. (C) He must return the laptop or compensate for its value. Option B is wrong because it ignores the benefit-retention clause."
+      },
+      {
+        passage: "PRINCIPLE: Under the rule of strict liability, a person who keeps a dangerous thing on their land is liable for any damage caused if that thing escapes, regardless of whether they were at fault or negligent. The escape must be from the land of the person who keeps the dangerous thing. This rule applies to non-natural uses of land — keeping tigers, storing toxic chemicals, or constructing water reservoirs would qualify; keeping a domestic dog would generally not.",
+        question: "FACTS: Vijay owns a chemical factory located near a residential area. He stores large quantities of industrial acid in sealed containers on his premises. One night, during a freak storm, floodwaters breach his compound and carry the acid containers into neighbouring homes, causing severe damage. Vijay argues he could not have foreseen or prevented the storm. Are the affected residents entitled to compensation?",
+        options: ["No, because Vijay took reasonable precautions and could not have prevented the storm.", "No, because the damage was caused by natural forces, not by Vijay's act.", "Yes, because Vijay is strictly liable — he kept a dangerous thing and it escaped, causing damage.", "Yes, but only if the residents can prove Vijay was negligent in storing the acid."],
+        correct: 2,
+        explanation: "Strict liability does not require fault — that's its defining feature. (R) Person who keeps a dangerous thing is liable for escape and damage, regardless of fault. (A) Industrial acid = dangerous thing ✓. It escaped from Vijay's land ✓. Damage caused ✓. Whether Vijay was negligent or could have prevented it is IRRELEVANT under strict liability. (C) Residents are entitled to compensation. Option D incorrectly imports a negligence requirement into strict liability."
+      }
+    ]
+  },
+  gk: {
+    title: "GK & Current Affairs Assessment",
+    color: "#3a5bbf",
+    questions: [
+      {
+        passage: "In a landmark 9-0 ruling, the Supreme Court of India in 2024 struck down the Electoral Bonds Scheme introduced by the government in 2018, declaring it unconstitutional. The Court held that the scheme, which allowed anonymous corporate donations to political parties, violated the constitutional right of citizens to access information about political funding. The ruling invoked Article 19(1)(a) — the right to freedom of speech and expression, which includes the right to know. The Court directed the State Bank of India to stop issuing bonds and to submit details of all transactions to the Election Commission of India, which would then make the data public.",
+        question: "Based on the passage, what was the primary constitutional basis on which the Electoral Bonds Scheme was struck down?",
+        options: ["Violation of the right to equality under Article 14.", "Violation of the right to information as a dimension of Article 19(1)(a).", "Violation of the fundamental right to conduct trade under Article 19(1)(g).", "Violation of the right against arbitrary state action under Article 21."],
+        correct: 1,
+        explanation: "The passage explicitly states the Court invoked Article 19(1)(a) — freedom of speech and expression, which includes the right to know. The anonymity of donations violated citizens' right to know who funds political parties. Option A (Art. 14) is not mentioned. Option C (Art. 19(1)(g)) concerns trade, which is unrelated. Option D (Art. 21) is not cited."
+      },
+      {
+        passage: "India's Chandrayaan-3 mission achieved a historic soft landing near the lunar south pole on August 23, 2023, making India the fourth country in the world to achieve a soft lunar landing, and the first to land near the Moon's south pole. The Pragyan rover, deployed from the Vikram lander, conducted several experiments over approximately two weeks before it entered a planned hibernation mode as the lunar night approached. The mission's primary scientific objective was to study the composition of the lunar surface, particularly looking for evidence of water ice, which is believed to exist in permanently shadowed craters near the poles.",
+        question: "Which of the following statements is directly supported by the passage?",
+        options: ["India became the first country in the world to land on the Moon.", "The Pragyan rover found significant deposits of water ice near the south pole.", "India is the first nation to achieve a soft landing near the Moon's south pole.", "The Vikram lander was deployed from the Pragyan rover."],
+        correct: 2,
+        explanation: "The passage directly states India was 'the first to land near the Moon's south pole.' Option A is wrong — India was fourth overall, not first. Option B is not stated — the passage says they were looking for water ice, not that they found significant deposits. Option D reverses the relationship — Pragyan was deployed FROM Vikram, not the other way."
+      },
+      {
+        passage: "The Preamble to the Indian Constitution describes India as a 'Sovereign, Socialist, Secular, Democratic Republic.' The words 'Socialist' and 'Secular' were not in the original 1949 Preamble — they were inserted by the 42nd Constitutional Amendment in 1976 during the Emergency. Scholars and courts have debated whether the Preamble is a justiciable document — that is, whether courts can strike down laws that violate the Preamble. In Kesavananda Bharati (1973), the Supreme Court held that while the Preamble is part of the Constitution, it cannot by itself be enforced in court, though it serves as a key aid in interpreting constitutional provisions.",
+        question: "Which of the following can be inferred from the passage?",
+        options: ["The Preamble was not considered part of the Constitution until 1976.", "If a law violates the word 'Secular' in the Preamble, the Preamble alone can be used to strike it down.", "Courts can use the Preamble as an interpretive tool even though it is not independently enforceable.", "The 42nd Amendment fundamentally changed the basic structure of the Constitution."],
+        correct: 2,
+        explanation: "The passage states the Preamble cannot by itself be enforced but serves as a 'key aid in interpreting constitutional provisions.' Option C captures exactly this. Option A is wrong — it was always part of the Constitution. Option B contradicts the passage — the Preamble alone cannot strike down a law. Option D is not stated — whether this changed the basic structure is a separate debate not addressed here."
+      }
+    ]
+  },
+  logical: {
+    title: "Logical Reasoning Assessment",
+    color: "#b07d1a",
+    questions: [
+      {
+        passage: "The government recently announced a significant increase in the minimum wage. Proponents argue this will reduce poverty by directly boosting the income of the lowest-paid workers. However, critics contend that higher minimum wages lead employers to reduce their workforce or hire fewer new workers, thereby increasing unemployment — particularly among the youngest and least experienced workers who are most likely to earn minimum wage. Some economists suggest the impact depends heavily on local labour market conditions.",
+        question: "Which of the following, if true, would most WEAKEN the critics' argument that higher minimum wages increase unemployment?",
+        options: ["Employers in minimum-wage industries typically operate with very thin profit margins.", "Studies of past minimum wage increases have generally shown only minimal effects on employment levels.", "The government's minimum wage increase is the largest in the country's history.", "Younger workers without experience tend to earn close to the minimum wage."],
+        correct: 1,
+        explanation: "The critics' argument is: higher minimum wages → employers cut jobs → unemployment rises. Option B directly undermines this by showing empirical evidence that past minimum wage increases did NOT significantly increase unemployment. This weakens the premise that employment cuts necessarily follow. Option A actually supports the critics (thin margins = more likely to cut staff). Option C strengthens neither side meaningfully. Option D supports the critics' claim about who is affected."
+      },
+      {
+        passage: "Every effective leader I have studied has possessed exceptional communication skills. Churchill was a great orator. Gandhi inspired millions through his writing and speeches. Lincoln was famous for the clarity and power of his words. I conclude, therefore, that excellent communication is the most important quality a leader can possess.",
+        question: "What is the primary logical flaw in this argument?",
+        options: ["The argument relies only on historical examples and ignores contemporary leaders.", "The conclusion does not follow from the evidence — communication may be necessary but the argument doesn't show it's the MOST important quality.", "The argument makes a hasty generalisation by studying only three leaders.", "The examples are cherry-picked to support a predetermined conclusion."],
+        correct: 1,
+        explanation: "The key flaw: even if all effective leaders had good communication, this doesn't prove it is the MOST important quality. There could be other qualities all these leaders also shared (intelligence, resilience, vision). The leap from 'all had this quality' to 'this is the most important quality' is the central flaw. Options A and C are also weaknesses, but B identifies the core logical error — a flawed inference from correlation to ranking."
+      },
+      {
+        passage: "Air pollution levels in the city have risen sharply over the past decade. During the same period, the number of cars on the city's roads has tripled. Therefore, the increase in cars is responsible for the rise in air pollution.",
+        question: "Which of the following, if true, would most STRENGTHEN the argument?",
+        options: ["Air pollution causes respiratory illness in thousands of city residents annually.", "Over the same period, the city's three coal power plants were all shut down.", "Independent studies have confirmed that vehicular emissions are the dominant source of the city's air pollution.", "The government has introduced stricter emission standards for new vehicles over the past decade."],
+        correct: 2,
+        explanation: "The argument claims cars (not something else) caused the pollution rise. The core weakness is correlation-causation confusion — maybe factories or other sources caused it. Option C directly addresses this by providing evidence that cars are indeed the dominant pollution source, strengthening the argument. Option B actually weakens the argument (power plants shutting down might have offset car pollution). Option D doesn't strengthen — stricter standards would suggest cars pollute less, not more. Option A is irrelevant to the cause."
+      }
+    ]
+  },
+  quant: {
+    title: "Quantitative Techniques Assessment",
+    color: "#7c3aed",
+    questions: [
+      {
+        passage: "A school has 600 students. In a recent survey, 40% of students said they preferred cricket, 35% preferred football, and the remaining students preferred other sports. Among those who preferred cricket, 75% were boys. Among football enthusiasts, 40% were girls.",
+        question: "How many boys in the school prefer cricket?",
+        options: ["160", "180", "140", "120"],
+        correct: 1,
+        explanation: "Cricket students = 40% of 600 = 240. Boys among cricket enthusiasts = 75% of 240 = 0.75 × 240 = 180. Answer: 180 (Option B)."
+      },
+      {
+        passage: "A trader buys a product for ₹800 and marks it up by 50%. He then offers a discount of 20% on the marked price during a sale. Calculate his profit or loss percentage on the transaction.",
+        question: "What is the trader's profit percentage?",
+        options: ["30%", "20%", "25%", "15%"],
+        correct: 1,
+        explanation: "Cost Price = ₹800. Marked Price = 800 × 1.50 = ₹1200. After 20% discount: Selling Price = 1200 × 0.80 = ₹960. Profit = 960 − 800 = ₹160. Profit % = (160/800) × 100 = 20%. Answer: 20% (Option B)."
+      },
+      {
+        passage: "A town had a population of 50,000 in 2020. The population grew at a constant rate of 4% per year. The town has a health clinic that serves one doctor for every 2,500 residents. The town council has not added any new doctors since 2020.",
+        question: "By approximately how much will the number of residents per doctor increase between 2020 and 2022?",
+        options: ["About 204 more residents per doctor", "About 104 more residents per doctor", "About 308 more residents per doctor", "About 150 more residents per doctor"],
+        correct: 0,
+        explanation: "Population in 2022 = 50,000 × (1.04)² = 50,000 × 1.0816 = 54,080 (approx). Doctors in 2020 = 50,000 / 2,500 = 20. (No new doctors added.) Residents per doctor in 2022 = 54,080 / 20 = 2,704. Increase = 2,704 − 2,500 = 204. Answer: About 204 (Option A)."
+      }
+    ]
+  },
+  mixed: {
+    title: "Mixed Mock Assessment",
+    color: "#16a34a",
+    questions: []
+  }
+};
+
+// Build mixed quiz
+QUIZ_DATA.mixed.questions = [
+  QUIZ_DATA.english.questions[0],
+  QUIZ_DATA.legal.questions[0],
+  QUIZ_DATA.gk.questions[0],
+  QUIZ_DATA.logical.questions[0],
+  QUIZ_DATA.quant.questions[0],
+  QUIZ_DATA.english.questions[2],
+  QUIZ_DATA.legal.questions[2],
+  QUIZ_DATA.gk.questions[2],
+  QUIZ_DATA.logical.questions[2],
+  QUIZ_DATA.quant.questions[2]
+];
+
+let quizState = { type: '', questions: [], current: 0, score: 0, answered: [], wrongAnswers: [] };
+
+function startQuiz(type) {
+  const data = QUIZ_DATA[type];
+  quizState = { type, questions: data.questions, current: 0, score: 0, answered: [], wrongAnswers: [] };
+  document.getElementById('quiz-selector').style.display = 'none';
+  const qArea = document.getElementById('quiz-area');
+  qArea.style.display = 'block';
+  document.getElementById('quiz-title').textContent = data.title;
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const q = quizState.questions[quizState.current];
+  const total = quizState.questions.length;
+  const idx = quizState.current;
+  document.getElementById('quiz-meta').textContent = `Question ${idx + 1} of ${total}`;
+  document.getElementById('progress-fill').style.width = `${((idx) / total) * 100}%`;
+  const content = document.getElementById('quiz-content');
+
+  let html = '';
+  if (q.passage) {
+    html += `<div class="passage-box"><p>${q.passage}</p></div>`;
+  }
+  html += `<div class="question-text">${idx + 1}. ${q.question}</div>`;
+  html += `<ul class="options-list">`;
+  q.options.forEach((opt, i) => {
+    html += `<li><button class="option-btn" id="opt-${i}" onclick="selectOption(${i})">${String.fromCharCode(65+i)}. ${opt}</button></li>`;
+  });
+  html += `</ul>`;
+  html += `<div class="explanation-box" id="exp-box"><strong>✅ Explanation:</strong> ${q.explanation}</div>`;
+  html += `<div class="quiz-nav"><button class="btn-primary" id="next-btn" onclick="nextQuestion()" style="display:none">${quizState.current < total - 1 ? 'Next Question →' : 'See Results'}</button></div>`;
+  content.innerHTML = html;
+}
+
+function selectOption(selected) {
+  if (quizState.answered[quizState.current]) return;
+  quizState.answered[quizState.current] = true;
+  const q = quizState.questions[quizState.current];
+  const isCorrect = selected === q.correct;
+  if (isCorrect) { quizState.score++; }
+  else { quizState.wrongAnswers.push({ q: q.question, section: quizState.type }); }
+
+  document.querySelectorAll('.option-btn').forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === q.correct) btn.classList.add('correct');
+    else if (i === selected && !isCorrect) btn.classList.add('wrong');
+  });
+
+  document.getElementById('exp-box').classList.add('show');
+  document.getElementById('next-btn').style.display = 'inline-block';
+}
+
+function nextQuestion() {
+  if (quizState.current < quizState.questions.length - 1) {
+    quizState.current++;
+    renderQuestion();
+  } else {
+    showResults();
+  }
+}
+
+async function showResults() {
+  const total = quizState.questions.length;
+  const score = quizState.score;
+  const pct = Math.round((score / total) * 100);
+  const scoreClass = pct >= 70 ? 'score-great' : pct >= 50 ? 'score-ok' : 'score-low';
+  const emoji = pct >= 70 ? '🎉' : pct >= 50 ? '👍' : '📚';
+
+  document.getElementById('quiz-meta').textContent = 'Results';
+  document.getElementById('progress-fill').style.width = '100%';
+
+  const content = document.getElementById('quiz-content');
+  content.innerHTML = `
+    <div class="score-panel">
+      <div class="score-circle ${scoreClass}">${pct}%</div>
+      <h3 style="font-family:'Playfair Display',serif; font-size:22px; margin-bottom:8px;">${emoji} ${pct >= 70 ? 'Excellent Work!' : pct >= 50 ? 'Good Effort!' : 'Keep Practising!'}</h3>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:20px;">${score} correct out of ${total} questions</p>
+      <div class="score-breakdown">
+        <div class="score-stat"><div class="n" style="color:var(--green)">${score}</div><div class="l">Correct</div></div>
+        <div class="score-stat"><div class="n" style="color:var(--accent)">${total - score}</div><div class="l">Wrong</div></div>
+        <div class="score-stat"><div class="n">${pct}%</div><div class="l">Score</div></div>
+      </div>
+      <div id="ai-analysis">
+        <div class="ai-loading"><div class="spinner"></div>Getting AI feedback on your performance...</div>
+      </div>
+    </div>
+    <div class="quiz-nav" style="justify-content:center; margin-top:0;">
+      <button class="btn-secondary" onclick="retryQuiz()">↩ Retry Test</button>
+      <button class="btn-secondary" onclick="backToSelector()">← All Tests</button>
+    </div>
+  `;
+
+  // Get AI feedback
+  try {
+    const wrongList = quizState.wrongAnswers.length > 0
+      ? `The student got these questions wrong: ${quizState.wrongAnswers.map(w => w.q).join('; ')}`
+      : 'The student answered all questions correctly.';
+
+    const prompt = `A student just completed a CLAT ${quizState.type} practice test and scored ${score}/${total} (${pct}%). ${wrongList}
+
+Give brief, specific, actionable feedback in 3–4 sentences:
+1. One sentence acknowledging the score
+2. One specific improvement tip based on the wrong answers (or strengths if all correct)
+3. One recommended study action for this section
+4. One motivational closing sentence
+
+Be direct, specific, and encouraging. No generic advice.`;
+
+    const resp = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "claude-sonnet-4-20250514",
+        max_tokens: 300,
+        messages: [{ role: "user", content: prompt }]
+      })
+    });
+    const data = await resp.json();
+    const feedback = data.content?.[0]?.text || "Keep practising — every test helps you improve!";
+    document.getElementById('ai-analysis').innerHTML = `
+      <div class="ai-feedback">
+        <div class="ai-label">✨ AI Feedback</div>
+        <p>${feedback}</p>
+      </div>`;
+  } catch(e) {
+    document.getElementById('ai-analysis').innerHTML = `<div class="tip-box">Keep practising — every attempt builds CLAT intuition!</div>`;
+  }
+}
+
+function retryQuiz() {
+  quizState.current = 0;
+  quizState.score = 0;
+  quizState.answered = [];
+  quizState.wrongAnswers = [];
+  renderQuestion();
+}
+
+function backToSelector() {
+  document.getElementById('quiz-selector').style.display = 'block';
+  document.getElementById('quiz-area').style.display = 'none';
+}
+
+
+// PYQ SYSTEM
+function selectPYQ(el, isCorrect) {
+  const qBlock = el.closest('.pyq-question');
+  if (qBlock.dataset.answered) return;
+  qBlock.dataset.answered = '1';
+  qBlock.querySelectorAll('.pyq-option').forEach(opt => {
+    opt.onclick = null;
+    if (opt === el) {
+      opt.classList.add(isCorrect ? 'correct' : 'wrong');
+    } else if (opt.onclick === null && !opt.classList.contains('wrong')) {
+      // highlight correct answer
+      if (opt.textContent.trim().startsWith(qBlock.querySelector('.pyq-answer-box').textContent.trim()[12])) {
+        opt.classList.add('reveal');
+      }
+    }
+  });
+  // Reveal all correct options
+  const ansBox = qBlock.querySelector('.pyq-answer-box');
+  const correctLetter = ansBox.textContent.match(/Answer: ([A-D])/)?.[1];
+  if (correctLetter) {
+    qBlock.querySelectorAll('.pyq-option').forEach(opt => {
+      if (opt.textContent.trim().startsWith(correctLetter + '.') || opt.textContent.trim().startsWith(correctLetter + ' ')) {
+        if (!opt.classList.contains('wrong')) opt.classList.add('reveal');
+      }
+    });
+  }
+  ansBox.classList.add('show');
+}
+
+function filterPYQ(cat, btn) {
+  document.querySelectorAll('.pyq-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.pyq-question').forEach(q => {
+    q.style.display = (cat === 'all' || q.dataset.cat === cat) ? 'block' : 'none';
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// CHATBOT — powered by Anthropic API (CORS-safe proxy)
+// ═══════════════════════════════════════════════════════════
+
+const CLAT_SYSTEM_PROMPT = `You are an expert CLAT (Common Law Admission Test) tutor for Indian law school aspirants preparing for CLAT UG 2027. You specialise in all 5 sections: English Language, Current Affairs & GK, Legal Reasoning, Logical Reasoning, and Quantitative Techniques.
+
+Your expertise:
+- CLAT exam pattern: 120 questions, 2 hours, -0.25 negative marking, all passage-based
+- Legal Reasoning: IRAC method, Torts, Contracts, Constitutional Law, IPC basics
+- Indian Constitutional Law: Fundamental Rights, DPSPs, amendments, landmark cases
+- Landmark SC judgements: Kesavananda Bharati, Maneka Gandhi, Puttaswamy, Navtej Johar, etc.
+- All 5 writs: Habeas Corpus, Mandamus, Certiorari, Prohibition, Quo Warranto
+- Logical Reasoning: Syllogisms, Assumptions, Inferences, Argument analysis, Analogies
+- English: RC strategies, inference, tone, meaning-in-context, strengthen/weaken
+- Current Affairs: Indian politics, international relations, economy, S&T, awards (2024-2027)
+- Quant: Percentages, ratios, averages, profit/loss, DI from tables and graphs (Class 10 level)
+- Top NLU cut-offs, preparation strategy, mock test analysis
+
+Response formatting rules:
+- Use **bold** for key terms, concepts, case names
+- Use numbered lists (1. 2. 3.) for steps or sequential info
+- Use bullet points (•) for non-sequential lists
+- Use CAPS sparingly for emphasis on critical points
+- When explaining a legal concept, use format: Concept → Definition → Example → CLAT application
+- For practice questions: state the Q clearly, give 4 options (A/B/C/D), then explain the answer
+- Add a section divider line "---" between major sections when response is long
+- Keep responses focused and exam-oriented — no fluff
+
+Personality:
+- Warm, encouraging, and direct — like a senior who cracked CLAT at NLSIU
+- Use relatable language for Class 11-12 students
+- Occasionally use phrases like "Here's the thing:", "Key trap here:", "CLAT trick:"
+- End with a brief encouragement only when student seems to be struggling
+- If asked an off-topic question, gently redirect to CLAT prep
+
+At the end of every response, add a line starting with "💡 Follow-up:" and suggest 2-3 specific follow-up questions the student might want to ask next, as a comma-separated list inside square brackets like: 💡 Follow-up: [Question 1?, Question 2?, Question 3?]`;
+
+let chatHistory = [];
+let messageCount = 0;
+
+async function chatSend(preText) {
+  const input = document.getElementById('chat-input');
+  const userMsg = preText || input.value.trim();
+  if (!userMsg) return;
+
+  input.value = '';
+  input.style.height = 'auto';
+
+  // Hide starters after first message
+  const startersEl = document.getElementById('chat-starters-wrap');
+  if (startersEl) startersEl.style.display = 'none';
+
+  appendChatMsg('user', userMsg);
+  chatHistory.push({ role: 'user', content: userMsg });
+
+  const btn = document.getElementById('chat-send-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="btn-spinner"></span>';
+
+  // Typing indicator
+  const typingId = 'typing-' + Date.now();
+  const messagesDiv = document.getElementById('chat-messages');
+  const typingDiv = document.createElement('div');
+  typingDiv.id = typingId;
+  typingDiv.className = 'chat-msg bot chat-typing-msg';
+  typingDiv.innerHTML = `<div class="bot-label">🤖 CLAT AI Tutor</div>
+    <div class="typing-dots"><span></span><span></span><span></span></div>`;
+  messagesDiv.appendChild(typingDiv);
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1500,
+        system: CLAT_SYSTEM_PROMPT,
+        messages: chatHistory
+      })
+    });
+
+    if (!resp.ok) {
+      const errData = await resp.json().catch(() => ({}));
+      throw new Error(errData.error?.message || `HTTP ${resp.status}`);
+    }
+
+    const data = await resp.json();
+    const reply = data.content?.map(b => b.text || '').join('') || 'Sorry, no response generated. Please try again.';
+
+    chatHistory.push({ role: 'assistant', content: reply });
+    document.getElementById(typingId)?.remove();
+    appendChatMsg('bot', reply);
+    messageCount++;
+
+    // Every 5 messages, show a motivational nudge
+    if (messageCount > 0 && messageCount % 5 === 0) {
+      setTimeout(() => showMotivationNudge(), 800);
+    }
+
+  } catch(e) {
+    document.getElementById(typingId)?.remove();
+    const errMsg = e.message?.includes('fetch') || e.message?.includes('Failed')
+      ? '⚠️ Network error. Please check your internet connection and try again.'
+      : `⚠️ Error: ${e.message}. Please try again.`;
+    appendChatMsg('bot', errMsg);
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = 'Send ➤';
+  input.focus();
+}
+
+function parseMarkdown(text) {
+  // Extract and handle follow-up suggestions
+  let followUps = [];
+  text = text.replace(/💡 Follow-up:\s*\[([^\]]+)\]/g, (_, content) => {
+    followUps = content.split(',').map(s => s.trim()).filter(Boolean);
+    return '';
+  });
+
+  // Convert markdown to HTML
+  let html = text
+    // Bold
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    // Italic
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    // Inline code
+    .replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>')
+    // Horizontal rule
+    .replace(/^---$/gm, '<hr class="chat-divider">')
+    // Numbered lists
+    .replace(/^(\d+)\.\s+(.+)$/gm, '<li class="num-item"><span class="num-badge">$1</span>$2</li>')
+    // Bullet lists
+    .replace(/^[•\-]\s+(.+)$/gm, '<li class="bul-item">$1</li>')
+    // Wrap consecutive li items
+    .replace(/(<li class="num-item">.*?<\/li>\n?)+/gs, m => `<ol class="chat-ol">${m}</ol>`)
+    .replace(/(<li class="bul-item">.*?<\/li>\n?)+/gs, m => `<ul class="chat-ul">${m}</ul>`)
+    // Double newline = paragraph break
+    .replace(/\n\n/g, '</p><p class="chat-p">')
+    // Single newline
+    .replace(/\n/g, '<br>');
+
+  html = `<p class="chat-p">${html}</p>`;
+
+  return { html, followUps };
+}
+
+function appendChatMsg(role, text) {
+  const messagesDiv = document.getElementById('chat-messages');
+  const wrapper = document.createElement('div');
+  wrapper.className = 'chat-msg-wrap ' + role;
+
+  const div = document.createElement('div');
+  div.className = 'chat-msg ' + role;
+
+  if (role === 'bot') {
+    const { html, followUps } = parseMarkdown(text);
+    div.innerHTML = `<div class="bot-label"><span class="bot-avatar">🤖</span> CLAT AI Tutor</div><div class="bot-content">${html}</div>`;
+
+    wrapper.appendChild(div);
+
+    // Copy button
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'msg-action-btn';
+    copyBtn.title = 'Copy response';
+    copyBtn.innerHTML = '📋 Copy';
+    copyBtn.onclick = () => {
+      navigator.clipboard.writeText(text).then(() => {
+        copyBtn.innerHTML = '✅ Copied!';
+        setTimeout(() => copyBtn.innerHTML = '📋 Copy', 2000);
+      });
+    };
+    wrapper.appendChild(copyBtn);
+
+    // Follow-up suggestions
+    if (followUps.length > 0) {
+      const suggestWrap = document.createElement('div');
+      suggestWrap.className = 'followup-wrap';
+      suggestWrap.innerHTML = '<span class="followup-label">Ask next:</span>';
+      followUps.forEach(q => {
+        const btn = document.createElement('button');
+        btn.className = 'followup-btn';
+        btn.textContent = q;
+        btn.onclick = () => chatSend(q);
+        suggestWrap.appendChild(btn);
+      });
+      wrapper.appendChild(suggestWrap);
+    }
+
+    // Animate in
+    div.style.opacity = '0';
+    div.style.transform = 'translateY(8px)';
+    messagesDiv.appendChild(wrapper);
+    requestAnimationFrame(() => {
+      div.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      div.style.opacity = '1';
+      div.style.transform = 'translateY(0)';
+    });
+
+  } else {
+    div.textContent = text;
+    wrapper.appendChild(div);
+    messagesDiv.appendChild(wrapper);
+  }
+
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+function showMotivationNudge() {
+  const nudges = [
+    "🔥 You're on a roll! Consistency like this is what separates NLSIU toppers from the rest.",
+    "💪 Every question you practice now is one less doubt on exam day. Keep going!",
+    "⚡ Great progress! Remember: CLAT toppers average 6–8 hours of focused daily prep.",
+    "🎯 You're building the right habits. Daily practice = CLAT success formula."
+  ];
+  const n = nudges[Math.floor(Math.random() * nudges.length)];
+  const messagesDiv = document.getElementById('chat-messages');
+  const nudgeDiv = document.createElement('div');
+  nudgeDiv.className = 'chat-nudge';
+  nudgeDiv.textContent = n;
+  messagesDiv.appendChild(nudgeDiv);
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  setTimeout(() => nudgeDiv.style.opacity = '0', 5000);
+  setTimeout(() => nudgeDiv.remove(), 5500);
+}
+
+function clearChat() {
+  if (!confirm('Clear this chat? Your conversation history will be lost.')) return;
+  chatHistory = [];
+  messageCount = 0;
+  const messagesDiv = document.getElementById('chat-messages');
+  messagesDiv.innerHTML = `<div class="chat-msg-wrap bot"><div class="chat-msg bot">
+    <div class="bot-label"><span class="bot-avatar">🤖</span> CLAT AI Tutor</div>
+    <div class="bot-content">
+    <p class="chat-p">Namaste! I'm your personal <strong>CLAT AI Tutor</strong>. Chat cleared — let's start fresh! I can help you with:</p>
+    <ul class="chat-ul">
+      <li class="bul-item">📖 <strong>English</strong> — RC strategies, vocabulary, inference</li>
+      <li class="bul-item">⚖️ <strong>Legal Reasoning</strong> — IRAC, concepts, landmark cases</li>
+      <li class="bul-item">🌍 <strong>GK & Current Affairs</strong> — key topics, static GK</li>
+      <li class="bul-item">🧠 <strong>Logical Reasoning</strong> — syllogisms, argument analysis</li>
+      <li class="bul-item">📐 <strong>Quant</strong> — formulas, shortcuts, DI</li>
+      <li class="bul-item">📅 <strong>Strategy</strong> — study plans, mock test analysis</li>
+    </ul>
+    </div></div></div>`;
+  const startersEl = document.getElementById('chat-starters-wrap');
+  if (startersEl) startersEl.style.display = 'flex';
+}
+
+// INIT
+window.onload = function() {
+  loadDeck('legal');
+};
+</script>
+</body>
+</html>
