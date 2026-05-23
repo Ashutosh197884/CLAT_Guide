@@ -4,11 +4,14 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
+from pydantic import BaseModel
 from config import settings
 from database.connection import engine, Base
 from auth.routes import router as auth_router
 from rag.routes import router as rag_router
 from ai.routes import router as ai_router
+from ai.nemotron import nemotron_client
+from rag.service import rag_service
 
 # Configure logging
 logging.basicConfig(
@@ -48,6 +51,9 @@ app.include_router(auth_router)
 app.include_router(rag_router)
 app.include_router(ai_router)
 
+class MessageRequest(BaseModel):
+    message: str
+
 @app.get("/", response_class=HTMLResponse)
 def read_root():
     # Serve index.html dynamically
@@ -57,6 +63,31 @@ def read_root():
         
     with open(filepath, "r", encoding="utf-8") as f:
         return HTMLResponse(content=f.read())
+
+@app.post("/chat/message")
+def chat_message_public(request: MessageRequest):
+    """Public chatbot endpoint utilized by the frontend study guide website."""
+    try:
+        # Retrieve context from vector db (default public query)
+        retrieved_chunks = rag_service.retrieve_context(
+            query=request.message,
+            user_id=0,  # 0 indicates public/general database
+            top_k=3
+        )
+        
+        context_text = ""
+        if retrieved_chunks:
+            context_text = "\n---\n".join([chunk["text"] for chunk in retrieved_chunks])
+            
+        # Call NVIDIA Nemotron doubt solver
+        ai_response = nemotron_client.generate_response(
+            prompt=request.message,
+            context=context_text
+        )
+        return {"response": ai_response}
+    except Exception as e:
+        logger.error(f"Public /chat/message failed: {e}")
+        return {"response": f"Sorry, I encountered an internal error: {str(e)}"}
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=settings.DEBUG)
